@@ -1,0 +1,14 @@
+name: SoundCloud field
+type: module
+description: 'Field for SoundCloud tracks and sets.'
+# core: 8.x
+package: SoundCloud
+# version: VERSION
+dependencies:
+ - field
+
+# Information added by Drupal.org packaging script on 2015-12-13
+version: '8.x-1.0-alpha1'
+core: '8.x'
+project: 'soundcloudfield'
+datestamp: 1450046499

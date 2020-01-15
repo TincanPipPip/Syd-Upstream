@@ -1,0 +1,88 @@
+diff --git a/src/Plugin/views/argument/DateRange.php b/src/Plugin/views/argument/DateRange.php
+index 8da5d4e..8eb2146 100644
+--- a/src/Plugin/views/argument/DateRange.php
++++ b/src/Plugin/views/argument/DateRange.php
+@@ -17,6 +17,15 @@ use Drupal\contextual_range_filter\ContextualRangeFilter;
+  */
+ class DateRange extends Date {
+ 
++  /**
++   * If the argument plugin is a string date or not.
++   *
++   * Used to build the query range.
++   *
++   * @var bool
++   */
++  protected $pluginIsString;
++
+   /**
+    * Overrides Drupal\views\Plugin\views\argument\Formula::init().
+    */
+@@ -24,34 +33,47 @@ class DateRange extends Date {
+     parent::init($view, $display, $options);
+ 
+     $plugin_id = $options['plugin_id'] ?: 'date_fulldate';
++    $this->pluginIsString = FALSE;
+ 
+     switch ($plugin_id) {
+ 
++      case 'datetime_year':
++        $this->pluginIsString = TRUE;
+       case 'date_year':
+         $this->format = 'Y';
+         $this->argFormat = 'Y';
+         break;
+ 
++      case 'datetime_year_month':
++        $this->pluginIsString = TRUE;
+       case 'date_year_month':
+         $this->format = 'F Y';
+         $this->argFormat = 'Ym';
+         break;
+ 
++      case 'datetime_month':
++        $this->pluginIsString = TRUE;
+       case 'date_month':
+         $this->format = 'F';
+         $this->argFormat = 'm';
+         break;
+ 
++      case 'datetime_week':
++        $this->pluginIsString = TRUE;
+       case 'date_week':
+         $this->format = 'w';
+         $this->argFormat = 'W';
+         break;
+ 
++      case 'datetime_day':
++        $this->pluginIsString = TRUE;
+       case 'date_day':
+         $this->format = 'j';
+         $this->argFormat = 'd';
+         break;
+ 
++      case 'datetime_full_date':
++        $this->pluginIsString = TRUE;
+       case 'date_fulldate':
+       default:
+         $this->format = 'F j, Y';
+@@ -138,11 +160,18 @@ class DateRange extends Date {
+       $this->breakPhraseRange($this->argument);
+     }
+     else {
+-      $this->value = array($this->argument);
++      $this->value = [$this->argument];
+     }
+     ContextualRangeFilter::buildRangeQuery($this, $this->getFormula());
+   }
+ 
++  /**
++   * {@inheritdoc}
++   */
++  public function getDateField() {
++    return $this->query->getDateField("$this->tableAlias.$this->realField", $this->pluginIsString);
++  }
++
+   /**
+    * Break xfrom--xto+yfrom--yto+zfrom--zto into an array or ranges.
+    *

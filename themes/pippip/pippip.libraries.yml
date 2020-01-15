@@ -1,0 +1,16 @@
+# global files used sitewide
+global:
+  version: 1.x
+  css:
+    theme:
+      dist/css/global.css: {}
+      dist/css/print.css: { media: print }
+  js:
+    https://cdn.polyfill.io/v2/polyfill.js: { type: external }
+    dist/js/defaults.js: {}
+    dist/js/global.js: {}
+
+emmsg:
+  version: 1.x
+  js:
+    dist/js/emmsg.js: {}

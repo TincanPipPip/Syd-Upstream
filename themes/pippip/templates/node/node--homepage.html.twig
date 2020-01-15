@@ -1,0 +1,21 @@
+{% extends "node.html.twig" %}
+
+{% block content %}
+
+	{% if view_mode == "teaser" %}
+
+		{% include '@pippip/partials/molecules/teaser.html.twig' with {
+      'type' : 'homepage'
+    } %}
+
+	{% else %}
+
+		{{ title_prefix }}
+			<h1>{{ node.title.value }}</h1>
+		{{ title_suffix }}
+
+		{{ content }}
+
+	{% endif %}
+		
+{% endblock %}

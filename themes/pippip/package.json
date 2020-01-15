@@ -1,0 +1,44 @@
+{
+  "name": "pippip-theme",
+  "version": "3.0.0",
+  "description": "Drupal 8 base theme for Syd",
+  "main": "index.js",
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "scripts": {
+    "dev": "NODE_ENV=development node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
+    "production": "NODE_ENV=production node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
+    "start": "NODE_ENV=development node_modules/webpack/bin/webpack.js --watch --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js"
+  },
+  "dependencies": {
+    "baguettebox.js": "^1.11.0",
+    "enquire.js": "^2.1.6",
+    "focus-visible": "^5.0.2",
+    "focus-within": "^3.0.2",
+    "include-media": "^1.4.9",
+    "js-cookie": "^2.2.1",
+    "modularscale-sass": "^3.0.10",
+    "normalize.scss": "^0.1.0",
+    "objectFitPolyfill": "^2.3.0",
+    "picturefill": "^3.0.3",
+    "reflex-grid": "^2.0.4",
+    "swiper": "^5.2.0",
+    "van11y-accessible-accordion-aria": "^3.0.1",
+    "vanilla-lazyload": "^12.3.0",
+    "zenscroll": "^4.0.2"
+  },
+  "devDependencies": {
+    "browser-sync": "^2.26.7",
+    "browser-sync-webpack-plugin": "^2.0.1",
+    "copy-webpack-plugin": "^5.0.4",
+    "imagemin-webpack-plugin": "^2.4.2",
+    "laravel-mix": "^5.0.0",
+    "laravel-mix-glob": "^1.1.4",
+    "modernizr": "^3.8.0",
+    "modernizr-loader": "^1.0.1",
+    "sass": "^1.23.3",
+    "sass-loader": "^8.0.0",
+    "vue-template-compiler": "^2.6.10"
+  }
+}

@@ -1,0 +1,93 @@
+/**
+ * ----------------------
+ * Un.titled
+ * Base - Drupal 8 specific
+ * ----------------------
+ */
+
+// Pagination
+.pager {
+  @include li-reset;
+  text-align: center;
+  display: block;
+  clear: both;
+
+  li {
+    display: inline-block;
+
+    a {
+      padding: $bump/3 $bump/1.5;
+      display: block;
+    }
+
+    &.pager-current {
+      padding: $bump/3 $bump/1.5;
+    }
+  }
+}
+
+// Admnin styles
+
+.admin-functions {
+  position: relative;
+  top: auto;
+  width: 100%;
+  background-color: $text;
+  max-width: 100%;
+  z-index: 31;
+
+  [class*="col-"] {
+    padding: 0 $bump/2;
+  }
+
+  ul {
+    @include li-reset;
+    border: 0;
+    margin: $bump/2 0;
+    padding: 0;
+
+    li {
+      margin-right: $bump;
+      display: inline-block;
+    }
+  }
+}
+
+.visually-hidden {
+  position: absolute !important;
+  clip: rect(1px, 1px, 1px, 1px);
+  overflow: hidden;
+  height: 1px;
+  width: 1px;
+  word-wrap: normal;
+}
+
+a.skip-main {
+  left: -999px;
+  position: absolute;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  z-index: -999;
+}
+a.skip-main:focus,
+a.skip-main:active {
+  @include font-bold;
+  color: #fff;
+  background-color: $text;
+  left: auto;
+  top: auto;
+  width: 30%;
+  height: auto;
+  overflow: auto;
+  margin: 10px 35%;
+  padding: 5px;
+  text-align: center;
+  font-size: 1.2em;
+  z-index: 999;
+}
+
+.ajax-progress-throbber {
+  display: none;
+}

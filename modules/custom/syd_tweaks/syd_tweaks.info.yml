@@ -1,0 +1,6 @@
+name: Syd Tweaks
+description: Extra features for Syd install profile
+package: Syd
+
+type: module
+core: 8.x

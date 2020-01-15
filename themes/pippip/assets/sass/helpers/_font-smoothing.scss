@@ -1,0 +1,27 @@
+/**
+ * ----------------------
+ * Un.titled
+ * Helpers - Font Smoothing
+ * ----------------------
+ */
+
+/** 
+ * Font Smoothing
+ * Enables font smoothing for capable browsers.
+ * Optionally force font-smoothing on non-retina devices.
+ * @param {boolean} $force [false]
+ * @return {string}
+ */
+@mixin font-smoothing($force: false) {
+  @if $force == true {
+    -moz-font-smoothing: grayscale;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+  } @else {
+    @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+      -moz-font-smoothing: grayscale;
+      -moz-osx-font-smoothing: grayscale;
+      -webkit-font-smoothing: antialiased;
+    }
+  }
+}

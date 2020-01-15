@@ -1,0 +1,91 @@
+/**
+ * ----------------------
+ * Un.titled
+ * Helpers - Table
+ * ----------------------
+ */
+
+/**
+ * Responsive Table
+ * Creates a responsive table
+ * Accepts a list of headers to replace main 
+ * table headers on mobile.
+ * @param {map} $headers
+ * @return {string}
+ */
+@mixin responsive-table($headers: ()) {
+  @include media('<tablet') {
+    display: block;
+  }
+
+  table,
+  thead,
+  tbody,
+  th,
+  td,
+  tr {
+    @include media('<tablet') {
+      display: block;
+    }
+  }
+
+  thead {
+    tr {
+      @include media('<tablet') {
+        position: absolute;
+        top: -9999px;
+        left: -9999px;
+      }
+    }
+  }
+
+  tr {
+    @include media('<tablet') {
+      margin-top: -1px;
+      border: 1px solid $color-black;
+      border-width: 1px 0;
+      padding: size(30px) 0;
+    }
+
+    &:first-child {
+      @include media('<tablet') {
+        margin-top: 0;
+      }
+    }
+  }
+
+  td {
+    @include media('<tablet') {
+      width: 100%;
+      padding: 0;
+      margin-top: size(16px);
+    }
+
+    &:first-child {
+      @include media('<tablet') {
+        margin-top: 0;
+      }
+    }
+
+    &::before {
+      @include media('<tablet') {
+        display: block;
+        width: 100%;
+        white-space: nowrap;
+      }
+    }
+  }
+
+  /**
+   * Headers
+   */
+  @each $header in $headers {
+    $i: index($headers, $header);
+
+    td:nth-of-type(#{$i})::before {
+      @include media('<tablet') {
+        content: $header;
+      }
+    }
+  }
+}

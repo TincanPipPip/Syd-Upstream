@@ -1,0 +1,57 @@
+/**
+ * ----------------------
+ * Un.titled
+ * Base - Icon
+ * ----------------------
+ */
+
+/**
+ * Config
+ */
+$icon-dir: '../icon';
+$icon-default-size: 24;
+
+@mixin icon-size($size: $icon-default-size) {
+  width: #{$size}px;
+  height: #{$size}px;
+}
+
+@mixin icon($icon, $size: $icon-default-size) {
+  background: url('#{$icon-dir}/#{$icon}.svg') no-repeat center center;
+  background-size: contain;
+  content: '';
+  @include icon-size($size);
+}
+
+@mixin icon-sprite($icon) {
+  background: url('#{$icon-dir}/#{$icon}.svg') no-repeat center center;
+  background-size: contain;
+  content: '';
+}
+
+/**
+ * Styling
+ */
+.icon {
+  display: inline-block;
+  @include icon-size();
+
+  svg {
+    display: block;
+    width: inherit;
+    height: inherit;
+  }
+
+  path,
+  g {
+    fill: inherit;
+  }
+
+  &--stroke {
+    path,
+    g {
+      fill: none;
+      stroke: inherit;
+    }
+  }
+}

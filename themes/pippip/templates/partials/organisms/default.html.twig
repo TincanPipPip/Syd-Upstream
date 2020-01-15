@@ -1,0 +1,15 @@
+{% include '@pippip/partials/molecules/banner.html.twig' %}
+
+{{ title_prefix }}
+<h1>{{ node.title.value }}</h1>
+{{ title_suffix }}
+
+{% if content.body|render %}
+  <div class="m-entity m-entity__body">
+    {{ content.body}}
+  </div>
+{% endif %}
+
+{% if content.field_content|render %}
+  {{ content.field_content}}
+{% endif %}

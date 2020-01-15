@@ -1,0 +1,9 @@
+# Schema for the configuration files of the soundcloudfield module.
+
+field.soundcloud.settings:
+  type: mapping
+  label: 'SoundCloud field settings'
+
+field.soundcloud.instance_settings:
+  type: mapping
+  label: 'SoundCloud field settings'

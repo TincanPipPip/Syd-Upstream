@@ -1,0 +1,33 @@
+{% extends "eck-entity--extra-content.html.twig" %}
+
+{% block content %}
+
+  {% include '@pippip/partials/atoms/content-toolkit-title.html.twig' %}
+
+  <blockquote>
+    {{ content.field_quote }}
+
+    <footer>
+      {% if content.field_rating|render %}
+        {% include '@pippip/partials/atoms/rating.html.twig' with {
+          content : {
+            rating : content.field_rating.0
+          }
+        } %}
+      {% endif %}
+
+      {% if content.field_author %}
+        <cite>
+          <span class="name">
+            {{ content.field_author }}
+          </span>
+          {% if content.field_quote_credit|render %}
+            -
+            {{ content.field_quote_credit}}
+          {% endif %}
+        </cite>
+      {% endif %}
+    </footer>
+  </blockquote>
+
+{% endblock %}

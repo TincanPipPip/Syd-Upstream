@@ -1,0 +1,31 @@
+name: Pippip
+type: theme
+description: Syd base theme
+base theme: classy
+version: 8.x-3.0
+core: 8.x
+libraries:
+  - pippip/global
+
+regions:
+  header: Header
+  nav: Navigation
+  admin: Admin
+  content: Content
+  highlighted: Highlighted
+  help: Help
+  footer: Footer
+
+libraries-override:
+  classy/base: false
+  system/base: false
+  system/menu: false
+  system/admin: false
+  system/maintenance: false
+  system/drupal.system: false
+  system/drupal.system.modules: false
+  system/diff: false
+  system/drupal.system.date: false
+  contextual/drupal.contextual-links: false
+  quickedit/quickedit: false
+  views/views.module: false

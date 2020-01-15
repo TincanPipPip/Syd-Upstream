@@ -1,0 +1,72 @@
+/**
+ * ----------------------
+ * Un.titled
+ * Atoms - Image credits
+ * ----------------------
+ */
+
+.a-image-credit {
+  position: absolute;
+  bottom: $bump;
+  right: $bump;
+  z-index: 4;
+  cursor: help !important;
+  height: $bump;
+  width: $bump;
+
+  .banner--home & {
+    top: $bump;
+    bottom: auto;
+
+    @include media('<sm') {
+      top: $bump/2;
+      bottom: auto;
+    }
+  }
+
+  @include media('<sm') {
+    bottom: $bump/2;
+    right: $bump/2;
+  }
+
+  span {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    text-transform: none;
+    line-height: 15px;
+    text-align: center;
+  }
+
+  &:before {
+    content: attr(data-credit);
+    text-indent: 0;
+    background: $text;
+    color: #fff;
+    opacity: 0;
+    position: absolute;
+    right: $bump;
+    top: 0;
+    z-index: -1;
+    padding: 0 21px;
+    height: $bump;
+    line-height: $bump;
+    white-space: nowrap;
+    transition: opacity 0.2s $easing;
+    pointer-events: none;
+    border-radius: 3px;
+    letter-spacing: 0;
+    word-spacing: 0;
+  }
+
+  &:hover {
+    span {
+    }
+
+    &::before {
+      opacity: 1;
+    }
+  }
+}

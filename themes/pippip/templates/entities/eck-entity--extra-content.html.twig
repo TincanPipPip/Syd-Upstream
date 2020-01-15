@@ -1,0 +1,18 @@
+{%
+	set classes = [
+		'm-entity',
+		'm-entity__' ~ eck_entity.bundle|clean_class
+	]
+%}
+
+<section{{attributes.addClass(classes)}}>
+
+  {% block content %}
+
+    {% include '@pippip/partials/atoms/content-toolkit-title.html.twig' %}
+
+    {{ content }}
+
+  {% endblock %}
+
+</section>

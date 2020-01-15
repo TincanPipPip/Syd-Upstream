@@ -1,0 +1,30 @@
+/**
+ * ----------------------
+ * Un.titled
+ * Base - Main
+ * ----------------------
+ */
+
+/**
+ * Styles
+ */
+html {
+  font-size: $font-base-size;
+  box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+body {
+  @include font-smoothing(true);
+  font-family: $font-body;
+  line-height: $line-body;
+  letter-spacing: $kern-body;
+  display: flex;
+  flex-direction: column;
+  @include ms-respond(font-size, 0);
+}

@@ -1,0 +1,19 @@
+/**
+ * ----------------------
+ * Un.titled
+ * Helpers - Focus Visible
+ * ----------------------
+ */
+
+/**
+ * Focus Visible
+ * https://github.com/WICG/focus-visible
+ * Override base focus styles for mouse and touch interactions
+ */
+@mixin focus-visible() {
+  .js-focus-visible & {
+    &:not(.focus-visible) {
+      @content;
+    }
+  }
+}

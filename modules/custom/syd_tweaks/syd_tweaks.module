@@ -1,0 +1,12 @@
+<?php
+
+/**
+ * hook_form_alter
+ * 
+ * Set search block input placeholder copy
+ */
+function syd_tweaks_form_alter(&$form, &$form_state, $form_id) {
+  if ($form_id == 'search_block_form') {
+	  $form['keys']['#attributes']['placeholder'] = t('Search...');
+  }
+}

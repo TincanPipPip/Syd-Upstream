@@ -1,0 +1,82 @@
+/**
+ * ----------------------
+ * Un.titled
+ * Atoms - Nav Toggle
+ * ----------------------
+ */
+
+/**
+ * Config
+ */
+$height-icon: $bump;
+$width-line: $bump * 1.5;
+$height-line: 4px;
+
+$rotation: 45deg;
+$translateY: ($height-icon / 2);
+$translateX: 0;
+
+/**
+ * Styles
+ */
+.a-nav-toggle {
+  border: 0;
+  padding: 0;
+  background-color: transparent;
+  width: $width-line;
+  height: $height-icon;
+  position: relative;
+  display: none;
+  margin: ($height-icon * 2) auto $height-icon auto;
+  outline: none;
+
+  @include media('<sm') {
+    display: block;
+  }
+
+  &:hover,
+  &:focus {
+    outline: none;
+  }
+
+  &__line {
+    display: block;
+    background: $text;
+    width: $width-line;
+    height: $height-line;
+    position: absolute;
+    left: 0;
+    border-radius: ($height-line / 2);
+    transition: 0.2s $easing;
+
+    &-1 {
+      top: 0;
+
+      :hover > & {
+        transform: translateY($height-line / 2 * -1);
+      }
+
+      [data-nav='open'] & {
+        transform: translateY($translateY) translateX($translateX) rotate($rotation);
+      }
+    }
+    &-2 {
+      top: 50%;
+
+      [data-nav='open'] & {
+        opacity: 0;
+      }
+    }
+    &-3 {
+      top: 100%;
+
+      :hover > & {
+        transform: translateY($height-line / 2);
+      }
+
+      [data-nav='open'] & {
+        transform: translateY($translateY * -1) translateX($translateX) rotate($rotation * -1);
+      }
+    }
+  }
+}

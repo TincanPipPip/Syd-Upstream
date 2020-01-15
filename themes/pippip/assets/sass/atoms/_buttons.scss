@@ -1,0 +1,28 @@
+/**
+ * ----------------------
+ * Un.titled
+ * Atoms - Buttons
+ * ----------------------
+ */
+
+/**
+ * Config
+ **/
+
+@mixin btn {
+  cursor: pointer;
+}
+@mixin btn-hover {
+}
+
+/**
+ * Styles
+ **/
+
+.a-btn {
+  @include btn;
+
+  &:hover {
+    @include btn-hover;
+  }
+}

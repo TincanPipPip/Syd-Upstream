@@ -1,0 +1,9 @@
+{% if content.rating and content.rating != 0 %}
+  <div class="rating rating--{{ content.rating }}">
+    {% for star in 0..4 %}
+      <svg class="rating__star" viewbox="0 0 24 23">
+        <path d="M12 2.293L8.999 8.485l-6.819.942 4.963 4.77L5.93 20.97 12 17.725l6.069 3.246-1.211-6.774 4.962-4.77L15 8.485 12 2.293z" fill-rule="nonzero" fill="none" stroke-width="1" stroke="#ef2029"/>
+      </svg>
+    {% endfor %}
+  </div>
+{% endif %}

@@ -1,0 +1,15 @@
+{% extends "eck-entity--extra-content.html.twig" %}
+
+{% block content %}
+
+  {% include '@pippip/partials/atoms/content-toolkit-title.html.twig' %}
+
+  <div class="m-entity__image-wrapper">
+
+    {{ content.field_image }}
+
+    {% include '@pippip/partials/atoms/image-credit.html.twig' %}
+
+  </div>
+
+{% endblock %}

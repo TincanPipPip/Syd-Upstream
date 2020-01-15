@@ -1,0 +1,14 @@
+/**
+ * ----------------------
+ * Un.titled
+ * Molecules - Gallery
+ * ----------------------
+ */
+
+&__gallery {
+  a {
+    &:hover {
+      opacity: 0.7;
+    }
+  }
+}

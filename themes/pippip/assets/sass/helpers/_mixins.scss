@@ -1,0 +1,56 @@
+/**
+ * ----------------------
+ * Un.titled
+ * Helpers - Global mixins
+ * ----------------------
+ */
+
+// Reset <li> elements
+@mixin li-reset {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+  li {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+}
+
+// Remove text from elements
+@mixin rm-text {
+  text-align: left;
+  text-indent: -9999px;
+}
+
+// Background images
+@mixin bg-img($size) {
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: $size;
+}
+
+// IE 9+ only
+@mixin ie($property, $value) {
+  @media screen and (min-width: 0\0) and (min-resolution: +72dpi) {
+    #{$property}: #{$value};
+  }
+}
+
+/**
+ * Clearfix
+ * Used to clear float layouts.
+ * @return {string}
+ */
+@mixin clearfix() {
+  &:before,
+  &:after {
+    content: '';
+    display: table;
+  }
+
+  &:after {
+    clear: both;
+  }
+}

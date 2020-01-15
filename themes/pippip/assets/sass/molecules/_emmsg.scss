@@ -1,0 +1,77 @@
+/**
+ * ----------------------
+ * Un.titled
+ * Molecules - Emergency Message
+ * ----------------------
+ */
+
+/**
+ * Config
+ **/
+@keyframes slideInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(100%);
+  }
+  80% {
+    transform: scale(1.02);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/**
+ * Styling
+ **/
+.m-emmsg {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: $text;
+  z-index: 100;
+  color: #fff;
+  padding: $bump/2 0;
+  max-height: 30vh;
+  border-top: 1px solid #fff;
+
+  &[data-state="visible"] {
+    opacity: 0;
+    transform: translateY(100%);
+    animation: slideInUp 0.2s 0.3s cubic-bezier(0.77, 0.29, 0.35, 0.72) 1
+      forwards;
+  }
+
+  @include media("<sm") {
+    overflow: scroll;
+  }
+
+  @include media("<xs") {
+    padding: 0;
+  }
+
+  h2 {
+    margin-bottom: 0;
+    width: 90%;
+  }
+
+  &__close {
+    position: absolute;
+    top: $bump/2;
+    right: $bump/2;
+    height: $bump;
+    width: $bump;
+
+    .svg {
+      fill: #fff;
+    }
+
+    &:hover {
+      .svg {
+        fill: $bg;
+      }
+    }
+  }
+}

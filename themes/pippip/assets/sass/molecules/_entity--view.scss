@@ -1,0 +1,15 @@
+/**
+ * ----------------------
+ * Un.titled
+ * Molecules - Entity views
+ * ----------------------
+ */
+
+&__view {
+  &:first-child {
+    margin-top: 0;
+  }
+  &:last-child {
+    margin-bottom: 0;
+  }
+}

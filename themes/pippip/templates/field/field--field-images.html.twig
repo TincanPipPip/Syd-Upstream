@@ -1,0 +1,12 @@
+<div class="grid gallery">
+  {% for item in items %}
+    <div class="col-sm-3">
+      <a href="{{ file_url(item.content['#item'].entity.uri.value) }}" title="{{ item.content['#item'].alt }}" target="_blank">
+
+        {% set image = image_style(item.content['#item'].entity.fid.value, ['gallery']) %}
+        <img data-src="{{ image.gallery }}" alt="{{ item.content['#item'].alt }}" class="lazy">
+
+      </a>
+    </div>
+  {% endfor %}
+</div>

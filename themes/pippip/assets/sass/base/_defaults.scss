@@ -1,0 +1,64 @@
+/**
+ * ----------------------
+ * Un.titled
+ * Base - Defaults
+ * ----------------------
+ */
+
+.grid {
+  max-width: $container-width;
+}
+
+.container-full > .grid {
+  max-width: none;
+}
+
+ul.menu,
+ul.plain {
+  @include li-reset;
+}
+
+img {
+  -webkit-backface-visibility: hidden;
+  transition: 0.2s $easing;
+
+  &.lazy {
+    opacity: 0;
+  }
+
+  &.loaded {
+    opacity: 1;
+  }
+}
+
+.svg {
+  transition: all 0.2s $easing;
+}
+
+.hidden {
+  display: none !important;
+  visibility: hidden !important;
+}
+
+// Keep video ratio for fluid widths
+.video-container,
+.media-vimeo-video {
+  position: relative;
+  padding-bottom: 56.25%;
+  padding-top: 25px;
+  height: 0;
+
+  iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+// Souncloud
+.media-soundcloud-audio iframe {
+  width: 100%;
+  max-height: 150px;
+}

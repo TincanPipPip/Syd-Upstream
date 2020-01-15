@@ -1,0 +1,9 @@
+{% set imageSm = image_style(content.field_image[0]['#item'].entity.fid.value, ['banner_image_sm']) %}
+{% set imageMd = image_style(content.field_image[0]['#item'].entity.fid.value, ['banner_image_md']) %}
+{% set imageBig = image_style(content.field_image[0]['#item'].entity.fid.value, ['banner_image']) %}
+
+<picture>
+  <source media="(max-width: 600px)" srcset="{{ imageSm.banner_image_sm }}">
+  <source media="(max-width: 1000px)" srcset="{{ imageMd.banner_image_md }}">
+  <img src="{{ imageBig.banner_image }}" alt="{{ content.field_image[0]['#item'].alt }}">
+</picture>

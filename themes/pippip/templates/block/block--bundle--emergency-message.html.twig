@@ -1,0 +1,24 @@
+{#
+	Emergency Message
+#}
+{% if content.field_display_message.0['#markup'] == 'Display message' %}
+
+  <div id="emmsg" class="m-emmsg hidden">
+    <div class="grid justify-center">
+      <div class="col-12">
+
+        <a href="#close" class="m-emmsg__close" title="Hide message" id="emmsg-close">{% include '@pippip/partials/svg/close.html.twig' %}</a>
+
+        {% if content.field_title|render %}
+          <h4>{{ content.field_title}}</h4>
+        {% endif %}
+
+        {{ content.body }}
+
+      </div>
+    </div>
+  </div>
+
+  {{ attach_library('pippip/emmsg') }}
+
+{% endif %}

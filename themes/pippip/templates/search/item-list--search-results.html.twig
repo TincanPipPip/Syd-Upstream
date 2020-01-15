@@ -1,0 +1,20 @@
+<div class="o-search-results__list">
+
+  {% if context.list_style %}
+    {%- set attributes = attributes.addClass('item-list__' ~ context.list_style) %}
+  {% endif %}
+
+  {% if items or empty %}
+
+    {%- if items -%}
+      <{{list_type}}{{attributes}}>
+        {%- for item in items -%}
+          <li{{item.attributes}}>{{ item.value }}</li>
+        {%- endfor -%}
+      </{{list_type}}>
+    {%- else -%}
+      {{- empty -}}
+    {%- endif -%}
+  {%- endif %}
+
+</div>

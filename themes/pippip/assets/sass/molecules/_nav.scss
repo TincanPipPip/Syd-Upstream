@@ -1,0 +1,18 @@
+/**
+ * ----------------------
+ * Un.titled
+ * Molecules - Main nav
+ * ----------------------
+ */
+
+.m-main-nav {
+  ul {
+    @include media('<sm') {
+      display: none;
+    }
+  }
+
+  [data-nav='open'] & {
+    display: block;
+  }
+}

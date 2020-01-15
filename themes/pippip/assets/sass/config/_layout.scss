@@ -1,0 +1,32 @@
+/**
+ * ----------------------
+ * Un.titled
+ * Config - Layout
+ * ----------------------
+ */
+
+/**
+ * Page
+ */
+$container-width: 100rem;
+
+/**
+ * Breakpoints
+ */
+$breakpoints: (
+  xs: 576px,
+  sm: 768px,
+  md: 992px,
+  lg: 1200px,
+  xlg: 1600px,
+);
+
+/**
+ * z-index
+ */
+$zindex-super: 9999;
+$zindex-highest: 50;
+$zindex-higher: 40;
+$zindex-high: 30;
+$zindex-mid: 20;
+$zindex-low: 10;

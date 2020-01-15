@@ -1,0 +1,33 @@
+/**
+ * ----------------------
+ * Un.titled
+ * Organisms - Search results
+ * ----------------------
+ */
+
+#search-form {
+  display: none;
+  visibility: hidden;
+}
+
+.o-search-results-wrapper {
+  h2 {
+    display: none;
+  }
+
+  .result__title {
+    margin-bottom: 0;
+  }
+
+  &__list {
+    margin-bottom: $bump * 2;
+
+    ol {
+      @include li-reset;
+
+      li {
+        margin-bottom: $bump;
+      }
+    }
+  }
+}

@@ -1,0 +1,25 @@
+{% if page.admin|render|striptags|trim is not empty or page.help|render|striptags|trim is not empty or page.highlighted|render|striptags|trim is not empty %}
+  <div class="admin-functions grid justify-center">
+    <div class="col-12">
+
+      {% if page.admin|render|striptags|trim is not empty %}
+        <div class="admin-functions__admin">
+          {{ page.admin }}
+        </div>
+      {% endif %}
+
+      {% if page.help|render|striptags|trim is not empty %}
+        <div class="admin-functions__help">
+          {{ page.help }}
+        </div>
+      {% endif %}
+
+      {% if page.highlighted|render|striptags|trim is not empty %}
+        <div class="admin-functions__highlighted">
+          {{ page.highlighted }}
+        </div>
+      {% endif %}
+
+    </div>
+  </div>
+{% endif %}

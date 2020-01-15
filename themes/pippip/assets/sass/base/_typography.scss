@@ -1,0 +1,191 @@
+/**
+ * ----------------------
+ * Un.titled
+ * Base - Typography
+ * ----------------------
+ */
+
+/**
+ * Config
+ */
+@mixin font-body {
+  font-family: $font-body;
+}
+
+@mixin font-bold {
+  font-weight: $weight-bold;
+}
+
+@mixin font-title {
+  font-weight: $weight-regular;
+}
+
+/**
+ * Heading
+ */
+h1,
+.h1 {
+  @include ms-respond(font-size, 4);
+  line-height: 1.1;
+}
+
+h2,
+.h2 {
+  @include ms-respond(font-size, 3);
+  line-height: 1.15;
+}
+
+h3,
+.h3 {
+  @include ms-respond(font-size, 2);
+  line-height: 1.3;
+}
+
+h4,
+.h4 {
+  @include ms-respond(font-size, 1);
+  line-height: 1.4;
+}
+
+h5,
+.h5,
+h6,
+.h6 {
+  @include ms-respond(font-size, 0);
+  line-height: 1.5;
+}
+
+/**
+ * Paragraphs
+ */
+p {
+  margin: 1.5em 0;
+
+  &:first-of-type {
+    margin-top: 0;
+  }
+}
+
+/**
+ * Lists
+ */
+ul,
+ol {
+  margin: 1.5rem 0;
+  list-style-position: inside;
+  padding-left: 0;
+}
+
+/**
+ * Links
+ */
+a {
+  color: inherit;
+  font-weight: inherit;
+  text-decoration: none;
+
+  &:hover,
+  &:focus,
+  &:active {
+    text-decoration: underline;
+  }
+
+  &:focus {
+    outline: 3px dashed currentColor;
+
+    @include focus-visible() {
+      outline: 0;
+    }
+  }
+
+  &.no-click {
+    pointer-events: none;
+    cursor: default;
+  }
+}
+
+::selection {
+  background-color: $color-secondary;
+  color: $color-primary;
+}
+
+/**
+ * Buttons
+ */
+button {
+  &:focus {
+    outline: 3px dashed currentColor;
+
+    @include focus-visible() {
+      outline: 0;
+    }
+  }
+}
+
+/**
+ * Inline
+ */
+strong {
+  font-weight: $weight-bold;
+}
+
+em {
+  font-style: italic;
+}
+
+span {
+  font-family: inherit;
+  font-weight: inherit;
+  line-height: inherit;
+  letter-spacing: inherit;
+  font-size: inherit;
+}
+
+address {
+  font-family: inherit;
+  font-weight: inherit;
+  line-height: inherit;
+  letter-spacing: inherit;
+  font-size: inherit;
+  font-style: normal;
+}
+
+small {
+  font-size: 90%;
+}
+
+/**
+ * Quote
+ */
+blockquote {
+  margin: 1.5em 0;
+
+  p {
+    margin: 0;
+    @include ms-respond(font-size, 2);
+    font-style: italic;
+
+    &::before {
+      content: '\201C';
+    }
+
+    &::after {
+      content: '\201D';
+    }
+  }
+
+  footer {
+    margin-top: 1.5em;
+  }
+
+  cite {
+    font-style: normal;
+    font-weight: $weight-bold;
+  }
+}
+
+hr {
+  border: solid $color-primary;
+  border-width: 0 0 3px 0;
+  margin: 1.5rem 0;
+}
