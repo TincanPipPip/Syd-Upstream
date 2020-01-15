@@ -1,0 +1,40 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - eck.eck_type.extra_content.accordion
+    - field.field.extra_content.accordion.field_display_title
+    - field.field.extra_content.accordion.field_rows
+id: extra_content.accordion.default
+targetEntityType: extra_content
+bundle: accordion
+mode: default
+content:
+  field_display_title:
+    weight: -3
+    label: hidden
+    settings:
+      format: boolean
+      format_custom_true: ''
+      format_custom_false: ''
+    third_party_settings: {  }
+    type: boolean
+    region: content
+  field_rows:
+    weight: -4
+    label: hidden
+    settings:
+      link: true
+      view_mode: default
+    third_party_settings: {  }
+    type: entity_reference_entity_view
+    region: content
+  title:
+    label: hidden
+    type: string
+    weight: -5
+    region: content
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+hidden: {  }

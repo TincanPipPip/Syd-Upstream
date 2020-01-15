@@ -1,0 +1,25 @@
+<?php
+/**
+ * @file
+ * Install, update and uninstall functions for the profilename install profile.
+ */
+
+/**
+ * Implements hook_install().
+ *
+ * Perform actions to set up the site for this profile.
+ *
+ * @see system_install()
+ */
+function syd_profile_install() {
+	
+  // First, do everything in minimal profile.
+  //include_once DRUPAL_ROOT . '/core/profiles/minimal';
+  //minimal_install();
+
+  \Drupal::configFactory()->getEditable('node.settings')->set('use_admin_theme', TRUE)->save(TRUE);
+
+  // Install modules without them being locked on - DOESN'T WORK WITH CONFIG
+  //\Drupal::service('module_installer')->install(['devel','kint','google_analytics','backup_migrate']);
+
+}

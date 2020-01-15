@@ -1,0 +1,27 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - eck.eck_type.extra_content.linked_logos
+    - eck.eck_type.logos.logos_list
+    - field.storage.extra_content.field_logos
+id: extra_content.linked_logos.field_logos
+field_name: field_logos
+entity_type: extra_content
+bundle: linked_logos
+label: Logos
+description: ""
+required: false
+translatable: false
+default_value: {}
+default_value_callback: ""
+settings:
+  handler: "default:logos"
+  handler_settings:
+    target_bundles:
+      logos_list: logos_list
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ""
+field_type: entity_reference

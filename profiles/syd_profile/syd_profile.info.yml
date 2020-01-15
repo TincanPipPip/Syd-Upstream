@@ -1,0 +1,99 @@
+name: Syd
+type: profile
+description: "Syd D8 install profile"
+core: 8.x
+
+# Optional: Declare your installation profile as a distribution
+# This will make the installer auto-select this installation profile.
+# The distribution_name property is used in the installer and other places as
+# a label for the software being installed.
+distribution:
+  name: Syd
+
+# Required modules
+dependencies:
+  # core
+  - node
+  - history
+  - block
+  - block_content
+  - breakpoint
+  - config
+  - contextual
+  - quickedit
+  - image
+  - options
+  - path
+  - taxonomy
+  - dblog
+  - shortcut
+  - toolbar
+  - field_ui
+  - file
+  - rdf
+  - views
+  - views_ui
+  - editor
+  - ckeditor
+  - menu_link_content
+  - filter
+  - page_cache
+  - dynamic_page_cache
+  - menu_ui
+  - link
+  - datetime
+  - text
+  - help
+  - admin_toolbar
+  - admin_toolbar_tools
+  - adminimal_admin_toolbar
+  - administerusersbyrole
+  - better_exposed_filters
+  - ctools
+  - config_filter
+  - config_ignore
+  - field_group
+  - field_tools
+  - menu_admin_per_menu
+  - menu_block
+  - metatag
+  - metatag_open_graph
+  - metatag_twitter_cards
+  - pathauto
+  - publishcontent
+  - redirect
+  - rename_admin_paths
+  - roleassign
+  - token
+  - xmlsitemap
+  - m4032404
+  - inline_entity_form
+  - editor_advanced_link
+  - eck
+  - linkit
+  - soundcloudfield
+  - video_embed_field
+  - syd_tweaks
+  - dropzonejs
+  - twig_tweak
+  - embed
+  - entity_browser
+  - entity_embed
+  - file_browser
+  - structure_sync
+  - block_content_permissions
+  - menu_block_title
+  - admin_toolbar_links_access_filter
+  - block_region_permissions
+  - smart_trim
+  - imageapi_optimize
+  - imageapi_optimize_resmushit
+  - anchor_link
+  - view_unpublished
+  - views_bulk_operations
+
+themes:
+  - stable
+  - classy
+  - adminimal_theme
+  - pippip

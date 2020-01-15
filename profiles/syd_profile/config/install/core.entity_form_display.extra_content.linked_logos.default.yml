@@ -1,0 +1,46 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - eck.eck_type.extra_content.linked_logos
+    - field.field.extra_content.linked_logos.field_display_title
+    - field.field.extra_content.linked_logos.field_logos
+  module:
+    - inline_entity_form
+id: extra_content.linked_logos.default
+targetEntityType: extra_content
+bundle: linked_logos
+mode: default
+content:
+  field_display_title:
+    type: boolean_checkbox
+    weight: 1
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {}
+  field_logos:
+    weight: 2
+    settings:
+      form_mode: default
+      label_singular: ""
+      label_plural: ""
+      allow_new: true
+      match_operator: CONTAINS
+      override_labels: false
+      collapsible: false
+      collapsed: false
+      allow_existing: false
+      allow_duplicate: false
+    third_party_settings: {}
+    type: inline_entity_form_complex
+    region: content
+  title:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ""
+    third_party_settings: {}
+hidden: {}

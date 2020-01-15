@@ -1,0 +1,42 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - eck.eck_type.extra_content.gallery
+    - field.field.extra_content.gallery.field_display_title
+    - field.field.extra_content.gallery.field_images
+  module:
+    - image
+id: extra_content.gallery.default
+targetEntityType: extra_content
+bundle: gallery
+mode: default
+content:
+  field_display_title:
+    weight: -3
+    label: hidden
+    settings:
+      format: boolean
+      format_custom_true: ''
+      format_custom_false: ''
+    third_party_settings: {  }
+    type: boolean
+    region: content
+  field_images:
+    weight: -4
+    label: hidden
+    settings:
+      image_style: ''
+      image_link: ''
+    third_party_settings: {  }
+    type: image
+    region: content
+  title:
+    label: hidden
+    type: string
+    weight: -5
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    region: content
+hidden: {  }

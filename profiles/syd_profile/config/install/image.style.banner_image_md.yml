@@ -1,0 +1,15 @@
+langcode: en
+status: true
+dependencies: {  }
+name: banner_image_md
+label: 'Banner image md'
+effects:
+  bd7a2e84-059a-4321-bd84-c4bfeea7b97e:
+    uuid: bd7a2e84-059a-4321-bd84-c4bfeea7b97e
+    id: image_scale
+    weight: 1
+    data:
+      width: 1000
+      height: null
+      upscale: false
+pipeline: __default__

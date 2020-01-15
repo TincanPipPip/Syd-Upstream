@@ -1,0 +1,19 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: default
+label: default
+description: ''
+attributes: {  }
+matchers:
+  540c6128-c007-4d6f-a0c6-fccd7abd98ca:
+    uuid: 540c6128-c007-4d6f-a0c6-fccd7abd98ca
+    id: 'entity:node'
+    weight: 0
+    settings:
+      result_description: ''
+      bundles: {  }
+      group_by_bundle: false
+      include_unpublished: false

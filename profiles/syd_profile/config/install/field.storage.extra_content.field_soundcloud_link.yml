@@ -1,0 +1,18 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - eck
+    - soundcloudfield
+id: extra_content.field_soundcloud_link
+field_name: field_soundcloud_link
+entity_type: extra_content
+type: soundcloud
+settings: {}
+module: soundcloudfield
+locked: false
+cardinality: 1
+translatable: true
+indexes: {}
+persist_with_no_fields: false
+custom_storage: false

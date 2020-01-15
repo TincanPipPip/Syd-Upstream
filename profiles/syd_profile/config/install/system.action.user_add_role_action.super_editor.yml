@@ -1,0 +1,13 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.super_editor
+  module:
+    - user
+id: user_add_role_action.super_editor
+label: 'Add the Super Editor role to the selected users'
+type: user
+plugin: user_add_role_action
+configuration:
+  rid: super_editor

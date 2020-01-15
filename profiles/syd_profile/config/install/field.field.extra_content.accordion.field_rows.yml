@@ -1,0 +1,27 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - eck.eck_type.accordion_row.row
+    - eck.eck_type.extra_content.accordion
+    - field.storage.extra_content.field_rows
+id: extra_content.accordion.field_rows
+field_name: field_rows
+entity_type: extra_content
+bundle: accordion
+label: Rows
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:accordion_row'
+  handler_settings:
+    target_bundles:
+      row: row
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

@@ -1,0 +1,15 @@
+langcode: en
+status: true
+dependencies: {  }
+name: logo
+label: Logo
+effects:
+  e43775f6-f325-4819-8320-76fa62198293:
+    uuid: e43775f6-f325-4819-8320-76fa62198293
+    id: image_scale
+    weight: 1
+    data:
+      width: null
+      height: 150
+      upscale: false
+pipeline: __default__

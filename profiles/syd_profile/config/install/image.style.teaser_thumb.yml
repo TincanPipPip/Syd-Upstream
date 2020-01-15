@@ -1,0 +1,14 @@
+langcode: en
+status: true
+dependencies: {  }
+name: teaser_thumb
+label: 'Teaser thumbmail'
+effects:
+  777146e9-985a-479b-aa9e-71123e9a4444:
+    uuid: 777146e9-985a-479b-aa9e-71123e9a4444
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 840
+      height: 660
+      anchor: center-center

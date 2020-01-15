@@ -1,0 +1,30 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - eck.eck_type.accordion_row.row
+    - field.field.accordion_row.row.field_copy
+  module:
+    - text
+id: accordion_row.row.default
+targetEntityType: accordion_row
+bundle: row
+mode: default
+content:
+  field_copy:
+    weight: 3
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: text_textarea
+    region: content
+  title:
+    type: string_textfield
+    weight: -5
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden: {  }

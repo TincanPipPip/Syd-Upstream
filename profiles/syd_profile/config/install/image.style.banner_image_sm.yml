@@ -1,0 +1,15 @@
+langcode: en
+status: true
+dependencies: {  }
+name: banner_image_sm
+label: 'Banner image sm'
+effects:
+  0851062f-db46-4936-8236-124e2c1ba62b:
+    uuid: 0851062f-db46-4936-8236-124e2c1ba62b
+    id: image_scale
+    weight: 1
+    data:
+      width: 600
+      height: null
+      upscale: false
+pipeline: __default__

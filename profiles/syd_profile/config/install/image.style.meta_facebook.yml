@@ -1,0 +1,15 @@
+langcode: en
+status: true
+dependencies: {  }
+name: meta_facebook
+label: 'Meta - Facebook'
+effects:
+  d897368d-3137-4ddf-afff-7393abf09ee8:
+    uuid: d897368d-3137-4ddf-afff-7393abf09ee8
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 1200
+      height: 630
+      anchor: center-center
+pipeline: __default__

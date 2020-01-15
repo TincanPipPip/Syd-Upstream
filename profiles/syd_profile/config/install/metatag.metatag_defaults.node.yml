@@ -1,0 +1,28 @@
+langcode: en
+status: true
+dependencies: {  }
+id: node
+label: Content
+tags:
+  title: '[node:title] | [site:name]'
+  shortlink: '[current-page:url:unaliased]'
+  image_src: '[node:field_image:banner_image]'
+  description: '[node:summary]'
+  generator: 'Drupal 8 (https://www.drupal.org)'
+  abstract: '[current-page:url]'
+  canonical_url: '[current-page:url:absolute]'
+  og_site_name: '[site:name]'
+  og_image_width: '1200'
+  og_image: '[node:field_image:meta_facebook]'
+  og_image_height: '630'
+  og_updated_time: '[node:changed:custom:c]'
+  og_title: '[node:title]'
+  og_description: '[node:summary]'
+  og_url: '[current-page:url:absolute]'
+  twitter_cards_image_height: '500'
+  twitter_cards_type: summary
+  twitter_cards_image: '[node:field_image:meta_twitter]'
+  twitter_cards_page_url: '[current-page:url:absolute]'
+  twitter_cards_image_width: '1500'
+  twitter_cards_title: '[current-page:title] | [site:name]'
+  twitter_cards_description: '[node:description]'

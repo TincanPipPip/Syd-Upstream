@@ -1,0 +1,15 @@
+langcode: en
+status: true
+dependencies: {  }
+name: meta_twitter
+label: 'Meta - Twitter'
+effects:
+  37f7a00e-5087-4811-8c4c-f59eed8b7925:
+    uuid: 37f7a00e-5087-4811-8c4c-f59eed8b7925
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 1500
+      height: 500
+      anchor: center-center
+pipeline: __default__

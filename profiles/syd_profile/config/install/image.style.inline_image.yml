@@ -1,0 +1,14 @@
+langcode: en
+status: true
+dependencies: {  }
+name: inline_image
+label: 'Inline image'
+effects:
+  8869adc5-5dee-42b5-827e-7325dfcec43f:
+    id: image_scale
+    weight: 1
+    data:
+      width: 950
+      height: null
+      upscale: false
+pipeline: __default__

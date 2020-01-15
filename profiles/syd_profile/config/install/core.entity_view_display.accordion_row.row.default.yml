@@ -1,0 +1,29 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - eck.eck_type.accordion_row.row
+    - field.field.accordion_row.row.field_copy
+  module:
+    - text
+id: accordion_row.row.default
+targetEntityType: accordion_row
+bundle: row
+mode: default
+content:
+  field_copy:
+    weight: -4
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  title:
+    label: hidden
+    type: string
+    weight: -5
+    region: content
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+hidden: {  }

@@ -1,0 +1,51 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - eck.eck_type.extra_content.audio
+    - field.field.extra_content.audio.field_display_title
+    - field.field.extra_content.audio.field_soundcloud_link
+  module:
+    - soundcloudfield
+id: extra_content.audio.default
+targetEntityType: extra_content
+bundle: audio
+mode: default
+content:
+  field_display_title:
+    weight: -3
+    label: hidden
+    settings:
+      format: boolean
+      format_custom_true: ""
+      format_custom_false: ""
+    third_party_settings: {}
+    type: boolean
+    region: content
+  field_soundcloud_link:
+    weight: -4
+    label: hidden
+    settings:
+      soundcloud_player_type: classic
+      soundcloud_player_width: "100"
+      soundcloud_player_height: "166"
+      soundcloud_player_height_sets: "450"
+      soundcloud_player_visual_height: "450"
+      soundcloud_player_color: ff7700
+      soundcloud_player_hiderelated: "1"
+      soundcloud_player_showcomments: "1"
+      soundcloud_player_autoplay: 0
+      soundcloud_player_showartwork: 0
+      soundcloud_player_showplaycount: 0
+    third_party_settings: {}
+    type: soundcloud_default
+    region: content
+  title:
+    label: hidden
+    type: string
+    weight: -5
+    settings:
+      link_to_entity: false
+    third_party_settings: {}
+    region: content
+hidden: {}

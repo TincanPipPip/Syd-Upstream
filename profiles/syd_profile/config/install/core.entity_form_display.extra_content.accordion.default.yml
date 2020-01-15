@@ -1,0 +1,46 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - eck.eck_type.extra_content.accordion
+    - field.field.extra_content.accordion.field_display_title
+    - field.field.extra_content.accordion.field_rows
+  module:
+    - inline_entity_form
+id: extra_content.accordion.default
+targetEntityType: extra_content
+bundle: accordion
+mode: default
+content:
+  field_display_title:
+    type: boolean_checkbox
+    weight: 1
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+  field_rows:
+    type: inline_entity_form_complex
+    weight: 2
+    region: content
+    settings:
+      form_mode: default
+      override_labels: true
+      label_singular: Row
+      label_plural: Rows
+      allow_new: true
+      match_operator: CONTAINS
+      allow_duplicate: true
+      collapsible: false
+      collapsed: false
+      allow_existing: false
+    third_party_settings: {  }
+  title:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden: {  }

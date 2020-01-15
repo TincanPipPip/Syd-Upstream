@@ -1,0 +1,26 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - eck.eck_type.extra_content.downloads
+    - field.storage.extra_content.field_files
+  module:
+    - file
+id: extra_content.downloads.field_files
+field_name: field_files
+entity_type: extra_content
+bundle: downloads
+label: File(s)
+description: ""
+required: true
+translatable: false
+default_value: {}
+default_value_callback: ""
+settings:
+  file_directory: attachments
+  file_extensions: "txt pdf xls doc docx xlsx zip"
+  max_filesize: 2MB
+  description_field: true
+  handler: "default:file"
+  handler_settings: {}
+field_type: file

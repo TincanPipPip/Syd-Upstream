@@ -1,0 +1,22 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - eck.eck_type.extra_content.quote
+    - field.storage.extra_content.field_rating
+id: extra_content.quote.field_rating
+field_name: field_rating
+entity_type: extra_content
+bundle: quote
+label: 'Stars rating (1-5)'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: 0
+  max: 5
+  prefix: ''
+  suffix: ''
+field_type: integer

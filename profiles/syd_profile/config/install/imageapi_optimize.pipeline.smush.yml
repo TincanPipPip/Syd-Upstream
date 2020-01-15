@@ -1,0 +1,14 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - imageapi_optimize_resmushit
+name: smush
+label: Smush
+processors:
+  18ba1e24-83dc-4de3-a02b-6853f04cb50e:
+    uuid: 18ba1e24-83dc-4de3-a02b-6853f04cb50e
+    id: resmushit
+    weight: 1
+    data:
+      quality: 75

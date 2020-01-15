@@ -1,0 +1,20 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - eck.eck_type.accordion_row.row
+    - field.storage.accordion_row.field_copy
+  module:
+    - text
+id: accordion_row.row.field_copy
+field_name: field_copy
+entity_type: accordion_row
+bundle: row
+label: Copy
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

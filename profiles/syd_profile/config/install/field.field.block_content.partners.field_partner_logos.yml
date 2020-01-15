@@ -1,0 +1,27 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.partners
+    - eck.eck_type.logos.logos_list
+    - field.storage.block_content.field_partner_logos
+id: block_content.partners.field_partner_logos
+field_name: field_partner_logos
+entity_type: block_content
+bundle: partners
+label: 'Partner logos'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:logos'
+  handler_settings:
+    target_bundles:
+      logos_list: logos_list
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

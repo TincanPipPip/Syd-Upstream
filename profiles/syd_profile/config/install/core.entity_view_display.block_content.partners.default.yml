@@ -1,0 +1,21 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.partners
+    - field.field.block_content.partners.field_partner_logos
+id: block_content.partners.default
+targetEntityType: block_content
+bundle: partners
+mode: default
+content:
+  field_partner_logos:
+    weight: 0
+    label: hidden
+    settings:
+      link: true
+      view_mode: default
+    third_party_settings: {  }
+    type: entity_reference_entity_view
+    region: content
+hidden: {  }

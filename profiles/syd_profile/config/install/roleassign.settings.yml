@@ -1,0 +1,4 @@
+roleassign_roles:
+  editor: editor
+  super_editor: super_editor
+  administrator: '0'

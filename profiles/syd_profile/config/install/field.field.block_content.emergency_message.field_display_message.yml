@@ -1,0 +1,22 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.emergency_message
+    - field.storage.block_content.field_display_message
+id: block_content.emergency_message.field_display_message
+field_name: field_display_message
+entity_type: block_content
+bundle: emergency_message
+label: 'Display message'
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'Display message'
+  off_label: 'Off'
+field_type: boolean

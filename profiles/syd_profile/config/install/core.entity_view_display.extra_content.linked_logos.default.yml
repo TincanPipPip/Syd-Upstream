@@ -1,0 +1,40 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - eck.eck_type.extra_content.linked_logos
+    - field.field.extra_content.linked_logos.field_display_title
+    - field.field.extra_content.linked_logos.field_logos
+id: extra_content.linked_logos.default
+targetEntityType: extra_content
+bundle: linked_logos
+mode: default
+content:
+  field_display_title:
+    type: boolean
+    weight: 2
+    region: content
+    label: hidden
+    settings:
+      format: boolean
+      format_custom_true: ""
+      format_custom_false: ""
+    third_party_settings: {}
+  field_logos:
+    weight: 1
+    label: hidden
+    settings:
+      link: true
+      view_mode: default
+    third_party_settings: {}
+    type: entity_reference_entity_view
+    region: content
+  title:
+    label: hidden
+    type: string
+    weight: 0
+    region: content
+    settings:
+      link_to_entity: false
+    third_party_settings: {}
+hidden: {}

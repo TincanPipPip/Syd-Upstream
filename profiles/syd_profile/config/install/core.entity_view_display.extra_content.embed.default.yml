@@ -1,0 +1,38 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - eck.eck_type.extra_content.embed
+    - field.field.extra_content.embed.field_display_title
+    - field.field.extra_content.embed.field_embed
+id: extra_content.embed.default
+targetEntityType: extra_content
+bundle: embed
+mode: default
+content:
+  field_display_title:
+    type: boolean
+    weight: 2
+    region: content
+    label: hidden
+    settings:
+      format: boolean
+      format_custom_true: ""
+      format_custom_false: ""
+    third_party_settings: {}
+  field_embed:
+    weight: 1
+    label: hidden
+    settings: {}
+    third_party_settings: {}
+    type: basic_string
+    region: content
+  title:
+    label: hidden
+    type: string
+    weight: 0
+    region: content
+    settings:
+      link_to_entity: false
+    third_party_settings: {}
+hidden: {}
