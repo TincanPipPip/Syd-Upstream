@@ -18,7 +18,8 @@ use Drupal\Core\TempStore\PrivateTempStoreFactory;
  *
  * @Action(
  *   id = "node_delete_action",
- *   label = @Translation("Delete content")
+ *   label = @Translation("Delete content"),
+ *   type = "node"
  * )
  */
 class DeleteNode extends DeleteAction {

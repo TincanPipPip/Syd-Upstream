@@ -18,7 +18,8 @@ use Drupal\Core\TempStore\PrivateTempStoreFactory;
  *
  * @Action(
  *   id = "comment_delete_action",
- *   label = @Translation("Delete comment")
+ *   label = @Translation("Delete comment"),
+ *   type = "comment"
  * )
  */
 class DeleteComment extends DeleteAction {
