@@ -1,8 +1,8 @@
 {
-    "/js/defaults.js": "/js/defaults.js",
-    "/css/global.css": "/css/global.css",
-    "/css/print.css": "/css/print.css",
-    "/js/emmsg.js": "/js/emmsg.js",
-    "/js/global.js": "/js/global.js",
-    "/js/modernizr.js": "/js/modernizr.js"
+    "/js/defaults.js": "/js/defaults.js?id=af50039b99050a936078",
+    "/css/global.css": "/css/global.css?id=950d27c3569c732260e2",
+    "/css/print.css": "/css/print.css?id=1fe5f13f6d60c313ab26",
+    "/js/emmsg.js": "/js/emmsg.js?id=c732d86fcf7f5aae118d",
+    "/js/global.js": "/js/global.js?id=3009b524fae8963e61f7",
+    "/js/modernizr.js": "/js/modernizr.js?id=fba58fb03e459d93a716"
 }

@@ -79,7 +79,10 @@ mix.webpackConfig({
     },
   },
   plugins: [
-    new copyWebpackPlugin([{ from: `${basePath}/icon`, to: 'icon' }, { from: `${basePath}/img`, to: 'img' }]),
+    new copyWebpackPlugin([
+      { from: `${basePath}/icon`, to: 'icon' },
+      { from: `${basePath}/img`, to: 'img' },
+    ]),
     new imageminPlugin({
       test: /\.(svg)$/i,
       svgo: {
