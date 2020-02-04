@@ -1,0 +1,13 @@
+{% if content.field_ymal_pages|render %}
+  <div class="m-entity">
+    {% if content.field_ymal|render %}
+      <div class="grid">
+        <div class="col-sm-12">
+          <h2 class="h3">{{ content.field_ymal }}</h2>
+        </div>
+      </div>
+    {% endif %}
+
+    {{ content.field_ymal_pages}}
+  </div>
+{% endif %}

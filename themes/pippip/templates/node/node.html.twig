@@ -76,25 +76,26 @@
 {%
 	set classes = [
 		'o-node',
-		'o-node__' ~ node.bundle|clean_class,
-		view_mode ? 'o-node--' ~ view_mode|clean_class
+		'o-' ~ node.bundle|clean_class,
+		view_mode ? 'o-' ~ view_mode|clean_class,
+		view_mode ? 'o-' ~ view_mode|clean_class ~ '--' ~ accent,
 	]
 %}
 
 <div{{attributes.addClass(classes)}}>
 
-  {% block content %}
+	{% block content %}
 
-    {% if view_mode == "teaser" %}
+		{% if view_mode == "teaser" %}
 
-      {% include '@pippip/partials/molecules/teaser.html.twig' %}
+			{% include '@pippip/partials/organisms/teaser.html.twig' %}
 
-    {% else %}
+		{% else %}
 
-      {% include '@pippip/partials/organisms/default.html.twig' %}
+			{% include '@pippip/partials/organisms/default.html.twig' %}
 
-    {% endif %}
+		{% endif %}
 
-  {% endblock %}
+	{% endblock %}
 
 </div>

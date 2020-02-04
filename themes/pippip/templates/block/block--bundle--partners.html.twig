@@ -3,19 +3,12 @@
     'm-block',
     'm-block--' ~ configuration.provider|clean_class,
     'm-block--' ~ plugin_id|clean_class,
-    'm-block__' ~ attributes.id|clean_class
+    'm-block__' ~ attributes.id|clean_class,
+    'm-block__' ~ label|replace(' ','-')|lower
   ]
 %}
 <div{{attributes.addClass(classes)}}>
-  {{ title_prefix }}
-  {% if label %}
-    <h2{{title_attributes.addClass('block-title')}}>{{ label }}</h2>
-  {% endif %}
-  {{ title_suffix }}
-
-  {% if content.field_partner_logos|render %}
-    <div class="m-logos">
-      {{ content.field_partner_logos}}
-    </div>
-  {% endif %}
+	{% if content.field_partner_logos|render %}
+		{{ content.field_partner_logos}}
+	{% endif %}
 </div>

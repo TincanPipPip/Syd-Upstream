@@ -83,3 +83,35 @@ function pippip_form_alter(&$form, FormStateInterface $form_state, $form_id) {
     $form['actions']['reset']['#attributes']['value'][] = $form['actions']['reset']['#value'];
   }
 }
+
+/*
+ * Implements hook_preprocess_page()
+ */
+function pippip_preprocess_page__search(&$variables) {
+  // Use this as a title in page--search.html.twig
+  $variables['search_term'] = Drupal::request()->query->get('for');
+}
+
+
+
+/**
+ * Hook_preprocess_node()
+ */
+function pippip_preprocess_node(&$variables) {
+  $node = $variables['node'];
+  $menu_link_manager = \Drupal::service('plugin.manager.menu.link');
+  $menu_link = $menu_link_manager->loadLinksByRoute('entity.node.canonical', array('node' => $node->id()));
+
+  if (is_array($menu_link) && count($menu_link)) {
+    $menu_link = reset($menu_link);
+    if ($menu_link->getParent()) {
+      $parents = $menu_link_manager->getParentIds($menu_link->getParent());
+      $parent = reset(array_reverse($parents));
+      $title = $menu_link_manager->createInstance($parent)->getTitle();
+      $definition = $menu_link_manager->createInstance($parent)->getPluginDefinition();
+      $nid = $definition['route_parameters']['node'];
+      $variables['nav_parent_title'] = $title;
+      $variables['nav_parent'] = $nid;
+    }
+  }
+}

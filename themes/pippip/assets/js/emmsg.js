@@ -3,9 +3,7 @@ import Cookies from 'js-cookie';
 const emergencyMessage = document.getElementById('emmsg');
 
 if (emergencyMessage != null) {
-  if (Cookies.get('hideemmsg')) {
-    emergencyMessage.setAttribute('data-state', 'hidden');
-  } else {
+  if (!Cookies.get('hideemmsg')) {
     emergencyMessage.setAttribute('data-state', 'visible');
   }
 

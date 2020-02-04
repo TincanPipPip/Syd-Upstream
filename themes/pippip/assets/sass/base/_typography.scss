@@ -13,11 +13,11 @@
 }
 
 @mixin font-bold {
-  font-weight: $weight-bold;
+  font-weight: bold;
 }
 
 @mixin font-title {
-  font-weight: $weight-regular;
+  font-weight: normal;
 }
 
 /**
@@ -98,15 +98,16 @@ a {
     }
   }
 
-  &.no-click {
-    pointer-events: none;
-    cursor: default;
-  }
+}
+
+.no-click {
+  pointer-events: none;
+  cursor: default;
 }
 
 ::selection {
-  background-color: $color-secondary;
-  color: $color-primary;
+  background-color: $c-secondary;
+  color: $c-primary;
 }
 
 /**
@@ -126,7 +127,7 @@ button {
  * Inline
  */
 strong {
-  font-weight: $weight-bold;
+  font-weight: bold;
 }
 
 em {
@@ -180,12 +181,12 @@ blockquote {
 
   cite {
     font-style: normal;
-    font-weight: $weight-bold;
+    font-weight: bold;
   }
 }
 
 hr {
-  border: solid $color-primary;
+  border: solid $c-primary;
   border-width: 0 0 3px 0;
   margin: 1.5rem 0;
 }

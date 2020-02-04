@@ -1,4 +1,3 @@
-import 'objectFitPolyfill';
 import 'focus-visible';
 import 'picturefill';
 

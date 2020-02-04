@@ -12,8 +12,8 @@
 @mixin rating($stars) {
   &:nth-child(-n + #{$stars}) {
     path {
-      fill: $text;
-      stroke: $text;
+      fill: $c-primary;
+      stroke: $c-primary;
     }
   }
 }
@@ -60,7 +60,7 @@
       width: 24px;
       height: 24px;
       margin-right: 5px;
-      stroke: $text;
+      stroke: $c-primary;
 
       &:last-child {
         margin-right: 0;

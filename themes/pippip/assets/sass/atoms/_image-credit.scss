@@ -43,8 +43,8 @@
   &:before {
     content: attr(data-credit);
     text-indent: 0;
-    background: $text;
-    color: #fff;
+    background: $c-primary;
+    color: $c-white;
     opacity: 0;
     position: absolute;
     right: $bump;

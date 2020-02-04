@@ -23,7 +23,6 @@
     "objectFitPolyfill": "^2.3.0",
     "picturefill": "^3.0.3",
     "reflex-grid": "^2.0.4",
-    "swiper": "^5.2.0",
     "van11y-accessible-accordion-aria": "^3.0.1",
     "vanilla-lazyload": "^12.4.0",
     "zenscroll": "^4.0.2"
@@ -37,7 +36,7 @@
     "laravel-mix-glob": "^1.1.4",
     "modernizr": "^3.8.0",
     "modernizr-loader": "^1.0.1",
-    "sass": "^1.24.4",
+    "sass": "^1.25.0",
     "sass-loader": "^8.0.2",
     "vue-template-compiler": "^2.6.11"
   }

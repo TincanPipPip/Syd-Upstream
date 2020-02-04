@@ -33,28 +33,9 @@ $modularscale: (
 $font-base-size: 100%; //Set document root size to base font size
 
 /**
- * Font weight
- */
-$weight-thin: 100;
-$weight-extra-light: 200;
-$weight-light: 300;
-$weight-regular: 400;
-$weight-medium: 500;
-$weight-semibold: 600;
-$weight-bold: 700;
-$weight-extrabold: 800;
-$weight-black: 900;
-
-/**
  * Line height
  */
 $line-body: 1.5;
-
-/**
- * Kerning
- */
-$kern-display: normal;
-$kern-body: normal;
 
 /**
  * Custom fonts

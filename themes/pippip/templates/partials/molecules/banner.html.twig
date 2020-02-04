@@ -1,5 +1,53 @@
-<div class="m-banner">
-  {% include '@pippip/partials/atoms/banner-image.html.twig' %}
+{% set has_media = content.image %}
+{% if has_media %}
 
-  {% include '@pippip/partials/atoms/image-credit.html.twig' %}
-</div>
+	<div class="m-banner" role="banner">
+
+		{% include '@pippip/partials/atoms/banner-image.html.twig' with {image: content.image, alt: content.imagealt} %}
+
+		{% if content.type != 'page' %}
+			<div class="m-banner__inner">
+				<div class="grid justify-center">
+					<div class="col-12">
+
+            {% if content.title %}
+              <h1 class="featured">
+                {{ content.title }}
+              </h1>
+        
+            {% if content.summary %}
+              {{ content.summary }}
+            {% endif %}
+
+					</div>
+				</div>
+			</div>
+		{% endif %}
+
+		{% include '@pippip/partials/atoms/image-credit.html.twig' %}
+
+	</div>
+
+{% else %}
+
+	{% if content.type != 'page' %}
+		<div class="m-no-banner" role="banner">
+			<div class="grid justify-center">
+				<div class="col-11">
+
+          {% if content.title %}
+            <h1 class="featured">
+              {{ content.title }}
+            </h1>
+          {% endif %}
+
+          {% if content.summary %}
+            {{ content.summary }}
+          {% endif %}
+
+				</div>
+			</div>
+		</div>
+	{% endif %}
+
+{% endif %}

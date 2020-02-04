@@ -13,15 +13,15 @@ input[type='submit'],
 textarea,
 select {
   @include font-body;
-  color: $text;
+  color: $c-primary;
   resize: none;
   padding: $bump/2 $bump;
   -webkit-border-radius: 0px;
   border-radius: 0;
   outline: 0;
-  border: 1px solid $text;
+  border: 1px solid $c-primary;
   transition: all 0.2s $easing;
-  background-color: #fff;
+  background-color: $c-white;
 }
 
 input[type='search'],
@@ -62,13 +62,13 @@ button {
   width: 20px;
   height: 20px;
   border-radius: 3px;
-  background-color: #fff;
-  border: 2px solid $text;
+  background-color: $c-white;
+  border: 2px solid $c-primary;
 }
 [type='checkbox']:checked + label:after,
 [type='checkbox']:not(:checked) + label:after {
   content: '\2714\0020';
-  color: $text;
+  color: $c-primary;
   position: absolute;
   top: 1px;
   left: 3.5px;
@@ -96,7 +96,7 @@ button {
   cursor: pointer;
   line-height: 20px;
   display: inline-block;
-  color: $text;
+  color: $c-primary;
 }
 [type='radio']:checked + label:before,
 [type='radio']:not(:checked) + label:before {
@@ -106,16 +106,16 @@ button {
   top: 0;
   width: 20px;
   height: 20px;
-  border: 2px solid $text;
+  border: 2px solid $c-primary;
   border-radius: 100%;
-  background-color: #fff;
+  background-color: $c-white;
 }
 [type='radio']:checked + label:after,
 [type='radio']:not(:checked) + label:after {
   content: '';
   width: 12px;
   height: 12px;
-  background: $text;
+  background: $c-primary;
   position: absolute;
   top: 4px;
   left: 4px;

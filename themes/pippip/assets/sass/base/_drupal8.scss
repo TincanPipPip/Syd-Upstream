@@ -32,11 +32,11 @@
   position: relative;
   top: auto;
   width: 100%;
-  background-color: $text;
+  background-color: $c-primary;
   max-width: 100%;
   z-index: 31;
 
-  [class*="col-"] {
+  [class*='col-'] {
     padding: 0 $bump/2;
   }
 
@@ -49,6 +49,10 @@
     li {
       margin-right: $bump;
       display: inline-block;
+
+      a {
+        color: $c-white;
+      }
     }
   }
 }
@@ -74,8 +78,8 @@ a.skip-main {
 a.skip-main:focus,
 a.skip-main:active {
   @include font-bold;
-  color: #fff;
-  background-color: $text;
+  color: $c-white;
+  background-color: $c-primary;
   left: auto;
   top: auto;
   width: 30%;

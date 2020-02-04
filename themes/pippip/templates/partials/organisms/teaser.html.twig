@@ -1,0 +1,34 @@
+{% if content.field_image|render %}
+	<a href="{{ url }}" class="o-teaser__thumb" title="Open {{ node.title.value }}">
+		{{ content.field_image}}
+	</a>
+{% endif %}
+
+<a href="{{ url }}" class="o-teaser__content" title="Open {{ node.title.value }}">
+	
+	<h3>{{ node.title.value }}</h3>
+
+	{% if content.field_run_date|render %}
+		<div class="o-teaser__date">
+			{{ content.field_run_date}}
+		</div>
+	{% endif %}
+
+	{% if content.body %}
+		{{ content.body }}
+	{% endif %}
+</a>
+
+<div class="o-teaser__buttons">
+
+	{% if booking_link %}
+		{% if not pastEvent %}
+			{{ booking_link }}
+		{% else %}
+			<a href="{{ url }}" class="a-btn" title="Open {{ node.title.value }}">Read more</a>
+		{% endif %}
+	{% else %}
+		<a href="{{ url }}" class="a-btn" title="Open {{ node.title.value }}">Read more</a>
+	{% endif %}
+
+</div>

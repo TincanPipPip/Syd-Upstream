@@ -18,7 +18,7 @@ const mix = require('laravel-mix'),
 /**
  * Variables
  */
-const hostname = 'pippip.localhost',
+const hostname = 'lh.mola.com',
   basePath = './assets',
   glob = new mixGlob({ mix });
 
