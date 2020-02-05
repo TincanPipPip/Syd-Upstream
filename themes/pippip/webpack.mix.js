@@ -18,7 +18,7 @@ const mix = require('laravel-mix'),
 /**
  * Variables
  */
-const hostname = 'lh.mola.com',
+const hostname = 'local.site',
   basePath = './assets',
   glob = new mixGlob({ mix });
 
@@ -35,6 +35,7 @@ mix.options({
 mix.browserSync({
   proxy: `https://${hostname}`,
   ghostMode: false,
+  files: ['templates/**/*.+(html|twig)', 'assets/sass/**/*.scss', 'assets/js/*.js'],
 });
 
 if (mix.inProduction()) {
@@ -42,6 +43,7 @@ if (mix.inProduction()) {
   mix.disableNotifications();
 } else {
   mix.sourceMaps();
+  mix.webpackConfig({ devtool: 'inline-source-map' });
 }
 
 mix.webpackConfig({
