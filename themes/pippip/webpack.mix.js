@@ -35,6 +35,7 @@ mix.options({
 mix.browserSync({
   proxy: `https://${hostname}`,
   ghostMode: false,
+  files: ['templates/**/*.+(html|twig)', 'assets/sass/**/*.scss', 'assets/js/*.js'],
 });
 
 if (mix.inProduction()) {
@@ -42,6 +43,7 @@ if (mix.inProduction()) {
   mix.disableNotifications();
 } else {
   mix.sourceMaps();
+  mix.webpackConfig({ devtool: 'inline-source-map' });
 }
 
 mix.webpackConfig({
@@ -54,7 +56,6 @@ mix.webpackConfig({
 glob.sass(`${basePath}/sass/*.scss`, 'css');
 glob.js(`${basePath}/js/*.js`, 'js');
 mix.copyDirectory(`${basePath}/font`, 'dist/font');
-
 /**
  * Custom Webpack Configuration
  * 1. Generate Modernizr file
