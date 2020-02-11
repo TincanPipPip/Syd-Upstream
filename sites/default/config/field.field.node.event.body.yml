@@ -1,0 +1,28 @@
+uuid: ed35db43-22e1-499f-9e20-f843172abb45
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.body
+    - node.type.event
+  enforced:
+    module:
+      - spektrix_import
+  module:
+    - text
+_core:
+  default_config_hash: 4O1ZYBcWSawze8CHbyCO7d6i9A6WnL4kiFaq3TM49h4
+id: node.event.body
+field_name: body
+entity_type: node
+bundle: event
+label: Body
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: true
+  required_summary: false
+field_type: text_with_summary

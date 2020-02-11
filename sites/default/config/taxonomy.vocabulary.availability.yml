@@ -1,0 +1,10 @@
+uuid: e93a0e44-e45c-4f00-a216-0a17317a5dbe
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: nh7pjHoFryCwEr38vWu2YkJk61rlqLF2_fUkkJRBNbo
+name: Availability
+vid: availability
+description: ''
+weight: 0

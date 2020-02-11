@@ -1,0 +1,26 @@
+uuid: 4f5c5083-8a53-4169-8c66-d8749449cbd6
+langcode: en
+status: true
+dependencies:
+  enforced:
+    module:
+      - spektrix_import
+  module:
+    - eck
+_core:
+  default_config_hash: Snt2IF2m0P_RgZCrPokMCLD_V3USG1x8Yl8LnUVQ8zI
+id: performances.field_do_time
+field_name: field_do_time
+entity_type: performances
+type: string
+settings:
+  max_length: 255
+  is_ascii: false
+  case_sensitive: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

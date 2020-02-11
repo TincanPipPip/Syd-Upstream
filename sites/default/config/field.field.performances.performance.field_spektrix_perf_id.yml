@@ -1,0 +1,24 @@
+uuid: 0555bb55-f06f-451f-ba82-574e5bb3bed0
+langcode: en
+status: true
+dependencies:
+  config:
+    - eck.eck_type.performances.performance
+    - field.storage.performances.field_spektrix_perf_id
+  enforced:
+    module:
+      - spektrix_import
+_core:
+  default_config_hash: x2n8GrO8-rNOavCsQANtw6bSpn2EaNEZ8zZJ6khtvuo
+id: performances.performance.field_spektrix_perf_id
+field_name: field_spektrix_perf_id
+entity_type: performances
+bundle: performance
+label: 'Spektrix Id'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string
