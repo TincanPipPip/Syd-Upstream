@@ -1,4 +1,4 @@
-# Syd 8 - Pantheon Upstream
+# Syd 8 Spektrix - Pantheon Upstream
 
 ## About
 - **Syd 8** is a full D8 install profile, providing a complete Drupal setup & basic config to reduce time spent doing repetitive install & setup tasks common to all D8 sites
