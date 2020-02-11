@@ -9,7 +9,6 @@ libraries:
 
 regions:
   header: Header
-  nav: Navigation
   admin: Admin
   content: Content
   highlighted: Highlighted
