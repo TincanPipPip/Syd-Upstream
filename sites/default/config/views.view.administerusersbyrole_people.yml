@@ -763,7 +763,7 @@ display:
               1:
                 title: Active
                 operator: '='
-                value: '1'
+                value: true
               2:
                 title: Blocked
                 operator: '='
