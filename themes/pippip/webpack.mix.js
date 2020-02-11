@@ -56,7 +56,6 @@ mix.webpackConfig({
 glob.sass(`${basePath}/sass/*.scss`, 'css');
 glob.js(`${basePath}/js/*.js`, 'js');
 mix.copyDirectory(`${basePath}/font`, 'dist/font');
-
 /**
  * Custom Webpack Configuration
  * 1. Generate Modernizr file
