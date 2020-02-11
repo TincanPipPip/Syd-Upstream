@@ -1165,7 +1165,7 @@ display:
             alter_text: true
             text: Edit
             make_link: true
-            path: '/admin/structure/eck/entity/performances/{{ id }}/edit?destination=/admin/content/events-perf'
+            path: '/performances/{{ id }}/edit?destination=/admin/events-perf'
             absolute: false
             external: false
             replace_spaces: false
