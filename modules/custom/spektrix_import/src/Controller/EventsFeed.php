@@ -16,7 +16,7 @@ class EventsFeed extends Response {
 		$response = new Response();
 		
 		// Fetch view result
-		$view_result = Views::getView('whats_on')->render('block_1')['#view']->result;
+		$view_result = Views::getView('spektrix_whatson')->render('block_1')['#view']->result;
 		
 		// Build array of results
 		foreach ($view_result as $key => $result) {			

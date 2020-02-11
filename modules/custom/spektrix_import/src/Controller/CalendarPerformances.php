@@ -20,7 +20,7 @@ class CalendarPerformances extends ControllerBase {
       
 	$response = new Response();
 	
-	$content = views_embed_view('whats_on', 'block_2', $date);
+	$content = views_embed_view('spektrix_whatson', 'block_2', $date);
 
 	// Encode response in JSON and return
 	$response->setContent(json_encode(\Drupal::service('renderer')->renderPlain($content)));

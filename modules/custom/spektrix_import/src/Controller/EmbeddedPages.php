@@ -42,7 +42,7 @@ class EmbeddedPages extends ControllerBase {
             'name' => 'SpektrixIFrame',
             'id' => 'SpektrixIFrame'
         ],
-        '#prefix' => '<div class="grid no-banner"><div class="col-sm-12"><div class="entity entity__spektrix">',
+        '#prefix' => '<div class="grid no-banner"><div class="col-sm-12"><div class="m-entity m-entity__spektrix">',
         '#suffix' => '</div></div></div>'
     ];
   }
@@ -59,7 +59,7 @@ class EmbeddedPages extends ControllerBase {
             'name' => 'SpektrixIFrame',
             'id' => 'SpektrixIFrame'
         ],
-        '#prefix' => '<div class="grid no-banner"><div class="col-sm-12"><div class="entity entity__spektrix">',
+        '#prefix' => '<div class="grid no-banner"><div class="col-sm-12"><div class="m-entity m-entity__spektrix">',
         '#suffix' => '</div></div></div>'
     ];
   }
@@ -76,7 +76,7 @@ class EmbeddedPages extends ControllerBase {
             'name' => 'SpektrixIFrame',
             'id' => 'SpektrixIFrame'
         ],
-        '#prefix' => '<div class="grid no-banner"><div class="col-sm-12"><div class="entity entity__spektrix">',
+        '#prefix' => '<div class="grid no-banner"><div class="col-sm-12"><div class="m-entity m-entity__spektrix">',
         '#suffix' => '</div></div></div>'
     ];
   }
@@ -98,7 +98,7 @@ class EmbeddedPages extends ControllerBase {
             'name' => 'SpektrixIFrame',
             'id' => 'SpektrixIFrame'
         ],
-        '#prefix' => '<div class="grid no-banner"><div class="col-sm-12"><div class="entity entity__spektrix">',
+        '#prefix' => '<div class="grid no-banner"><div class="col-sm-12"><div class="m-entity m-entity__spektrix">',
         '#suffix' => '</div></div></div>'
     ];
   }
@@ -115,7 +115,7 @@ class EmbeddedPages extends ControllerBase {
             'name' => 'SpektrixIFrame',
             'id' => 'SpektrixIFrame'
         ],
-        '#prefix' => '<div class="grid no-banner"><div class="col-sm-12"><div class="entity entity__spektrix">',
+        '#prefix' => '<div class="grid no-banner"><div class="col-sm-12"><div class="m-entity m-entity__spektrix">',
         '#suffix' => '</div></div></div>'
     ];
   }
@@ -132,7 +132,7 @@ class EmbeddedPages extends ControllerBase {
             'name' => 'SpektrixIFrame',
             'id' => 'SpektrixIFrame'
         ],
-        '#prefix' => '<div class="grid no-banner"><div class="col-sm-12"><div class="entity entity__spektrix">',
+        '#prefix' => '<div class="grid no-banner"><div class="col-sm-12"><div class="m-entity m-entity__spektrix">',
         '#suffix' => '</div></div></div>'
     ];
   }
@@ -149,7 +149,7 @@ class EmbeddedPages extends ControllerBase {
             'name' => 'SpektrixIFrame',
             'id' => 'SpektrixIFrame'
         ],
-        '#prefix' => '<div class="grid no-banner"><div class="col-sm-12"><div class="entity entity__spektrix">',
+        '#prefix' => '<div class="grid no-banner"><div class="col-sm-12"><div class="m-entity m-entity__spektrix">',
         '#suffix' => '</div></div></div>'
     ];
   }
@@ -166,7 +166,7 @@ class EmbeddedPages extends ControllerBase {
             'name' => 'SpektrixIFrame',
             'id' => 'SpektrixIFrame'
         ],
-        '#prefix' => '<div class="grid no-banner"><div class="col-sm-12"><div class="entity entity__spektrix">',
+        '#prefix' => '<div class="grid no-banner"><div class="col-sm-12"><div class="m-entity m-entity__spektrix">',
         '#suffix' => '</div></div></div>'
     ];
   }
@@ -183,7 +183,7 @@ class EmbeddedPages extends ControllerBase {
             'name' => 'SpektrixIFrame',
             'id' => 'SpektrixIFrame'
         ],
-        '#prefix' => '<div class="grid no-banner"><div class="col-sm-12"><div class="entity entity__spektrix">',
+        '#prefix' => '<div class="grid no-banner"><div class="col-sm-12"><div class="m-entity m-entity__spektrix">',
         '#suffix' => '</div></div></div>'
     ];
   }

@@ -17,7 +17,7 @@ class PerformancesCalendarModal extends ControllerBase {
    */
   public function modalContent($prod_id) {
       
-	$content = views_embed_view('whats_on', 'performances_modal', $prod_id);
+	$content = views_embed_view('spektrix_whatson', 'performances_modal', $prod_id);
 		    
     return array (
       '#type' => 'markup',
@@ -39,7 +39,7 @@ class PerformancesCalendarModal extends ControllerBase {
    */
   public function modalContentPartner($prod_id) {
       
-	$content = views_embed_view('whats_on', 'partner_modal', $prod_id);
+	$content = views_embed_view('spektrix_whatson', 'partner_modal', $prod_id);
 		    
     return array (
       '#type' => 'markup',

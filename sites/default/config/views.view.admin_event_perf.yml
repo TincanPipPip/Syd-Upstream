@@ -61,12 +61,17 @@ display:
           sort_asc_label: Asc
           sort_desc_label: Desc
       pager:
-        type: mini
+        type: full
         options:
           items_per_page: 50
           offset: 0
           id: 0
           total_pages: null
+          tags:
+            previous: ‹‹
+            next: ››
+            first: '« First'
+            last: 'Last »'
           expose:
             items_per_page: false
             items_per_page_label: 'Items per page'
@@ -75,9 +80,7 @@ display:
             items_per_page_options_all_label: '- All -'
             offset: false
             offset_label: Offset
-          tags:
-            previous: ‹‹
-            next: ››
+          quantity: 9
       style:
         type: table
         options:
@@ -90,23 +93,22 @@ display:
           summary: ''
           description: ''
           columns:
-            title_1: title_1
             title: title
+            field_run_date: field_run_date
             field_spektrix_event_id: field_spektrix_event_id
-            field_perf_date: field_perf_date
-            field_availability_override: field_availability_override
-            field_onsale: field_onsale
-            id: id
+            status: status
+            nid: nid
+            nothing: nothing
             nothing_1: nothing_1
           info:
-            title_1:
-              sortable: false
+            title:
+              sortable: true
               default_sort_order: asc
               align: ''
               separator: ''
               empty_column: false
               responsive: ''
-            title:
+            field_run_date:
               sortable: true
               default_sort_order: asc
               align: ''
@@ -120,28 +122,21 @@ display:
               separator: ''
               empty_column: false
               responsive: ''
-            field_perf_date:
+            status:
               sortable: true
               default_sort_order: asc
               align: ''
               separator: ''
               empty_column: false
               responsive: ''
-            field_availability_override:
+            nid:
               sortable: false
               default_sort_order: asc
               align: ''
               separator: ''
               empty_column: false
               responsive: ''
-            field_onsale:
-              sortable: false
-              default_sort_order: asc
-              align: ''
-              separator: ''
-              empty_column: false
-              responsive: ''
-            id:
+            nothing:
               sortable: false
               default_sort_order: asc
               align: ''
@@ -155,7 +150,7 @@ display:
               separator: ''
               empty_column: false
               responsive: ''
-          default: '-1'
+          default: title
           empty_table: false
       row:
         type: fields
@@ -665,6 +660,8 @@ display:
         sorts: false
         fields: false
         arguments: false
+        style: false
+        row: false
       header:
         area_text_custom:
           id: area_text_custom
@@ -675,7 +672,7 @@ display:
           admin_label: ''
           empty: true
           tokenize: false
-          content: "<button type=\"button\" class=\"button form-submit ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only\" role=\"button\"><a href=\"/admin/content/events\"><span class=\"ui-button-text\">Back to events</span></a></button>\n\n<button type=\"button\" class=\"button form-submit ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only\" role=\"button\"><a href=\"/admin/structure/eck/performances/add/performance\"><span class=\"ui-button-text\">Add new performance</span></a></button>\n"
+          content: "<button type=\"button\" class=\"button form-submit ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only\" role=\"button\"><a href=\"/admin/content/events\"><span class=\"ui-button-text\">Back to events</span></a></button>\r\n\r\n<button type=\"button\" class=\"button form-submit ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only\" role=\"button\"><a href=\"/admin/content/performances/add/performance?edit[field_event][widget][0][target_id]={{ raw_arguments.field_event_target_id }}&destination=/node/{{ raw_arguments.field_event_target_id }}/performances\"><span class=\"ui-button-text\">Add new performance</span></a></button>\r\n"
           plugin_id: text_custom
       sorts:
         field_run_date_value:
@@ -1241,6 +1238,88 @@ display:
           break_phrase: false
           not: false
           plugin_id: numeric
+      style:
+        type: table
+        options:
+          grouping: {  }
+          row_class: ''
+          default_row_class: true
+          override: true
+          sticky: false
+          caption: ''
+          summary: ''
+          description: ''
+          columns:
+            title_1: title_1
+            title: title
+            field_spektrix_event_id: field_spektrix_event_id
+            field_perf_date: field_perf_date
+            field_availability_override: field_availability_override
+            field_onsale: field_onsale
+            id: id
+            nothing_1: nothing_1
+          info:
+            title_1:
+              sortable: true
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            title:
+              sortable: true
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            field_spektrix_event_id:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            field_perf_date:
+              sortable: true
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            field_availability_override:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            field_onsale:
+              sortable: true
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            id:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            nothing_1:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+          default: '-1'
+          empty_table: false
+      row:
+        type: fields
+        options: {  }
     cache_metadata:
       max-age: -1
       contexts:

@@ -13,6 +13,9 @@ dependencies:
     - field.storage.performances.field_spektrix_perf_id
     - taxonomy.vocabulary.genre
     - taxonomy.vocabulary.venue
+  content:
+    - 'taxonomy_term:genre:8f3cc11a-a87a-4b90-81bc-d0f66751ca9f'
+    - 'taxonomy_term:venue:27ffe26e-787e-4fd3-92ee-641ec41d5f19'
   enforced:
     module:
       - spektrix_import
@@ -26,8 +29,8 @@ dependencies:
     - user
 _core:
   default_config_hash: SH2XRDsagpDvEfGBiayheptmzbVfS1K18AMn5IbgG0s
-id: whats_on
-label: 'What''s on'
+id: spektrix_whatson
+label: 'Spektrix - What''s On Calendar & Performances modal'
 module: views
 description: 'Listing events'
 tag: ''
@@ -284,8 +287,7 @@ display:
           admin_label: ''
           operator: or
           value:
-            721: 721
-            761: 761
+            1: 1
           group: 1
           exposed: false
           expose:
@@ -294,6 +296,8 @@ display:
             description: ''
             use_operator: false
             operator: ''
+            operator_limit_selection: false
+            operator_list: {  }
             identifier: ''
             required: false
             remember: false
@@ -301,8 +305,6 @@ display:
             remember_roles:
               authenticated: authenticated
             reduce: false
-            operator_limit_selection: false
-            operator_list: {  }
           is_grouped: false
           group_info:
             label: ''
@@ -331,13 +333,7 @@ display:
           admin_label: ''
           operator: or
           value:
-            656: 656
-            616: 616
-            641: 641
-            596: 596
-            621: 621
-            611: 611
-            681: 681
+            2: 2
           group: 1
           exposed: true
           expose:
@@ -346,6 +342,8 @@ display:
             description: ''
             use_operator: false
             operator: field_genre_target_id_op
+            operator_limit_selection: false
+            operator_list: {  }
             identifier: category
             required: false
             remember: false
@@ -357,8 +355,6 @@ display:
               super_editor: '0'
               administrator: '0'
             reduce: true
-            operator_limit_selection: false
-            operator_list: {  }
           is_grouped: false
           group_info:
             label: ''
@@ -437,7 +433,7 @@ display:
             label: ''
           granularity: minute
           plugin_id: datetime
-      title: 'What''s on'
+      title: 'Whats On Calendar & Performances modal'
       header:
         area_text_custom:
           id: area_text_custom
@@ -461,7 +457,7 @@ display:
           empty: true
           tokenize: false
           content:
-            value: '<a href="/whats-on/archive" title="See our archive" class="btn__archive">Archive</a><a href="/whats-on/other-venues" title="See what''s on at other venues " class="btn__venues">Other Venues</a>'
+            value: '<a href="/whats-on/archive" title="See our archive" class="a-btn--archive">Archive</a><a href="/whats-on/other-venues" title="See what''s on at other venues " class="a-btn--venues">Other Venues</a>'
             format: raw_html
           plugin_id: text
       empty:
@@ -1346,7 +1342,7 @@ display:
           empty: true
           tokenize: false
           content:
-            value: '<a href="/whats-on/archive" title="See our archive" class="btn__archive">Archive</a><a href="/whats-on/other-venues" title="See what''s on at other venues " class="btn__venues">Other Venues</a>'
+            value: '<a href="/whats-on/archive" title="See our archive" class="a-btn--archive">Archive</a><a href="/whats-on/other-venues" title="See what''s on at other venues " class="a-btn--venues">Other Venues</a>'
             format: full_html
           plugin_id: text
       style:

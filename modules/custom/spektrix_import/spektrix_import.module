@@ -46,7 +46,7 @@ function spektrix_import_preprocess_node(&$variables) {
             '#title' => !empty($node->get('field_booking_label')->getValue()) ? $node->get('field_booking_label')->getString() : t('Book Now'),
             '#url' => Url::fromRoute('spektrix_import.calendar_modal', array('prod_id' => $node->get('field_spektrix_event_id')->getValue()[0]['value'])),
             '#attributes' => array(
-                'class' => array('use-ajax', 'btn'),
+                'class' => array('use-ajax', 'a-btn'),
                 'data-dialog-type' => 'modal',
                 'data-dialog-options' => json_encode(array('height' => '70%', 'width' => '80%')),
             ),
@@ -58,7 +58,7 @@ function spektrix_import_preprocess_node(&$variables) {
           
           if ($perf) {
             
-            $btnClasses = 'btn';
+            $btnClasses = 'a-btn';
             
             if (!empty($perf->field_availability)) {
               $availabilityTerm = \Drupal::entityTypeManager()->getStorage('taxonomy_term')->load($perf->field_availability->getValue()[0]['target_id']);
@@ -66,7 +66,7 @@ function spektrix_import_preprocess_node(&$variables) {
                 $availability = $availabilityTerm->getName();              
 
                 if ($availability == 'Sold Out'){
-                  $btnClasses = 'btn no-click';
+                  $btnClasses = 'a-btn no-click';
                 }
               }
             }
@@ -96,7 +96,7 @@ function spektrix_import_preprocess_node(&$variables) {
             '#title' => !empty($node->get('field_booking_label')->getValue()) ? $node->get('field_booking_label')->getString() : t('Book Now'),
             '#url' => Url::fromRoute('spektrix_import.calendar_modal_partner', array('prod_id' => $node->id())),
             '#attributes' => array(
-                'class' => array('use-ajax', 'btn'),
+                'class' => array('use-ajax', 'a-btn'),
                 'data-dialog-type' => 'modal',
                 'data-dialog-options' => json_encode(array('height' => '70%', 'width' => '80%')),
             ),
@@ -109,13 +109,13 @@ function spektrix_import_preprocess_node(&$variables) {
             '#title' => $node->field_booking_label->getString(),
             '#url' => Url::fromUri($node->field_event_booking->getString()),
             '#attributes' => array(
-              'class' => array('btn'),
+              'class' => array('a-btn'),
             )
           );
         }
         else {
           $variables['booking_link'] = array(
-            '#markup' =>   '<a href="#" class="btn no-click" target="_self">'. $node->field_booking_label->getString() .'</a>' 
+            '#markup' =>   '<a href="#" class="a-btn no-click" target="_self" title="'. $node->field_booking_label->getString() .'">'. $node->field_booking_label->getString() .'</a>' 
           );  
         }
       }
