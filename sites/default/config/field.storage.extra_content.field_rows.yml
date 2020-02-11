@@ -1,0 +1,21 @@
+uuid: a7e3f0c8-bdce-4f47-9795-a20fd0e75e73
+langcode: en
+status: true
+dependencies:
+  module:
+    - eck
+_core:
+  default_config_hash: w_vwfGotRALDIHgCciDWRL9PV22ImpsWUzze1jE49aw
+id: extra_content.field_rows
+field_name: field_rows
+entity_type: extra_content
+type: entity_reference
+settings:
+  target_type: accordion_row
+module: core
+locked: false
+cardinality: -1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

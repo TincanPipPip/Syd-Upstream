@@ -1,0 +1,21 @@
+uuid: ab735c14-5b64-4eb4-9a35-d3628ffd1099
+langcode: en
+status: true
+dependencies:
+  module:
+    - eck
+    - link
+_core:
+  default_config_hash: g7qhMOqKZSmF_Z5NLb2DyyH-hsXgDit341MBIRhdgO4
+id: logos.field_logo_link
+field_name: field_logo_link
+entity_type: logos
+type: link
+settings: {  }
+module: link
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

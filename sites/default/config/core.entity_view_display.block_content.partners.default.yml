@@ -1,0 +1,24 @@
+uuid: ad1717f1-32c5-4f66-b25f-bb826d805f74
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.partners
+    - field.field.block_content.partners.field_partner_logos
+_core:
+  default_config_hash: hP-vEQBTuSo4TBnafdD0Mw4Fx5pFel2IUSPPqYk4cjM
+id: block_content.partners.default
+targetEntityType: block_content
+bundle: partners
+mode: default
+content:
+  field_partner_logos:
+    weight: 0
+    label: hidden
+    settings:
+      link: true
+      view_mode: default
+    third_party_settings: {  }
+    type: entity_reference_entity_view
+    region: content
+hidden: {  }

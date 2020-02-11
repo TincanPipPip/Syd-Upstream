@@ -1,0 +1,14 @@
+uuid: c5930f40-0328-4218-bf9e-6ab7c21a210b
+name: lh.pantheon.com
+mail: dp_admin@tincan.co.uk
+slogan: ''
+page:
+  403: ''
+  404: ''
+  front: /user/login
+admin_compact_mode: false
+weight_select_max: 100
+langcode: en
+default_langcode: en
+_core:
+  default_config_hash: yXadRE77Va-G6dxhd2kPYapAvbnSvTF6hO4oXiOEynI

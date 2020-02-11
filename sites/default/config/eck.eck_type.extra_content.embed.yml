@@ -1,0 +1,11 @@
+uuid: d01d1a24-13f2-47c3-bb18-24c23d4dab2f
+langcode: en
+status: true
+dependencies:
+  config:
+    - eck.eck_entity_type.extra_content
+_core:
+  default_config_hash: ylp97TxEHQASXlX0tUNWWn16O-teLVAURqzEhQJK_MA
+name: Embed
+type: embed
+description: ''

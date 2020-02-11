@@ -1,0 +1,10 @@
+uuid: df4e52ee-acaa-46f8-887b-97aa991cb818
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: wADSZshPEHxmzkGH7D3-FMY2r-0E2G13uqIrGPbPra0
+name: gallery
+label: Gallery
+effects: {  }
+pipeline: __default__

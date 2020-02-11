@@ -1,0 +1,18 @@
+uuid: 34bb4e68-e461-4095-b28c-3114c973b4d5
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: 7El3cSgXxyWQo1olf2J4nwJhenc7pZJlRUusTyE7YB4
+name: teaser_thumb
+label: 'Teaser thumbmail'
+effects:
+  777146e9-985a-479b-aa9e-71123e9a4444:
+    uuid: 777146e9-985a-479b-aa9e-71123e9a4444
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 840
+      height: 660
+      anchor: center-center
+pipeline: __default__

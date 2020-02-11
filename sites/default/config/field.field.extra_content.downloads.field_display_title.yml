@@ -1,0 +1,25 @@
+uuid: 6826b4f6-4c09-43e9-a615-a0feb4233f87
+langcode: en
+status: true
+dependencies:
+  config:
+    - eck.eck_type.extra_content.downloads
+    - field.storage.extra_content.field_display_title
+_core:
+  default_config_hash: e_NQYqz86HiS3LyCvdLpGPl9_LHkM2rsGMer3eGxGV4
+id: extra_content.downloads.field_display_title
+field_name: field_display_title
+entity_type: extra_content
+bundle: downloads
+label: 'Display title?'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

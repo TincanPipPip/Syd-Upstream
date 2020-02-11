@@ -1,0 +1,12 @@
+uuid: aa614600-9fb7-4a2e-8932-a2afcdabd1ef
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: pZoOhs7b-ztZzHywjOcTKaQkik3BVhpnywq56oQBH9s
+id: extra_content
+label: 'Extra content'
+created: false
+changed: false
+uid: false
+title: true

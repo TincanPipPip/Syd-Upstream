@@ -1,0 +1,21 @@
+uuid: c53dd0db-8c98-46e5-9f79-8c7263a2a622
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.emergency_message
+    - field.storage.block_content.field_title
+_core:
+  default_config_hash: mGsnbMST6wYioecoZ-r-G9wp_V-rY7DfW3Up6QoX-fs
+id: block_content.emergency_message.field_title
+field_name: field_title
+entity_type: block_content
+bundle: emergency_message
+label: Title
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

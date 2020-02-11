@@ -1,0 +1,11 @@
+uuid: 3b23dd23-ef4e-463e-b2a8-0b838b33c8a9
+langcode: en
+status: true
+dependencies:
+  config:
+    - eck.eck_entity_type.extra_content
+_core:
+  default_config_hash: zfjJXqnkpQQGmtuYhwNYpfIRhlRm1VfpgMx6jgMcMPQ
+name: CTA
+type: cta
+description: ''

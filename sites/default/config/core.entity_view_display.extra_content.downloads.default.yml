@@ -1,0 +1,43 @@
+uuid: e14e8c76-d91c-46a2-b5f7-02c5108d0985
+langcode: en
+status: true
+dependencies:
+  config:
+    - eck.eck_type.extra_content.downloads
+    - field.field.extra_content.downloads.field_display_title
+    - field.field.extra_content.downloads.field_files
+  module:
+    - file
+_core:
+  default_config_hash: Xiuog9e6EcjWXaldE2W4JhdrRiebgG9_CPa_QSIbi_Y
+id: extra_content.downloads.default
+targetEntityType: extra_content
+bundle: downloads
+mode: default
+content:
+  field_display_title:
+    weight: -3
+    label: hidden
+    settings:
+      format: boolean
+      format_custom_true: ''
+      format_custom_false: ''
+    third_party_settings: {  }
+    type: boolean
+    region: content
+  field_files:
+    weight: -4
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: file_default
+    region: content
+  title:
+    label: hidden
+    type: string
+    weight: -5
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    region: content
+hidden: {  }

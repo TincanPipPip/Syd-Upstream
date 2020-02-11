@@ -1,0 +1,21 @@
+uuid: 336e7d6b-c6fa-428e-b01e-96aad187921f
+langcode: en
+status: true
+dependencies:
+  module:
+    - eck
+    - link
+_core:
+  default_config_hash: bMykTfCpTKS47ZeC50pOtlBdjJGVBZJ6wKj3XalfCbA
+id: extra_content.field_cta
+field_name: field_cta
+entity_type: extra_content
+type: link
+settings: {  }
+module: link
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

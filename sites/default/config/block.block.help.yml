@@ -1,0 +1,22 @@
+uuid: 358335ca-9fc1-41a9-916b-a5fa3f90e702
+langcode: en
+status: true
+dependencies:
+  module:
+    - help
+  theme:
+    - pippip
+_core:
+  default_config_hash: 4ELgFpf2YNyGZGyBuzjZYN9tKDCQWVWfCgHWoeeAw4A
+id: help
+theme: pippip
+region: help
+weight: 0
+provider: null
+plugin: help_block
+settings:
+  id: help_block
+  label: Help
+  provider: help
+  label_display: visible
+visibility: {  }

@@ -1,0 +1,30 @@
+uuid: b59c24b6-0f50-4535-8c03-bf810c62cf6c
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.partners
+    - eck.eck_type.logos.logos_list
+    - field.storage.block_content.field_partner_logos
+_core:
+  default_config_hash: 7_ywdTiKwLJrdgQ6hKaHw6Z-rBU4fzrh2i54oOqQ_1s
+id: block_content.partners.field_partner_logos
+field_name: field_partner_logos
+entity_type: block_content
+bundle: partners
+label: 'Partner logos'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:logos'
+  handler_settings:
+    target_bundles:
+      logos_list: logos_list
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

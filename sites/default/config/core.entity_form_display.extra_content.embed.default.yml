@@ -1,0 +1,39 @@
+uuid: 0402a8f2-3f1e-4f72-a53b-03fa84f47d48
+langcode: en
+status: true
+dependencies:
+  config:
+    - eck.eck_type.extra_content.embed
+    - field.field.extra_content.embed.field_display_title
+    - field.field.extra_content.embed.field_embed
+_core:
+  default_config_hash: uzK9MmopS_p97uMhMI3sRYgVhd2-p74icG_ZzG0IaTM
+id: extra_content.embed.default
+targetEntityType: extra_content
+bundle: embed
+mode: default
+content:
+  field_display_title:
+    type: boolean_checkbox
+    weight: 1
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+  field_embed:
+    weight: 2
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textarea
+    region: content
+  title:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden: {  }

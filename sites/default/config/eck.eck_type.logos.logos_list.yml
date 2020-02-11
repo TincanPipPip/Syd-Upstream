@@ -1,0 +1,11 @@
+uuid: 9482acbf-0de9-48eb-8415-c0179860ea76
+langcode: en
+status: true
+dependencies:
+  config:
+    - eck.eck_entity_type.logos
+_core:
+  default_config_hash: F0YDX4kqNStCr_eY_2-xQCOE1O7J4HAq2CL2A_QLPyA
+name: 'Logos list'
+type: logos_list
+description: ''

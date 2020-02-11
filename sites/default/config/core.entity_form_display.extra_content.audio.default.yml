@@ -1,0 +1,41 @@
+uuid: cbb8aeee-21cb-49b8-8eca-d6cbd31ce40c
+langcode: en
+status: true
+dependencies:
+  config:
+    - eck.eck_type.extra_content.audio
+    - field.field.extra_content.audio.field_display_title
+    - field.field.extra_content.audio.field_soundcloud_link
+  module:
+    - soundcloudfield
+_core:
+  default_config_hash: 0SsgXcSBSmsK_ufFapX4QblU7JsPfARin4LqB3JvSNk
+id: extra_content.audio.default
+targetEntityType: extra_content
+bundle: audio
+mode: default
+content:
+  field_display_title:
+    weight: 1
+    settings:
+      display_label: true
+    third_party_settings: {  }
+    type: boolean_checkbox
+    region: content
+  field_soundcloud_link:
+    weight: 2
+    settings:
+      url: ''
+      placeholder_url: ''
+    third_party_settings: {  }
+    type: soundcloud_url
+    region: content
+  title:
+    type: string_textfield
+    weight: 0
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    region: content
+hidden: {  }

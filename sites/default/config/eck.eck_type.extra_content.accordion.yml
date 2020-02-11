@@ -1,0 +1,11 @@
+uuid: d8bcccfb-c05b-4df3-9a38-12b5fa57b37a
+langcode: en
+status: true
+dependencies:
+  config:
+    - eck.eck_entity_type.extra_content
+_core:
+  default_config_hash: 6ByO-s1ZlfK4wu3-fHhJBmE_eSd1z5VVBlP7ellV_Ac
+name: Accordion
+type: accordion
+description: ''

@@ -1,0 +1,11 @@
+uuid: f2d974b3-b8c8-44e2-be17-e69331606e59
+langcode: en
+status: true
+dependencies:
+  config:
+    - eck.eck_entity_type.accordion_row
+_core:
+  default_config_hash: qZxf1iXG90IUQDXgG-vRzqulHzLnyZOh1RJQhZusikM
+name: Row
+type: row
+description: ''

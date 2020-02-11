@@ -1,0 +1,23 @@
+uuid: 704b0f74-aed5-46b6-a81e-fee2dd3424a5
+langcode: en
+status: true
+dependencies:
+  module:
+    - eck
+_core:
+  default_config_hash: JBAjX_d5cA8BmuNB9Uc954xgh1cveE9iH1SKfhGxB8w
+id: extra_content.field_author
+field_name: field_author
+entity_type: extra_content
+type: string
+settings:
+  max_length: 255
+  is_ascii: false
+  case_sensitive: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

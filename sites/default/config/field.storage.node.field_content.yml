@@ -1,0 +1,22 @@
+uuid: 211c144f-f22a-4ef6-9408-c483f65423c9
+langcode: en
+status: true
+dependencies:
+  module:
+    - eck
+    - node
+_core:
+  default_config_hash: i2M7DHNHsqMDGVqqp6gMY79l6af9mOv3-zL7FospLWs
+id: node.field_content
+field_name: field_content
+entity_type: node
+type: entity_reference
+settings:
+  target_type: extra_content
+module: core
+locked: false
+cardinality: -1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

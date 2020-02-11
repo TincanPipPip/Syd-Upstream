@@ -1,0 +1,25 @@
+uuid: d7cc9afe-8ac0-492f-890c-ec2886815d06
+langcode: en
+status: true
+dependencies:
+  config:
+    - eck.eck_type.extra_content.accordion
+    - field.storage.extra_content.field_display_title
+_core:
+  default_config_hash: sp5ub3YyIz-GtuwAUzwcQ1z1qi0xIXAEGA3gWqPYWsA
+id: extra_content.accordion.field_display_title
+field_name: field_display_title
+entity_type: extra_content
+bundle: accordion
+label: 'Display title?'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean
