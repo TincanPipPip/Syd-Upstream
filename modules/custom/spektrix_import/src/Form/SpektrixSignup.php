@@ -29,7 +29,7 @@ class SpektrixSignup extends FormBase {
     
     $config = \Drupal::config('spektrix_import.settings');
 	
-	$form['#prefix'] = '<div class="row no-banner spektrix-form-wrapper"><div class="large-12 columns"><h1>Join our mailing list</h1><p>Get updates on the best new events happening in Reading, straight to your inbox. </p> <p>Opt in to the What’s On Reading newsletter and you’ll get our pick of the week’s arts and cultural highlights. And let us know what kind of events you love the most and we’ll make sure you’re one of the first to hear when new shows are announced.</p>';
+	$form['#prefix'] = '<div class="grid no-banner m-spektrix-form-wrapper"><div class="col-sm-12"><h1>Join our mailing list</h1><p>Get updates on the best new events happening in Reading, straight to your inbox. </p> <p>Opt in to the What’s On Reading newsletter and you’ll get our pick of the week’s arts and cultural highlights. And let us know what kind of events you love the most and we’ll make sure you’re one of the first to hear when new shows are announced.</p>';
 	$form['#suffix'] = '</div></div>';
 	
 	$form['FirstName'] = array(
