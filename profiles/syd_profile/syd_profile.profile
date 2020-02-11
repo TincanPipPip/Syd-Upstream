@@ -24,6 +24,6 @@ function syd_profile_form_install_configure_form_alter(&$form, FormStateInterfac
   // Unset the timezone detect stuff
   unset($form['server_settings']['date_default_timezone']['#attributes']['class']);
 
-  // Only check for updates, no need for email notifications
-  $form['update_notifications']['update_status_module']['#default_value'] = array(0);
+  // Disbale update checks
+  $form['update_notifications']['enable_update_status_module']['#default_value'] = 0;
 }
