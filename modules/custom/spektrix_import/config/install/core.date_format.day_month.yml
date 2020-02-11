@@ -1,4 +1,4 @@
-uuid: bab7c01a-1b9e-459e-835b-8ced30903907
+uuid: 36636c2a-88bd-4a80-a723-dbc28d7e3744
 langcode: en
 status: true
 dependencies: 
@@ -7,7 +7,7 @@ dependencies:
   enforced:
     module:
       - spektrix_import
-id: qh_date
-label: 'QH Date'
+id: day_month
+label: 'Day Month'
 locked: false
-pattern: 'j M Y'
+pattern: 'j M'

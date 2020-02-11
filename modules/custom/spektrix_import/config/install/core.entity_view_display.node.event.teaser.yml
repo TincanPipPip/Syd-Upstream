@@ -21,7 +21,6 @@ dependencies:
     - field.field.node.event.field_venue
     - field.field.node.event.field_ymal
     - field.field.node.event.field_ymal_pages
-    - image.style.qh_teaser
     - node.type.event
   module:
     - datetime_range
@@ -72,7 +71,7 @@ content:
     region: content
     label: hidden
     settings:
-      image_style: qh_teaser
+      image_style: ''
       image_link: ''
     third_party_settings: {  }
   field_pre_title:
@@ -90,7 +89,7 @@ content:
     label: hidden
     settings:
       timezone_override: Europe/London
-      format_type: qh_date
+      format_type: ym_date
       separator: '-'
     third_party_settings: {  }
   field_strapline:
@@ -106,7 +105,7 @@ content:
     region: content
     label: hidden
     settings:
-      image_style: qh_teaser
+      image_style: ''
       image_link: ''
     third_party_settings: {  }
   field_venue:

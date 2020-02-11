@@ -194,7 +194,7 @@ function spektrix_import_preprocess_eck_entity(&$vars) {
   if (isset($vars['elements']['#extra_content']) && is_object($vars['elements']['#extra_content'])) {    
 	if ($vars['elements']['#extra_content']->bundle() == 'donation' || $vars['elements']['#extra_content']->bundle() == 'spektrix_donation') {      
       $vars['spektrix_client'] = \Drupal::config('spektrix_import.settings')->get('spektrix_import_client');
-	  $vars['fund_id'] = $vars['elements']['#extra_content']->field_fund_id->getString();
+	  $vars['fund_id'] = $vars['elements']['#extra_content']->field_fund->getString();
       $vars['custom_domain'] = \Drupal::config('spektrix_import.settings')->get('spektrix_import_domain');
 	}
   }

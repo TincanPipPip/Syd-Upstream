@@ -75,7 +75,7 @@ content:
     label: inline
     settings:
       timezone_override: ''
-      format_type: qh_date_time
+      format_type: ym_date_time
     third_party_settings: {  }
     type: datetime_default
     region: content

@@ -84,7 +84,7 @@ content:
     weight: 105
     label: hidden
     settings:
-      image_style: qh_banner
+      image_style: ''
       image_link: ''
     third_party_settings: {  }
     type: image
@@ -116,7 +116,7 @@ content:
     label: hidden
     settings:
       timezone_override: Europe/London
-      format_type: qh_date
+      format_type: ym_date
       separator: '-'
     third_party_settings: {  }
     type: daterange_default

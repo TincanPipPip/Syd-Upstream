@@ -1,4 +1,4 @@
-uuid: f45091c8-0621-433f-b9dc-7b12db21868c
+uuid: 2148a0ba-ed62-45fd-8442-5cd45e5b8fc0
 langcode: en
 status: true
 dependencies: 
@@ -7,7 +7,7 @@ dependencies:
   enforced:
     module:
       - spektrix_import
-id: qh_day
-label: 'QH Week Day'
+id: time
+label: 'Time'
 locked: false
-pattern: D
+pattern: 'g:iA'

@@ -38,7 +38,7 @@ dependencies:
 id: whats_on
 label: 'What''s on'
 module: views
-description: 'Listing events in QH'
+description: 'Listing events'
 tag: ''
 base_table: performances_field_data
 base_field: id
@@ -1046,7 +1046,7 @@ display:
           type: datetime_default
           settings:
             timezone_override: ''
-            format_type: qh_date_time
+            format_type: ym_date_time
           group_column: value
           group_columns: {  }
           group_rows: true
@@ -1588,7 +1588,7 @@ display:
           type: datetime_default
           settings:
             timezone_override: ''
-            format_type: qh_date_time
+            format_type: ym_date_time
           group_column: value
           group_columns: {  }
           group_rows: true
