@@ -1,0 +1,25 @@
+uuid: e8bf7c9a-5e0d-4e0f-8d0b-e2ceb49b9b12
+langcode: en
+status: true
+dependencies:
+  config:
+    - eck.eck_type.extra_content.embed
+    - field.storage.extra_content.field_display_title
+_core:
+  default_config_hash: aOt4qfzUDocOL39G8LWX-ZA03PC1q6W7T_32nOGEjvM
+id: extra_content.embed.field_display_title
+field_name: field_display_title
+entity_type: extra_content
+bundle: embed
+label: 'Display title?'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

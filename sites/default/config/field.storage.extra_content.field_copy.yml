@@ -1,0 +1,21 @@
+uuid: 0b1317fc-a928-4347-ae72-8983d24e0e95
+langcode: en
+status: true
+dependencies:
+  module:
+    - eck
+    - text
+_core:
+  default_config_hash: xZs8VrMVtCCrskuGJAzuTe36MEKW0us9GuaqbhCvCsk
+id: extra_content.field_copy
+field_name: field_copy
+entity_type: extra_content
+type: text_long
+settings: {  }
+module: text
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

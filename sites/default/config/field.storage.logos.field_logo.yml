@@ -1,0 +1,32 @@
+uuid: 73175aa9-ce0f-4313-86a1-7906a32082b4
+langcode: en
+status: true
+dependencies:
+  module:
+    - eck
+    - file
+    - image
+_core:
+  default_config_hash: O8VffVNn_jZKM2SLhbVT5LF5k7AmepSLyaKlldUAy1I
+id: logos.field_logo
+field_name: field_logo
+entity_type: logos
+type: image
+settings:
+  uri_scheme: public
+  default_image:
+    uuid: ''
+    alt: ''
+    title: ''
+    width: null
+    height: null
+  target_type: file
+  display_field: false
+  display_default: false
+module: image
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

@@ -1,0 +1,21 @@
+uuid: a7ce72e0-ec5a-4fa7-aa5e-a23a49e176e5
+langcode: en
+status: true
+dependencies:
+  module:
+    - eck
+    - text
+_core:
+  default_config_hash: bnSTR9bISiObfzu0RVUan9IEx4gjRjcIIIdGnto-ho0
+id: extra_content.field_quote
+field_name: field_quote
+entity_type: extra_content
+type: text_long
+settings: {  }
+module: text
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

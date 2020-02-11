@@ -1,0 +1,11 @@
+uuid: 7bc7d67a-f082-4870-8dc7-b05eac60163a
+langcode: en
+status: true
+dependencies:
+  config:
+    - eck.eck_entity_type.extra_content
+_core:
+  default_config_hash: nWFoVidxmWTxhR4W9IQfn0Eg1UA7bsxAh_FURc49aZQ
+name: Gallery
+type: gallery
+description: ''

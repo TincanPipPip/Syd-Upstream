@@ -1,0 +1,12 @@
+uuid: eaeb2a02-593e-4a6b-815b-8e076736490c
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: k37gpkxDy6wqPUe12OEb29XA13iWGksY_ZeV65XKY5U
+id: accordion_row
+label: 'Accordion row'
+created: false
+changed: false
+uid: false
+title: true

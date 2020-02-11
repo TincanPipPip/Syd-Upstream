@@ -1,0 +1,11 @@
+uuid: eb1050cb-db67-4fa3-bc16-453f9e187417
+langcode: en
+status: true
+dependencies:
+  config:
+    - eck.eck_entity_type.extra_content
+_core:
+  default_config_hash: '-kV_uURPbzFGpvdzJqjTnxSsCSKg1ZwiHSw5rs5Se3I'
+name: Video
+type: video
+description: ''

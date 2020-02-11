@@ -1,0 +1,21 @@
+uuid: 77007c07-f95a-4d83-9908-2b44632364d8
+langcode: en
+status: true
+dependencies:
+  config:
+    - eck.eck_type.extra_content.quote
+    - field.storage.extra_content.field_quote_credit
+_core:
+  default_config_hash: iS5SviEQDM8CtdIWM2wazcNUjWjwPs1i2FiwjhBbABU
+id: extra_content.quote.field_quote_credit
+field_name: field_quote_credit
+entity_type: extra_content
+bundle: quote
+label: 'Quote credit'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

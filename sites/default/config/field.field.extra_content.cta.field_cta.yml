@@ -1,0 +1,25 @@
+uuid: 1933cee5-c057-4670-a40b-17a4321a8011
+langcode: en
+status: true
+dependencies:
+  config:
+    - eck.eck_type.extra_content.cta
+    - field.storage.extra_content.field_cta
+  module:
+    - link
+_core:
+  default_config_hash: zGLmnKGkNl2pDxAbZe_IRF8BLBuKOYqnUtzEot-XxFs
+id: extra_content.cta.field_cta
+field_name: field_cta
+entity_type: extra_content
+bundle: cta
+label: CTA
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  link_type: 17
+  title: 2
+field_type: link

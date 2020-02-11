@@ -1,0 +1,16 @@
+uuid: 8d14596a-25d1-410e-ba63-da007ab9a23c
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: Sm6KZOh49tnEt2GLk8ZzTZ3YRWt4nwxR_wGAD5AwsTw
+id: anonymous
+label: 'Anonymous user'
+weight: 0
+is_admin: false
+permissions:
+  - 'access content'
+  - 'access sitemap'
+  - 'view any accordion_row entities'
+  - 'view any extra_content entities'
+  - 'view any logos entities'

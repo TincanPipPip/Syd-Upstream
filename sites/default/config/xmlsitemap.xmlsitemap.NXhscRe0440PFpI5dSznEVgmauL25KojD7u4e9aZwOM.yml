@@ -1,0 +1,9 @@
+uuid: 0f9a1294-3a1e-4ba1-ab01-798b7a8a71e4
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: freOHqyKHjzbjWuxXfhVhrUzhaHHCR_AcNw3pEFvyWM
+id: NXhscRe0440PFpI5dSznEVgmauL25KojD7u4e9aZwOM
+label: 'http://lh.syd.com/core/install.php/'
+context: {  }

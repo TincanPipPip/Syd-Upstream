@@ -1,0 +1,16 @@
+uuid: 2fff6bb6-f94c-4925-a667-e71cf9e50531
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.super_editor
+  module:
+    - user
+_core:
+  default_config_hash: qtAMjZUvWloK6hUWr0oSrDaSXQxtAtIwmjHF5nnEuP8
+id: user_add_role_action.super_editor
+label: 'Add the Super Editor role to the selected users'
+type: user
+plugin: user_add_role_action
+configuration:
+  rid: super_editor

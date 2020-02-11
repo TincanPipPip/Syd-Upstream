@@ -1,0 +1,41 @@
+uuid: c9352677-aeab-474b-a6d1-a5e9eda4b5d5
+langcode: en
+status: true
+dependencies:
+  config:
+    - eck.eck_type.extra_content.cta
+    - field.field.extra_content.cta.field_cta
+    - field.field.extra_content.cta.field_display_title
+  module:
+    - link
+_core:
+  default_config_hash: RMsJsDAIWtwmXCkdKBepLYGO-w6RLT86Ojql5EV1sV0
+id: extra_content.cta.default
+targetEntityType: extra_content
+bundle: cta
+mode: default
+content:
+  field_cta:
+    weight: 3
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+    type: link_default
+    region: content
+  field_display_title:
+    weight: 1
+    settings:
+      display_label: true
+    third_party_settings: {  }
+    type: boolean_checkbox
+    region: content
+  title:
+    type: string_textfield
+    weight: -5
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden: {  }

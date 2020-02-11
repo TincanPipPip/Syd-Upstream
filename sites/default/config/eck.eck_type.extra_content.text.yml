@@ -1,0 +1,11 @@
+uuid: 95ddfb72-f559-4479-8d26-17319f18dbc1
+langcode: en
+status: true
+dependencies:
+  config:
+    - eck.eck_entity_type.extra_content
+_core:
+  default_config_hash: O7kf9-ZJIIw8NADU7oWCwvwE3vk-KZLzAMREB_B6g6Y
+name: Text
+type: text
+description: ''

@@ -1,0 +1,10 @@
+uuid: 0d26a394-f8b8-4e72-a8bb-3f75703087a2
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: TU2nfbV9lBCAU5xkQXsTedt2cQWwU5I26_2UcuGELVE
+id: partners
+label: Partners
+revision: 0
+description: ''

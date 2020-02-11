@@ -1,0 +1,11 @@
+uuid: c0fab840-a252-4695-80c2-78f2bae5dfe9
+langcode: en
+status: true
+dependencies:
+  config:
+    - eck.eck_entity_type.extra_content
+_core:
+  default_config_hash: VCRWQ0-qvKvq0rv0EuU2k00LfYluWPhzvqeZ2eprIkg
+name: Image
+type: image
+description: ''
