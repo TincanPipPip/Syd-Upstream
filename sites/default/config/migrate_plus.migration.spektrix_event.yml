@@ -1,0 +1,79 @@
+uuid: 4ffadefd-e296-4bee-9ca9-9f278cfc692b
+langcode: en
+status: true
+dependencies:
+  module:
+    - spektrix_import
+  enforced:
+    module:
+      - migrate_plus
+      - spektrix_import
+id: spektrix_event
+class: null
+field_plugin_method: null
+cck_plugin_method: null
+migration_tags: null
+migration_group: spektrix
+label: 'Event migration'
+source:
+  plugin: spektrix_event
+  data_fetcher_plugin: http
+  data_parser_plugin: spektrix_xml
+  urls: 'https://system.spektrix.com/queenshalledinburgh/api/v1/eventsrestful.svc/allattributes/next?n=1000'
+  item_selector: /Events/Event
+  fields:
+    -
+      name: event_id
+      label: 'Event ID'
+      selector: Id
+    -
+      name: event_title
+      label: Title
+      selector: Name
+    -
+      name: event_date_from
+      label: 'Event date from'
+      selector: FirstInstance
+    -
+      name: event_date_to
+      label: 'Event date to'
+      selector: LastInstance
+    -
+      name: event_image
+      label: Thumbnail
+      selector: ImageUrl
+    -
+      name: Attributes
+      label: Attributes
+      selector: Attributes
+    -
+      name: price
+      label: 'Pseudo element for price'
+    -
+      name: venue
+      label: 'Pseudo element for venue'
+    -
+      name: genre
+      label: 'Pseudo element for genre'
+  ids:
+    event_id:
+      type: int
+process:
+  type:
+    plugin: default_value
+    default_value: event
+  title: event_title
+  field_price_times: price
+  field_venue: venue
+  field_spektrix_event_id: event_id
+  field_run_date:
+    plugin: spektrix_date_range
+    source:
+      - event_date_from
+      - event_date_to
+  sticky:
+    plugin: default_value
+    default_value: 0
+destination:
+  plugin: 'entity:node'
+migration_dependencies: null
