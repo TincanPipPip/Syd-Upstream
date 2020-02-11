@@ -1,0 +1,13 @@
+uuid: bab7c01a-1b9e-459e-835b-8ced30903907
+langcode: en
+status: true
+dependencies: 
+  module:
+    - spektrix_import
+  enforced:
+    module:
+      - spektrix_import
+id: qh_date
+label: 'QH Date'
+locked: false
+pattern: 'j M Y'

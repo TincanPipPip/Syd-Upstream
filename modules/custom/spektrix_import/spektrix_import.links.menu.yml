@@ -1,0 +1,5 @@
+spektrix_import.menu:
+  title: Spektrix Settings
+  parent: system.admin_structure
+  description: Manage Spektrix settings.
+  route_name: spektrix_import.settings

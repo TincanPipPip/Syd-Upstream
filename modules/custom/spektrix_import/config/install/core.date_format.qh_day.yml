@@ -1,0 +1,13 @@
+uuid: f45091c8-0621-433f-b9dc-7b12db21868c
+langcode: en
+status: true
+dependencies: 
+  module:
+    - spektrix_import
+  enforced:
+    module:
+      - spektrix_import
+id: qh_day
+label: 'QH Week Day'
+locked: false
+pattern: D

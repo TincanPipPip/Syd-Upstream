@@ -1,0 +1,13 @@
+uuid: 2148a0ba-ed62-45fd-8442-5cd45e5b8fc0
+langcode: en
+status: true
+dependencies: 
+  module:
+    - spektrix_import
+  enforced:
+    module:
+      - spektrix_import
+id: qh_time
+label: 'QH Time'
+locked: false
+pattern: 'g:iA'

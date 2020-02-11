@@ -1,0 +1,24 @@
+uuid: b7ebd357-856f-4b35-a7ce-2ceeeabd804c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_contact
+    - taxonomy.vocabulary.venue
+  module:
+    - spektrix_import
+  enforced:
+    module:
+      - spektrix_import  
+id: taxonomy_term.venue.field_contact
+field_name: field_contact
+entity_type: taxonomy_term
+bundle: venue
+label: Contact
+description: 'Telephone number'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

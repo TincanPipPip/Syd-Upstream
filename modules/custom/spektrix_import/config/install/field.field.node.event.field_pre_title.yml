@@ -1,0 +1,24 @@
+uuid: 6fb7bb00-1731-4511-bc86-5b2b4544cf47
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_pre_title
+    - node.type.event
+  module:
+    - spektrix_import
+  enforced:
+    module:
+      - spektrix_import  
+id: node.event.field_pre_title
+field_name: field_pre_title
+entity_type: node
+bundle: event
+label: 'Pre title'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

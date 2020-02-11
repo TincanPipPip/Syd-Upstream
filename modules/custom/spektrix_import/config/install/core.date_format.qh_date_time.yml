@@ -1,0 +1,13 @@
+uuid: bf61e985-3d51-434c-89ec-b68744826e87
+langcode: en
+status: true
+dependencies: 
+  module:
+    - spektrix_import
+  enforced:
+    module:
+      - spektrix_import
+id: qh_date_time
+label: 'QH Date and Time'
+locked: false
+pattern: 'j M Y g:iA'

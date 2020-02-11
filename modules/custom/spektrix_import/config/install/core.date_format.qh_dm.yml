@@ -1,0 +1,13 @@
+uuid: 36636c2a-88bd-4a80-a723-dbc28d7e3744
+langcode: en
+status: true
+dependencies: 
+  module:
+    - spektrix_import
+  enforced:
+    module:
+      - spektrix_import
+id: qh_dm
+label: 'QH DM'
+locked: false
+pattern: 'j M'

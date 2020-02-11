@@ -1,0 +1,13 @@
+uuid: 4d25a1f4-6949-406e-be92-452a67687706
+langcode: en
+status: true
+dependencies: 
+  module:
+    - spektrix_import
+  enforced:
+    module:
+      - spektrix_import
+id: qh_y
+label: 'QH Y'
+locked: false
+pattern: 'Y'

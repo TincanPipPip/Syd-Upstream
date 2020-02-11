@@ -1,0 +1,20 @@
+uuid: 677ca467-2412-4944-91ba-3d577163f2a7
+langcode: en
+status: true
+dependencies: 
+  module:
+    - spektrix_import
+  enforced:
+    module:
+      - spektrix_import
+name: qh_teaser
+label: 'QH Teaser'
+effects:
+  95eae34d-448b-48cf-9d04-0a7fd8089fae:
+    uuid: 95eae34d-448b-48cf-9d04-0a7fd8089fae
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 400
+      height: 400
+      anchor: center-center
