@@ -1,9 +1,0 @@
-langcode: en
-status: true
-dependencies: {  }
-id: accordion_row
-label: 'Accordion row'
-created: false
-changed: false
-uid: false
-title: true
