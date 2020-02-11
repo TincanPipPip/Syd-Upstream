@@ -5,4 +5,4 @@
 - It includes a comprehensive set of modules alongside a default admin theme ([Adminimal](https://www.drupal.org/project/adminimal_theme)) & base theme ([Pippip](https://github.com/TincanPipPip/Pippip-v2))
 
 ## Installation
-See [Wiki](https://github.com/TincanPipPip/syd_make_8/wiki/Installation) ** Note to be updated **
+See [Wiki](https://github.com/TincanPipPip/Syd-Upstream/wiki/Installation)
