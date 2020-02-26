@@ -1,0 +1,12 @@
+name: 'Image Optimize test'
+type: module
+description: 'Provides hook implementations for testing Image Optimize module functionality.'
+package: Testing
+core: 8.x
+dependencies:
+  - imageapi_optimize:imageapi_optimize
+
+# Information added by Drupal.org packaging script on 2020-02-11
+version: '8.x-2.0-beta1'
+project: 'imageapi_optimize'
+datestamp: 1581436168

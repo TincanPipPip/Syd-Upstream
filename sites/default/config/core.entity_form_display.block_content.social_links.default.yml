@@ -1,0 +1,39 @@
+uuid: cb83d9c7-9523-45a8-bc30-f40211d87688
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.social_links
+    - field.field.block_content.social_links.field_social_links
+  module:
+    - inline_entity_form
+id: block_content.social_links.default
+targetEntityType: block_content
+bundle: social_links
+mode: default
+content:
+  field_social_links:
+    weight: 26
+    settings:
+      form_mode: default
+      override_labels: true
+      label_singular: 'Social link'
+      label_plural: 'Social links'
+      allow_new: true
+      allow_existing: true
+      match_operator: CONTAINS
+      allow_duplicate: true
+      collapsible: false
+      collapsed: false
+    third_party_settings: {  }
+    type: inline_entity_form_complex
+    region: content
+  info:
+    type: string_textfield
+    weight: -5
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden: {  }

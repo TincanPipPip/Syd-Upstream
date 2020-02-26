@@ -1,0 +1,23 @@
+uuid: 9ac62b75-2aa7-43b1-95e5-8cf61790616b
+langcode: en
+status: true
+dependencies:
+  config:
+    - eck.eck_type.social_links.social_link
+    - field.storage.social_links.field_social_link
+  module:
+    - link
+id: social_links.social_link.field_social_link
+field_name: field_social_link
+entity_type: social_links
+bundle: social_link
+label: 'Social link'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  link_type: 16
+  title: 0
+field_type: link

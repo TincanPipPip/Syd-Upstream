@@ -2,8 +2,6 @@
 
 {% block content %}
 
-  {% include '@pippip/partials/atoms/content-toolkit-title.html.twig' %}
-
-  {{ content.field_cta }}
+  <a href="{{ content.field_cta[0]['#plain_text'] }}" title="{{ content.title }}" class="a-btn">{{ content.title }}</a>
 
 {% endblock %}

@@ -6,5 +6,13 @@ _core:
   default_config_hash: wADSZshPEHxmzkGH7D3-FMY2r-0E2G13uqIrGPbPra0
 name: gallery
 label: Gallery
-effects: {  }
+effects:
+  9ead6d4b-4b1b-4ce0-9952-8aaaf675f3f4:
+    uuid: 9ead6d4b-4b1b-4ce0-9952-8aaaf675f3f4
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 500
+      height: 500
+      anchor: center-center
 pipeline: __default__

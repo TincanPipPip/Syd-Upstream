@@ -8,12 +8,12 @@ libraries:
   - pippip/global
 
 regions:
-  header: Header
   admin: Admin
   content: Content
   highlighted: Highlighted
   help: Help
   footer: Footer
+  hidden: Hidden
 
 libraries-override:
   classy/base: false

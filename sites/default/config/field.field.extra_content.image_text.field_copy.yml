@@ -1,0 +1,21 @@
+uuid: adf8aa84-ac9d-4f53-a3d1-8e36095d8e2c
+langcode: en
+status: true
+dependencies:
+  config:
+    - eck.eck_type.extra_content.image_text
+    - field.storage.extra_content.field_copy
+  module:
+    - text
+id: extra_content.image_text.field_copy
+field_name: field_copy
+entity_type: extra_content
+bundle: image_text
+label: Copy
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

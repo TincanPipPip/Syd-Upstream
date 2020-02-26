@@ -194,7 +194,7 @@ class EntityDisplaySettingsBulkCopyForm extends FormBase {
       foreach ($destination_bundles as $bundle) {
         $this->displaySettingsCopier->copyDisplaySettings($field_definition, $source_display, $bundle);
 
-        drupal_set_message($this->t("Copied settings for @field-name to @bundle.", [
+        $this->messenger()->addMessage($this->t("Copied settings for @field-name to @bundle.", [
           // TODO: use human-readable labels here.
           '@field-name' => $source_field_name,
           '@bundle' => $bundle,
