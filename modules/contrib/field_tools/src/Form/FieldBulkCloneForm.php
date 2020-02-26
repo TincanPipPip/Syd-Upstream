@@ -153,7 +153,7 @@ class FieldBulkCloneForm extends FormBase {
           ->execute();
 
         if ($field_ids) {
-          drupal_set_message(t("Field @name is already on @entity_type @bundle, skipping.", [
+          $this->messenger()->addMessage(t("Field @name is already on @entity_type @bundle, skipping.", [
             '@name' => $field_config->getName(),
             // TODO: use labels!
             '@entity_type' => $destination_entity_type,
@@ -163,11 +163,32 @@ class FieldBulkCloneForm extends FormBase {
           continue;
         }
 
+        // Check the field is not already on the destination entity type but
+        // with a different type.
+        $existing_destination_field_storage_ids = $this->queryFactory->get('field_storage_config')
+          ->condition('entity_type', $destination_entity_type)
+          ->condition('field_name', $field_config->getName())
+          ->execute();
+        if ($existing_destination_field_storage_ids) {
+          // There will be only one.
+          $existing_field_storage_config = $this->entityTypeManager->getStorage('field_storage_config')->load(reset($existing_destination_field_storage_ids));
+
+          if ($existing_field_storage_config->getType() != $field_config->getType()) {
+            $this->messenger()->addMessage(t("Field @name is already on @entity_type with a different field type, skipping.", [
+              '@name' => $field_config->getName(),
+              // TODO: use labels!
+              '@entity_type' => $destination_entity_type,
+            ]));
+
+            continue;
+          }
+        }
+
         $this->fieldCloner->cloneField($field_config, $destination_entity_type, $destination_bundle);
       }
     }
 
-    drupal_set_message(t("The fields have been cloned."));
+    $this->messenger()->addMessage(t("The fields have been cloned."));
   }
 
 }

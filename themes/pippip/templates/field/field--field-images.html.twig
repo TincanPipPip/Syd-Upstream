@@ -1,12 +1,18 @@
-<div class="grid gallery">
+{% set jpg= 'jpg' %}
+{% set webp = 'webp' %}
+
+<div class="a-grid a-grid--4 gallery">
   {% for item in items %}
-    <div class="col-sm-3">
-      <a href="{{ file_url(item.content['#item'].entity.uri.value) }}" title="{{ item.content['#item'].alt }}" target="_blank">
 
-        {% set image = image_style(item.content['#item'].entity.fid.value, ['gallery']) %}
-        <img data-src="{{ image.gallery }}" alt="{{ item.content['#item'].alt }}" class="lazy">
+    {% set image = item.content['#item'].entity.uri.value %}
+    {% set imageThumb = image|image_style('gallery') %}
 
-      </a>
-    </div>
+    <a href="{{ image|image_style('gallery') }}" title="{{ item.content['#item'].title }}" aria-label="Expand image in a gallery">
+      <picture>
+        {# <source data-srcset="{{ imageThumb|replace({ (jpg): webp }) }}" type="image/webp"> #}
+        <source data-srcset="{{ imageThumb }}" type="image/jpeg">
+        <img data-src="{{ imageThumb }}" class="lazy" alt="{{ item.content['#item'].alt }}" />
+      </picture>
+    </a>
   {% endfor %}
 </div>

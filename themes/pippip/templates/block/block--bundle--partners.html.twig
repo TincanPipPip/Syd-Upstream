@@ -1,14 +1,9 @@
-{%
-  set classes = [
-    'm-block',
-    'm-block--' ~ configuration.provider|clean_class,
-    'm-block--' ~ plugin_id|clean_class,
-    'm-block__' ~ attributes.id|clean_class,
-    'm-block__' ~ label|replace(' ','-')|lower
-  ]
-%}
-<div{{attributes.addClass(classes)}}>
+{% extends "node.html.twig" %}
+
+{% block content %}
+
 	{% if content.field_partner_logos|render %}
 		{{ content.field_partner_logos}}
 	{% endif %}
-</div>
+
+{% endblock %}

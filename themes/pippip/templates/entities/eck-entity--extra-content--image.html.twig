@@ -8,7 +8,7 @@
 
     {{ content.field_image }}
 
-    {% include '@pippip/partials/atoms/image-credit.html.twig' %}
+    {% include '@pippip/partials/atoms/image-credit.html.twig' with {credit: content.field_image_credit[0]['#context'].value} %}
 
   </div>
 

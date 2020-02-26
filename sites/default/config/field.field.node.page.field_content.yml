@@ -10,6 +10,7 @@ dependencies:
     - eck.eck_type.extra_content.embed
     - eck.eck_type.extra_content.gallery
     - eck.eck_type.extra_content.image
+    - eck.eck_type.extra_content.image_text
     - eck.eck_type.extra_content.linked_logos
     - eck.eck_type.extra_content.quote
     - eck.eck_type.extra_content.text
@@ -39,6 +40,7 @@ settings:
       embed: embed
       gallery: gallery
       image: image
+      image_text: image_text
       linked_logos: linked_logos
       quote: quote
       text: text

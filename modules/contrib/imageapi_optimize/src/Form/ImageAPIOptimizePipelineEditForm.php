@@ -218,7 +218,7 @@ class ImageAPIOptimizePipelineEditForm extends ImageAPIOptimizePipelineFormBase 
       $processor_id = $this->entity->addProcessor($processor);
       $this->entity->save();
       if (!empty($processor_id)) {
-        drupal_set_message($this->t('The Image Optimize processor was successfully applied.'));
+        $this->messenger()->addMessage($this->t('The Image Optimize processor was successfully applied.'));
       }
     }
   }
@@ -241,7 +241,7 @@ class ImageAPIOptimizePipelineEditForm extends ImageAPIOptimizePipelineFormBase 
    */
   public function save(array $form, FormStateInterface $form_state) {
     parent::save($form, $form_state);
-    drupal_set_message($this->t('Changes to the pipeline have been saved.'));
+    $this->messenger()->addMessage($this->t('Changes to the pipeline have been saved.'));
   }
 
   /**

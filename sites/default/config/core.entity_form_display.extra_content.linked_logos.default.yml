@@ -29,12 +29,12 @@ content:
       label_singular: ''
       label_plural: ''
       allow_new: true
+      allow_existing: true
       match_operator: CONTAINS
+      allow_duplicate: true
       override_labels: false
       collapsible: false
       collapsed: false
-      allow_existing: false
-      allow_duplicate: false
     third_party_settings: {  }
     type: inline_entity_form_complex
     region: content

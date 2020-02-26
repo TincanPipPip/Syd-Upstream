@@ -1,0 +1,23 @@
+{% extends "eck-entity--extra-content.html.twig" %}
+
+{% block content %}
+  {% if content.field_image|render %}
+    {% set jpg= 'jpg' %}
+    {% set webp = 'webp' %}
+    {% set image = content.field_image['#items'][0].entity.uri.value|image_style('inline_image') %}
+
+    <picture>
+      {# <source data-srcset="{{ image|replace({ (jpg): webp }) }}" type="image/webp"> #}
+      <source data-srcset="{{ image }}" type="image/jpeg">
+      <img data-src="{{ image }}" alt="{{ content.field_image[0]['#item'].alt }}" class="lazy" title="{{ content.field_image[0]['#item'].title }}" />
+    </picture>
+  {% endif %}
+
+  <div class="m-entity__image-text-content">
+    <h3>{{ content.title }}</h3>
+
+    {% if content.field_copy|render %}
+      {{ content.field_copy}}
+    {% endif %}
+  </div>
+{% endblock %}

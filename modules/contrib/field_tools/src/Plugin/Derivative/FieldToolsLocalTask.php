@@ -101,6 +101,15 @@ class FieldToolsLocalTask extends DeriverBase implements ContainerDeriverInterfa
           'parent_id' => "field_tools.field_ui_tools:field_tools_field_ui_tools_$entity_type_id",
         );
 
+        // 'Export to base fields' tab.
+        $this->derivatives["field_tools.export_to_code_$entity_type_id"] = array(
+          'route_name' => "field_tools.export_to_code_$entity_type_id",
+          'weight' => 5,
+          'title' => $this->t('Export to base fields code'),
+          'base_route' => $entity_type->get('field_ui_base_route'),
+          'parent_id' => "field_tools.field_ui_tools:field_tools_field_ui_tools_$entity_type_id",
+        );
+
         // Single field clone tab.
         $this->derivatives["field_tools_field_clone_single_$entity_type_id"] = array(
           'route_name' => "entity.field_config.{$entity_type_id}_field_tools_clone_form",

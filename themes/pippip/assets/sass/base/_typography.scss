@@ -24,6 +24,21 @@
  * Heading
  */
 h1,
+.h1,
+h2,
+.h2,
+h3,
+.h3,
+h4,
+.h4,
+h5,
+.h5,
+h6,
+.h6 {
+  margin-top: 0;
+}
+
+h1,
 .h1 {
   @include font-title;
   @include ms-respond(font-size, 4);
@@ -69,6 +84,10 @@ p {
   &:first-of-type {
     margin-top: 0;
   }
+
+  &:last-of-type {
+    margin-bottom: 0;
+  }
 }
 
 /**
@@ -88,6 +107,7 @@ a {
   color: inherit;
   font-weight: inherit;
   text-decoration: none;
+  transition: 0.1s $easing;
 
   &:hover,
   &:focus,
@@ -159,38 +179,12 @@ small {
   font-size: 90%;
 }
 
-/**
- * Quote
- */
-blockquote {
-  margin: 1.5em 0;
-
-  p {
-    margin: 0;
-    @include ms-respond(font-size, 2);
-    font-style: italic;
-
-    &::before {
-      content: '\201C';
-    }
-
-    &::after {
-      content: '\201D';
-    }
-  }
-
-  footer {
-    margin-top: 1.5em;
-  }
-
-  cite {
-    font-style: normal;
-    font-weight: bold;
-  }
-}
-
 hr {
   border: solid $c-primary;
   border-width: 0 0 3px 0;
   margin: 1.5rem 0;
+}
+
+figure {
+  margin: 0;
 }

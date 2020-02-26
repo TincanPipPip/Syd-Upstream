@@ -29,12 +29,20 @@
 // Admnin styles
 
 .admin-functions {
-  position: relative;
-  top: auto;
+  position: sticky;
+  top: 0;
   width: 100%;
   background-color: $c-primary;
   max-width: 100%;
   z-index: 31;
+
+  .user-logged-in & {
+    top: 39px;
+  }
+
+  .toolbar-tray-open & {
+    top: 79px;
+  }
 
   [class*='col-'] {
     padding: 0 $bump/2;

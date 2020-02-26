@@ -1,18 +1,16 @@
-uuid: 1afbec90-bd3e-4dbd-b9bd-e0fc63753623
+uuid: cda8c634-0517-4595-8d45-7f0deea7041c
 langcode: en
 status: true
 dependencies: {  }
-_core:
-  default_config_hash: yLzvQ1xBO6q7oZPjU0Msj0rdBpHFAYrUs_qLx42eEPk
 name: inline_image
 label: 'Inline image'
 effects:
-  8869adc5-5dee-42b5-827e-7325dfcec43f:
-    uuid: ''
+  7a565907-7831-45ae-8df7-bc1f642762da:
+    uuid: 7a565907-7831-45ae-8df7-bc1f642762da
     id: image_scale
     weight: 1
     data:
-      width: 950
+      width: 900
       height: null
       upscale: false
 pipeline: __default__

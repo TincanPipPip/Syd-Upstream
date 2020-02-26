@@ -1,0 +1,18 @@
+/**
+ * ----------------------
+ * Un.titled
+ * Molecules - Image & Text
+ * ----------------------
+ */
+
+&__image-text {
+  display: grid;
+  grid-template-columns: 40% 1fr;
+  gap: $bump/1.5;
+  align-items: center;
+
+  @include media('<md') {
+    grid-template-columns: 1fr;
+    gap: $bump/2;
+  }
+}

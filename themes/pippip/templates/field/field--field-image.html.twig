@@ -1,4 +1,15 @@
+{% set jpg= 'jpg' %}
+{% set webp = 'webp' %}
+
 {% for item in items %}
-  {% set image = image_style(item.content['#item'].entity.fid.value, ['teaser_thumb']) %}
-  <img class="lazy" data-src="{{ image.teaser_thumb }}" height="660" width="840" alt="{{ item.content['#item'].alt }}" title="{{ item.content['#item'].title }}" />
+
+  {% set imageUrl = item.content['#item'].entity.uri.value %}
+  {% set image = imageUrl|image_style('inline_image') %}
+
+  <picture>
+    {# <source data-srcset="{{ image|replace({ (jpg): webp }) }}" type="image/webp"> #}
+    <source data-srcset="{{ image }}" type="image/jpeg">
+    <img data-src="{{ image }}" alt="{{ item.content['#item'].alt }}" class="lazy" title="{{ item.content['#item'].title }}" />
+  </picture>
+
 {% endfor %}

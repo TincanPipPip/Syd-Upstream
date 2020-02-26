@@ -1,4 +1,13 @@
-<a href="{{ content.field_logo_link }}" target="_blank" title="{{ content.title }}" class="m-logos__logo">
-  {% set logo = image_style(content.field_logo[0]['#item'].entity.fid.value, ['logo']) %}
-  <img data-src="{{ logo.logo }}" alt="{{ content.field_logo[0]['#item'].alt }}" class="lazy">
+{% set png= 'png' %}
+{% set webp = 'webp' %}
+
+<a href="{{ content.field_logo_link }}" title="{{ content.title }}" class="m-logos__logo" rel="noopener nofollow" aria-label="Open {{ content.field_logo[0]['#item'].alt }}'s website">
+  {% set imageUrl = content.field_logo[0]['#item'].entity.uri.value %}
+  {% set image = imageUrl|image_style('logo') %}
+
+  <picture>
+    {# <source data-srcset="{{ image|replace({ (png): webp }) }}" type="image/webp"> #}
+    <source data-srcset="{{ image }}" type="image/jpeg">
+    <img data-src="{{ image }}" alt="{{ content.field_logo[0]['#item'].alt }}" class="lazy" />
+  </picture>
 </a>

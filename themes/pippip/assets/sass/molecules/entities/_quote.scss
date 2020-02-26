@@ -1,0 +1,80 @@
+/**
+ * ----------------------
+ * Un.titled
+ * Molecules - Quotes
+ * ----------------------
+ */
+
+/**
+ * Config
+ */
+
+@mixin rating($stars) {
+  &:nth-child(-n + #{$stars}) {
+    path {
+      fill: $c-primary;
+      stroke: $c-primary;
+    }
+  }
+}
+
+/**
+ * Styles
+ */
+
+&__quote {
+  blockquote {
+    @include font-title;
+    margin: 0;
+    padding: 0 0 $bump/2;
+    @include ms-respond(font-size, 1);
+
+    @include media('<sm') {
+      @include ms-respond(font-size, 0);
+    }
+
+    p {
+      margin-bottom: 0;
+    }
+  }
+
+  &-info {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  cite {
+    @include font-body;
+    font-style: normal;
+
+    .name {
+      @include font-bold;
+    }
+  }
+
+  .rating {
+    display: inline-flex;
+    margin-right: $bump/2;
+
+    &__star {
+      width: 24px;
+      height: 24px;
+      margin-right: 5px;
+      stroke: $c-primary;
+
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+
+    @for $stars from 1 through 5 {
+      &--#{$stars} {
+        .rating__star {
+          @include rating(#{$stars});
+        }
+      }
+    }
+  }
+}

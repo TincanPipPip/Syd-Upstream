@@ -1,0 +1,15 @@
+{% extends "block.html.twig" %}
+
+{% block content %}
+
+  {% if content.field_title|render %}
+    <h4>{{ content.field_title }}</h4>
+  {% endif %}
+
+  {% if content.field_social_links|render %}
+    <div class="m-social-links">
+      {{ content.field_social_links}}
+    </div>
+  {% endif %}
+
+{% endblock %}
