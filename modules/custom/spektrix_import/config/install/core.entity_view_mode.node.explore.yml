@@ -1,0 +1,14 @@
+uuid: 4228306c-0343-4568-b96b-5f4ddbef4fa8
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - spektrix_import
+  enforced:
+    module:
+      - spektrix_import  
+id: node.explore
+label: 'Explore panel'
+targetEntityType: node
+cache: true

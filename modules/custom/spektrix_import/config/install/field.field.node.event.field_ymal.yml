@@ -1,0 +1,24 @@
+uuid: d394dfd9-98d9-4d84-bde3-592954a70b63
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_ymal
+    - node.type.event
+  module:
+    - spektrix_import
+  enforced:
+    module:
+      - spektrix_import  
+id: node.event.field_ymal
+field_name: field_ymal
+entity_type: node
+bundle: event
+label: 'You might also like (title)'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

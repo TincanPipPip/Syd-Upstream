@@ -1,0 +1,25 @@
+uuid: d9e0787c-7d2e-46a4-b9a0-4e0dff3dd35f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_show_info
+    - node.type.event
+  module:
+    - text
+    - spektrix_import
+  enforced:
+    module:
+      - spektrix_import  
+id: node.event.field_show_info
+field_name: field_show_info
+entity_type: node
+bundle: event
+label: 'Additional show info'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

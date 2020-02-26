@@ -1,0 +1,25 @@
+uuid: cd9b57e6-de48-4381-b68d-af2a56ee4d7c
+langcode: en
+status: true
+dependencies:
+  enforced:
+    module:
+      - spektrix_import
+  module:
+    - datetime_range
+    - node
+_core:
+  default_config_hash: gkvTnjbwiS8LgdAkwQ96E1K9kocP6Z_tHRfN4Gl_S9Y
+id: node.field_run_date
+field_name: field_run_date
+entity_type: node
+type: daterange
+settings:
+  datetime_type: datetime
+module: datetime_range
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

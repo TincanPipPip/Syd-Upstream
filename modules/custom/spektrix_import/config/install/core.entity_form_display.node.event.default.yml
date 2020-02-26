@@ -1,0 +1,307 @@
+uuid: 67bf15d4-a235-4113-abe7-0fa2596ebf0e
+langcode: en
+status: true
+dependencies:
+  config:
+    - entity_browser.browser.browse_files_modal
+    - field.field.node.event.body
+    - field.field.node.event.field_booking_info
+    - field.field.node.event.field_booking_label
+    - field.field.node.event.field_event_booking
+    - field.field.node.event.field_genre
+    - field.field.node.event.field_image
+    - field.field.node.event.field_metatag
+    - field.field.node.event.field_pre_title
+    - field.field.node.event.field_price_times
+    - field.field.node.event.field_run_date
+    - field.field.node.event.field_show_info
+    - field.field.node.event.field_spektrix_event_id
+    - field.field.node.event.field_strapline
+    - field.field.node.event.field_teaser_override
+    - field.field.node.event.field_venue
+    - field.field.node.event.field_ymal
+    - field.field.node.event.field_ymal_pages
+    - node.type.event
+  module:
+    - datetime_range
+    - entity_browser
+    - field_group
+    - inline_entity_form
+    - link
+    - metatag
+    - path
+    - text    
+    - spektrix_import
+  enforced:
+    module:
+      - spektrix_import
+third_party_settings:
+  field_group:
+    group_event:
+      children:
+        - group_content
+        - group_booking_info
+        - group_sidebar
+        - group_you_might_also_like
+      parent_name: ''
+      weight: 6
+      format_type: tabs
+      format_settings:
+        id: ''
+        classes: ''
+        direction: horizontal
+      label: Event
+      region: content
+    group_content:
+      children:
+        - body
+      parent_name: group_event
+      weight: 25
+      format_type: tab
+      format_settings:
+        id: ''
+        classes: ''
+        formatter: closed
+        description: ''
+        required_fields: true
+      label: Content
+      region: content
+    group_booking_info:
+      children:
+        - field_event_booking
+        - field_booking_label
+        - field_spektrix_event_id
+      parent_name: group_event
+      weight: 26
+      format_type: tab
+      format_settings:
+        label: 'Booking info'
+        formatter: closed
+        description: 'The booking link is an override of all performance booking links. If a link is added, the label below must be added too.'
+        required_fields: true
+        id: ''
+        classes: ''
+      label: 'Booking info'
+      region: content
+    group_sidebar:
+      children:
+        - field_price_times
+        - field_venue
+        - field_genre
+        - field_booking_info
+        - field_show_info
+      parent_name: group_event
+      weight: 27
+      format_type: tab
+      format_settings:
+        id: ''
+        classes: ''
+        formatter: closed
+        description: ''
+        required_fields: true
+      label: Sidebar
+      region: content
+    group_you_might_also_like:
+      children:
+        - field_ymal
+        - field_ymal_pages
+      parent_name: group_event
+      weight: 28
+      format_type: tab
+      format_settings:
+        id: ''
+        classes: ''
+        formatter: closed
+        description: ''
+        required_fields: true
+      label: 'You might also like'
+      region: content
+id: node.event.default
+targetEntityType: node
+bundle: event
+mode: default
+content:
+  body:
+    type: text_textarea_with_summary
+    weight: 4
+    settings:
+      rows: 9
+      summary_rows: 3
+      placeholder: ''
+    third_party_settings: {  }
+    region: content
+  created:
+    type: datetime_timestamp
+    weight: 8
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_booking_info:
+    weight: 9
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_booking_label:
+    weight: 10
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_event_booking:
+    weight: 9
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+    type: link_default
+    region: content
+  field_genre:
+    weight: 8
+    settings: {  }
+    third_party_settings: {  }
+    type: options_buttons
+    region: content
+  field_image:
+    type: entity_browser_file
+    weight: 3
+    region: content
+    settings:
+      entity_browser: browse_files_modal
+      field_widget_remove: true
+      open: true
+      selection_mode: selection_append
+      preview_image_style: thumbnail
+      field_widget_edit: true
+      view_mode: default
+    third_party_settings: {  }
+  field_metatag:
+    weight: 7
+    settings: {  }
+    third_party_settings: {  }
+    type: metatag_firehose
+    region: content
+  field_pre_title:
+    weight: 1
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_price_times:
+    weight: 6
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: text_textarea
+    region: content
+  field_run_date:
+    weight: 5
+    settings: {  }
+    third_party_settings: {  }
+    type: daterange_default
+    region: content
+  field_show_info:
+    weight: 10
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: text_textarea
+    region: content
+  field_spektrix_event_id:
+    weight: 11
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_strapline:
+    weight: 2
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textarea
+    region: content
+  field_teaser_override:
+    weight: 4
+    settings:
+      entity_browser: browse_files_modal
+      field_widget_remove: true
+      selection_mode: selection_append
+      preview_image_style: thumbnail
+      field_widget_edit: true
+      open: false
+      view_mode: default
+    third_party_settings: {  }
+    type: entity_browser_file
+    region: content
+  field_venue:
+    weight: 7
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  field_ymal:
+    weight: 12
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_ymal_pages:
+    weight: 13
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
+    region: content
+  path:
+    type: path
+    weight: 10
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  status:
+    type: boolean_checkbox
+    settings:
+      display_label: true
+    weight: 12
+    region: content
+    third_party_settings: {  }
+  title:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  uid:
+    type: entity_reference_autocomplete
+    weight: 9
+    region: content
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  url_redirects:
+    weight: 11
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  promote: true
+  sticky: true

@@ -1,0 +1,42 @@
+uuid: beefa70f-ebcc-4c7e-bfa4-65cdd635546d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_teaser_override
+    - node.type.event
+  module:
+    - image
+    - spektrix_import
+  enforced:
+    module:
+      - spektrix_import  
+id: node.event.field_teaser_override
+field_name: field_teaser_override
+entity_type: node
+bundle: event
+label: 'Teaser override'
+description: 'The image must be larger than 400x400 pixels and less than 400 KB'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  file_directory: images
+  file_extensions: 'png gif jpg jpeg'
+  max_filesize: '400 KB'
+  max_resolution: ''
+  min_resolution: 400x400
+  alt_field: true
+  alt_field_required: true
+  title_field: false
+  title_field_required: false
+  default_image:
+    uuid: ''
+    alt: ''
+    title: ''
+    width: null
+    height: null
+  handler: 'default:file'
+  handler_settings: {  }
+field_type: image
