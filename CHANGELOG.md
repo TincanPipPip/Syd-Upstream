@@ -4,8 +4,9 @@
 ### Added
 - Image & Text entity
 - Social links block type
+- Support for WEBP (disabled until Pantheon adds server support)
 
 ### Changed
 - Pippip template & partials cleaned up & modernised
 - Sticky admin toolbar
-- Contrib module updates
+- Core & contrib module updates
