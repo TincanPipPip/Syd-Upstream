@@ -1,0 +1,13 @@
+uuid: 6dcaeeed-9a18-4fd9-a581-910a1b454d3f
+langcode: en
+status: true
+dependencies:
+  enforced:
+    module:
+      - spektrix_import
+_core:
+  default_config_hash: 4qcyAixvunaFpXEdRBqGY1hFIRqYkndmJvk2GDijUBQ
+name: Venue
+vid: venue
+description: ''
+weight: 0

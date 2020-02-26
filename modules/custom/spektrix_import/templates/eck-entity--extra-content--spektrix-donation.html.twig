@@ -1,0 +1,30 @@
+{% extends "eck-entity--extra-content.html.twig" %}
+
+{% block content %}
+
+	{{ attach_library('spektrix_import/spektrix_components_loader') }}
+	{{ attach_library('spektrix_import/spektrix_donate') }}
+
+	<spektrix-donate client-name="{{ spektrix_client }}" custom-domain="{{ custom_domain }}" fund-id="{{ fund_id }}" class="form form--donations module module--form">
+
+		<h3>{{ content.title }}</h3>
+
+		<div class="form__row form__row--details">
+			<label class="form__label" for="donation">
+				<span class="form__label-text">{{ 'Amount to Donate &pound;' | t }}</span>
+				<span class="form__label-text" data-display-donation-amount></span>
+			</label>
+
+			<input type="text" class="form__field" id="donation" data-custom-donation-input>
+			<button class="form__button form__field form__field--submit a-btn" data-submit-donation>{{ 'Donate' | t }}</button>
+		</div>
+		<div class="form__row form__row--responses">
+			<div data-success-container style="display: none;" class="donations__message">{{ 'Donation added to your' | t }}
+				<a href="/basket">{{ 'basket' | t }}</a>
+			</div>
+
+			<div data-fail-container style="display: none;" class="donations__message">{{ 'There was an issue with adding the donation to your account. Please try again.' | t }}</div>
+		</div>
+	</spektrix-donate>
+
+{% endblock %}

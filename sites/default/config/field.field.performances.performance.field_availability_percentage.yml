@@ -1,0 +1,21 @@
+uuid: 45eed68f-e86b-4ccb-83ff-0f1f991bf4ee
+langcode: en
+status: true
+dependencies:
+  config:
+    - eck.eck_type.performances.performance
+    - field.storage.performances.field_availability_percentage
+_core:
+  default_config_hash: '-s-DylqmSiLoq0tfQ1o2zEx6K1Z4zTpYC5y5rT1IP2Q'
+id: performances.performance.field_availability_percentage
+field_name: field_availability_percentage
+entity_type: performances
+bundle: performance
+label: 'Availability percentage'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

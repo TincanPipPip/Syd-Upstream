@@ -1,0 +1,14 @@
+uuid: 3ba1fd84-72cd-4edb-bde0-50392449e5c0
+langcode: en
+status: true
+dependencies: 
+  module:
+    - spektrix_import
+  enforced:
+    module:
+      - spektrix_import
+name: Category
+vid: genre
+description: ''
+hierarchy: 0
+weight: 0

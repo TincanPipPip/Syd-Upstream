@@ -1,0 +1,25 @@
+uuid: 2f45675f-ea14-478d-9849-8d80143b8719
+langcode: en
+status: true
+dependencies:
+  enforced:
+    module:
+      - spektrix_import
+  module:
+    - datetime
+    - eck
+_core:
+  default_config_hash: 7APciZ4bxLNIUTas_vPubOoZKgtI_8LYHpDt9oSx-lc
+id: performances.field_perf_date
+field_name: field_perf_date
+entity_type: performances
+type: datetime
+settings:
+  datetime_type: datetime
+module: datetime
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

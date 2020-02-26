@@ -1,0 +1,28 @@
+uuid: 19a9053f-c965-4087-a377-dda43b84092d
+langcode: en
+status: true
+dependencies:
+  config:
+    - eck.eck_type.performances.performance
+    - field.storage.performances.field_onsale
+  enforced:
+    module:
+      - spektrix_import
+_core:
+  default_config_hash: MLwaJsFwsxNjzniWJjjr-hPlqkAvq304yVrmNXAwe-c
+id: performances.performance.field_onsale
+field_name: field_onsale
+entity_type: performances
+bundle: performance
+label: 'On Sale'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

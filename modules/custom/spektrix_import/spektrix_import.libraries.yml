@@ -1,0 +1,24 @@
+ui-calendar:
+  version: VERSION
+  css:
+    component:
+      calendar/css/spektrix_import_calendar.css: {}
+  js:       
+    calendar/js/spektrix_import_calendar.js: {}
+  dependencies:
+    - core/jquery
+    - core/drupal.ajax
+    - core/drupal
+    - core/drupal.dialog.ajax
+spektrix_components_loader:
+  header: true
+  js:
+    https://webcomponents.spektrix.com/stable/webcomponents-loader.js: 
+      type: external
+spektrix_donate:
+  js:
+    https://webcomponents.spektrix.com/stable/spektrix-component-loader.js:     
+      type: external
+      attributes:
+        data-components: spektrix-donate
+        async: true    

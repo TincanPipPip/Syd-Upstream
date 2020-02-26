@@ -1,0 +1,12 @@
+uuid: 178efe79-a7a0-4a45-bf54-518da9fa797a
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: vaYF8KI69LCSaC9o3AfOFAbwJlV29Tgmdehy-n1W-9A
+id: performances
+label: Performances
+created: false
+changed: false
+uid: true
+title: true
