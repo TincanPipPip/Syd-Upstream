@@ -1,6 +1,6 @@
-# Syd 8 Profile
+# Syd 8 Upstream Profile
 
-Syd Drupal 8 installation profile
+Syd Drupal 8 Pantheon installation profile
 
 Documentation:
-https://github.com/TincanPipPip/syd_make_8
+https://github.com/TincanPipPip/Syd-Upstream/wiki

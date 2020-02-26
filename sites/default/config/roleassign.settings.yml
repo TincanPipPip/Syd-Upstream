@@ -1,0 +1,6 @@
+roleassign_roles:
+  editor: editor
+  super_editor: super_editor
+  administrator: '0'
+_core:
+  default_config_hash: yftPCPswIvUDLB1y2ugFCOdA8jMNospSDMrcdFGFk1M

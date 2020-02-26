@@ -1,0 +1,11 @@
+uuid: 33d8b6c0-6cfe-434a-8715-ab1cb6ebbf68
+langcode: en
+status: true
+dependencies:
+  config:
+    - eck.eck_entity_type.extra_content
+_core:
+  default_config_hash: 0KCBaeHGohlenhcn3KPhejQ5694IGYAkVKW5ZJcRyis
+name: Downloads
+type: downloads
+description: ''

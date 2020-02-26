@@ -1,0 +1,25 @@
+uuid: c4feae68-c61a-445c-b477-0ae8b94c8c88
+langcode: en
+status: true
+dependencies:
+  config:
+    - eck.eck_type.extra_content.video
+    - field.storage.extra_content.field_display_title
+_core:
+  default_config_hash: SLPqtzj4hyP7s4W2YK2eYFapmibetdXUsKXZBqxfD5c
+id: extra_content.video.field_display_title
+field_name: field_display_title
+entity_type: extra_content
+bundle: video
+label: 'Display title?'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

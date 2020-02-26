@@ -36,12 +36,12 @@ Example of using variables
   {% if not pastEvent %} -- if this is not a past event, output the booking link
       {% if content.field_booking_label|render %} -- if the booking label field is not empty
           {% if content.field_event_booking|render %} -- if the booking link field is not empty
-              <a href="{{ content.field_event_booking }}" title="{{ content.field_booking_label }}" class="btn book">{{ content.field_booking_label }}</a>
+              <a href="{{ content.field_event_booking }}" title="{{ content.field_booking_label }}" class="a-btn a-btn--book">{{ content.field_booking_label }}</a>
           {% else %} -- default to normal booking link, using overridden booking label
-              <span class="btn alt">{{ content.field_booking_label }}</span>
+              <span class="a-btn a-btn--alt">{{ content.field_booking_label }}</span>
           {% endif %}
       {% else %} -- default to using the predefined booking label & link
-          <span class="booking">
+          <span class="a-booking">
               {{ booking_link }}
           </span>
       {% endif %}

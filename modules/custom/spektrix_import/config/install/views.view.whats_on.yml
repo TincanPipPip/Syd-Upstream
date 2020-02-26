@@ -35,10 +35,10 @@ dependencies:
   enforced:
     module:
       - spektrix_import  
-id: whats_on
-label: 'What''s on'
+id: spektrix_whatson
+label: 'Spektrix - Whats On Calendar & Performances modal'
 module: views
-description: 'Listing events in QH'
+description: 'Listing events'
 tag: ''
 base_table: performances_field_data
 base_field: id
@@ -458,7 +458,7 @@ display:
           empty: true
           tokenize: false
           content:
-            value: '<a href="/whats-on/archive" title="See our archive" class="btn__archive">Archive</a><a href="/whats-on/other-venues" title="See what''s on at other venues " class="btn__venues">Other Venues</a>'
+            value: '<a href="/whats-on/archive" title="See our archive" class="a-btn--archive">Archive</a><a href="/whats-on/other-venues" title="See what''s on at other venues " class="a-btn--venues">Other Venues</a>'
             format: raw_html
           plugin_id: text
       empty:
@@ -1046,7 +1046,7 @@ display:
           type: datetime_default
           settings:
             timezone_override: ''
-            format_type: qh_date_time
+            format_type: ym_date_time
           group_column: value
           group_columns: {  }
           group_rows: true
@@ -1327,7 +1327,7 @@ display:
           empty: true
           tokenize: false
           content:
-            value: '<a href="/whats-on/archive" title="See our archive" class="btn__archive">Archive</a><a href="/whats-on/other-venues" title="See what''s on at other venues " class="btn__venues">Other Venues</a>'
+            value: '<a href="/whats-on/archive" title="See our archive" class="a-btn--archive">Archive</a><a href="/whats-on/other-venues" title="See what''s on at other venues " class="a-btn--venues">Other Venues</a>'
             format: full_html
           plugin_id: text
       style:
@@ -1588,7 +1588,7 @@ display:
           type: datetime_default
           settings:
             timezone_override: ''
-            format_type: qh_date_time
+            format_type: ym_date_time
           group_column: value
           group_columns: {  }
           group_rows: true

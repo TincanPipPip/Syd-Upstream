@@ -1,0 +1,32 @@
+uuid: 9daa2b98-12eb-4e4d-854b-f93dc7dcf03b
+langcode: en
+status: true
+dependencies:
+  config:
+    - eck.eck_type.accordion_row.row
+    - field.field.accordion_row.row.field_copy
+  module:
+    - text
+_core:
+  default_config_hash: 7ZJNBk3qNbudMuwCZ8Leam8cI6k9NPT_MwYtxtgJQe0
+id: accordion_row.row.default
+targetEntityType: accordion_row
+bundle: row
+mode: default
+content:
+  field_copy:
+    weight: -4
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  title:
+    label: hidden
+    type: string
+    weight: -5
+    region: content
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+hidden: {  }

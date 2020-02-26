@@ -4,26 +4,46 @@ status: true
 dependencies:
   config:
     - eck.eck_type.performances.performance
+    - field.field.performances.performance.field_accessibility
+    - field.field.performances.performance.field_availability
     - field.field.performances.performance.field_availability_override
-    - field.field.performances.performance.field_do_time
+    - field.field.performances.performance.field_availability_percentage
     - field.field.performances.performance.field_event
     - field.field.performances.performance.field_onsale
     - field.field.performances.performance.field_perf_booking_link
     - field.field.performances.performance.field_perf_date
     - field.field.performances.performance.field_sold_out
     - field.field.performances.performance.field_spektrix_perf_id
-  module:
-    - datetime
-    - link
-    - spektrix_import
   enforced:
     module:
       - spektrix_import
+  module:
+    - datetime
+    - link
+    - user
+_core:
+  default_config_hash: e59lZzpO3VD1MJN01PDhwossIP0vJ2Qr0FhLjpa6mNw
 id: performances.performance.default
 targetEntityType: performances
 bundle: performance
 mode: default
 content:
+  field_accessibility:
+    weight: 11
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+  field_availability:
+    weight: 10
+    label: above
+    settings:
+      link: false
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
   field_availability_override:
     weight: 6
     label: inline
@@ -32,9 +52,9 @@ content:
     third_party_settings: {  }
     type: string
     region: content
-  field_do_time:
-    weight: 3
-    label: inline
+  field_availability_percentage:
+    weight: 9
+    label: above
     settings:
       link_to_entity: false
     third_party_settings: {  }
@@ -65,8 +85,8 @@ content:
       trim_length: 80
       url_only: true
       url_plain: true
+      target: _blank
       rel: '0'
-      target: '0'
     third_party_settings: {  }
     type: link
     region: content
@@ -105,4 +125,12 @@ content:
     settings:
       link_to_entity: false
     third_party_settings: {  }
-hidden: {  }
+  uid:
+    label: hidden
+    type: author
+    weight: 0
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  search_api_excerpt: true

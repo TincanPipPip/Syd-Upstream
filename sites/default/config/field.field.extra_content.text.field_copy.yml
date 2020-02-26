@@ -1,0 +1,23 @@
+uuid: be8966a4-0d92-44a5-ac05-f8220a3d7c89
+langcode: en
+status: true
+dependencies:
+  config:
+    - eck.eck_type.extra_content.text
+    - field.storage.extra_content.field_copy
+  module:
+    - text
+_core:
+  default_config_hash: gvsTbqlQxQowFdKEElWg0lruckMCzZSH8Bbw752M16o
+id: extra_content.text.field_copy
+field_name: field_copy
+entity_type: extra_content
+bundle: text
+label: Copy
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

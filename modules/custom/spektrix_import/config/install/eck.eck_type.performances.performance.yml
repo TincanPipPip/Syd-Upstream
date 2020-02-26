@@ -7,3 +7,9 @@ dependencies:
 name: Performance
 type: performance
 description: ''
+dependencies: 
+  module:
+    - spektrix_import
+  enforced:
+    module:
+      - spektrix_import

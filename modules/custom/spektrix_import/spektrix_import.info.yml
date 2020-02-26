@@ -9,5 +9,4 @@ dependencies:
   - migrate_plus
   - migrate_tools
   - datetime_range
-  - rrssb
   - prepopulate

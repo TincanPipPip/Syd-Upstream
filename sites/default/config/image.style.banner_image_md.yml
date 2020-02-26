@@ -1,0 +1,18 @@
+uuid: 33d84f74-bf45-481a-a689-655fb9dac618
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: hffaECmp0i7ibAc6L5F71oFkq3ODS7I6kj5GpiibKFk
+name: banner_image_md
+label: 'Banner image md'
+effects:
+  bd7a2e84-059a-4321-bd84-c4bfeea7b97e:
+    uuid: bd7a2e84-059a-4321-bd84-c4bfeea7b97e
+    id: image_scale
+    weight: 1
+    data:
+      width: 1000
+      height: null
+      upscale: false
+pipeline: __default__

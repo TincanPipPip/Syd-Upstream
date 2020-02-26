@@ -259,7 +259,7 @@ display:
           type: daterange_default
           settings:
             timezone_override: ''
-            format_type: qh_date
+            format_type: ym_date
             separator: '-'
           group_column: value
           group_columns: {  }
@@ -946,7 +946,7 @@ display:
           type: datetime_default
           settings:
             timezone_override: ''
-            format_type: qh_date_time
+            format_type: ym_date_time
           group_column: value
           group_columns: {  }
           group_rows: true
@@ -1165,7 +1165,7 @@ display:
             alter_text: true
             text: Edit
             make_link: true
-            path: '/admin/structure/eck/entity/performances/{{ id }}/edit?destination=/admin/content/events-perf'
+            path: '/performances/{{ id }}/edit?destination=/admin/events-perf'
             absolute: false
             external: false
             replace_spaces: false

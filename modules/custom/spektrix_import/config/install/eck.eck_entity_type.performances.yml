@@ -8,3 +8,9 @@ created: false
 changed: false
 uid: true
 title: true
+dependencies: 
+  module:
+    - spektrix_import
+  enforced:
+    module:
+      - spektrix_import

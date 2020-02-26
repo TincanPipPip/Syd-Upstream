@@ -1,0 +1,21 @@
+uuid: b2c74eb7-8c98-4804-8af6-10cf2f318b83
+langcode: en
+status: true
+dependencies:
+  module:
+    - eck
+    - text
+_core:
+  default_config_hash: Zi32xPvFPAS2zPPg2-UyuOvqF-gP1UJiz0e8U4hrDpU
+id: accordion_row.field_copy
+field_name: field_copy
+entity_type: accordion_row
+type: text_long
+settings: {  }
+module: text
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

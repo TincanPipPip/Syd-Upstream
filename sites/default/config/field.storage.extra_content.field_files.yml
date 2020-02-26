@@ -1,0 +1,25 @@
+uuid: 9f43be8a-38d0-46ef-8a00-070580664d2a
+langcode: en
+status: true
+dependencies:
+  module:
+    - eck
+    - file
+_core:
+  default_config_hash: lRh566OmTV2DkKzloxWEtmZ7mJlwDOfJv3a40Z9zfYA
+id: extra_content.field_files
+field_name: field_files
+entity_type: extra_content
+type: file
+settings:
+  display_field: false
+  display_default: false
+  uri_scheme: public
+  target_type: file
+module: file
+locked: false
+cardinality: -1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

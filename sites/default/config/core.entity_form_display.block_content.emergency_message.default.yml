@@ -1,0 +1,51 @@
+uuid: 409414ed-2770-4b25-888a-4859f91527a1
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.emergency_message
+    - field.field.block_content.emergency_message.body
+    - field.field.block_content.emergency_message.field_display_message
+    - field.field.block_content.emergency_message.field_title
+  module:
+    - text
+_core:
+  default_config_hash: 1kT_-5ixz10mU2dpBWOdvJ2ZR63LYJ2_qei4wrzMGmI
+id: block_content.emergency_message.default
+targetEntityType: block_content
+bundle: emergency_message
+mode: default
+content:
+  body:
+    type: text_textarea_with_summary
+    weight: 3
+    settings:
+      rows: 9
+      summary_rows: 3
+      placeholder: ''
+    third_party_settings: {  }
+    region: content
+  field_display_message:
+    weight: 1
+    settings:
+      display_label: true
+    third_party_settings: {  }
+    type: boolean_checkbox
+    region: content
+  field_title:
+    weight: 2
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  info:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden: {  }

@@ -1,0 +1,11 @@
+uuid: 80063517-d1c9-4123-a09b-243a4dc49d45
+langcode: en
+status: true
+dependencies:
+  config:
+    - eck.eck_entity_type.extra_content
+_core:
+  default_config_hash: H3ybUI8u8S99OyGeZtPut3joYYCzgS2GMVUY27fVW6o
+name: Audio
+type: audio
+description: ''

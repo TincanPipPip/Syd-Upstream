@@ -1,0 +1,13 @@
+uuid: 3ba1fd84-72cd-4edb-bde0-50392449e5c0
+langcode: en
+status: true
+dependencies:
+  enforced:
+    module:
+      - spektrix_import
+_core:
+  default_config_hash: sSQVwrJXNuIvMcE5X32hNCBr-OuTtSRtjgUO7MME6fY
+name: Category
+vid: genre
+description: ''
+weight: 0

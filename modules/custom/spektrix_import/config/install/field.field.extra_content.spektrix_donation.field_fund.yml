@@ -1,0 +1,19 @@
+uuid: db92cd86-9d56-4a88-8dff-18dbf455a57e
+langcode: en
+status: true
+dependencies:
+  config:
+    - eck.eck_type.extra_content.spektrix_donation
+    - field.storage.extra_content.field_fund
+id: extra_content.spektrix_donation.field_fund
+field_name: field_fund
+entity_type: extra_content
+bundle: spektrix_donation
+label: 'Fund ID'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

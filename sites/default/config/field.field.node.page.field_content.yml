@@ -1,0 +1,50 @@
+uuid: c4dfe1c5-647e-443c-88af-659b6631388e
+langcode: en
+status: true
+dependencies:
+  config:
+    - eck.eck_type.extra_content.accordion
+    - eck.eck_type.extra_content.audio
+    - eck.eck_type.extra_content.cta
+    - eck.eck_type.extra_content.downloads
+    - eck.eck_type.extra_content.embed
+    - eck.eck_type.extra_content.gallery
+    - eck.eck_type.extra_content.image
+    - eck.eck_type.extra_content.linked_logos
+    - eck.eck_type.extra_content.quote
+    - eck.eck_type.extra_content.text
+    - eck.eck_type.extra_content.video
+    - field.storage.node.field_content
+    - node.type.page
+_core:
+  default_config_hash: c4lCe_s8jQFDQ65iEYSuan6JC-GQmcx3t--dFijRcOU
+id: node.page.field_content
+field_name: field_content
+entity_type: node
+bundle: page
+label: Content
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:extra_content'
+  handler_settings:
+    target_bundles:
+      accordion: accordion
+      audio: audio
+      cta: cta
+      downloads: downloads
+      embed: embed
+      gallery: gallery
+      image: image
+      linked_logos: linked_logos
+      quote: quote
+      text: text
+      video: video
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: audio
+field_type: entity_reference

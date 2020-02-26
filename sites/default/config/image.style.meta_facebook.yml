@@ -1,0 +1,18 @@
+uuid: e9f5dc15-b150-4173-bf8f-45a6f0fa5e65
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: QFrN-WB2BZYW6jLI9dIWl6flGCvj_k4aBpdooNX7el0
+name: meta_facebook
+label: 'Meta - Facebook'
+effects:
+  d897368d-3137-4ddf-afff-7393abf09ee8:
+    uuid: d897368d-3137-4ddf-afff-7393abf09ee8
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 1200
+      height: 630
+      anchor: center-center
+pipeline: __default__

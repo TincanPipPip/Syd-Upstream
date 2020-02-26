@@ -1,0 +1,50 @@
+uuid: 3d6e08da-b965-4908-b07a-014a54ffc4b7
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.homepage.body
+    - field.field.node.homepage.field_image
+    - field.field.node.homepage.field_image_credit
+    - node.type.homepage
+  module:
+    - image
+    - text
+    - user
+_core:
+  default_config_hash: AzaZZ1XwTmv4qhz9Hx2ZzB90Za2nqEcUSNM3s3AqexY
+id: node.homepage.default
+targetEntityType: node
+bundle: homepage
+mode: default
+content:
+  body:
+    type: text_default
+    weight: 0
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  field_image:
+    type: image
+    weight: 0
+    label: hidden
+    settings:
+      image_style: ''
+      image_link: ''
+    third_party_settings: {  }
+    region: content
+  field_image_credit:
+    weight: 103
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  links:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden: {  }

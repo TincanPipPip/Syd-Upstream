@@ -1,0 +1,18 @@
+uuid: 3e4b6827-c70e-4b18-bf2d-39754fc7778d
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: ecjKqYe21tV2tPz6aLXxnzGKF2rts0xqAAeKEh2D7c0
+id: authenticated
+label: 'Authenticated user'
+weight: 1
+is_admin: false
+permissions:
+  - 'access content'
+  - 'access sitemap'
+  - 'cancel account'
+  - 'change own username'
+  - 'view any accordion_row entities'
+  - 'view any extra_content entities'
+  - 'view any logos entities'

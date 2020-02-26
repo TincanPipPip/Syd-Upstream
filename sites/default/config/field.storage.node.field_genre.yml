@@ -1,0 +1,25 @@
+uuid: 08ebf879-4fac-44f8-a9a2-658cd975b47f
+langcode: en
+status: true
+dependencies:
+  enforced:
+    module:
+      - spektrix_import
+  module:
+    - node
+    - taxonomy
+_core:
+  default_config_hash: 2Cz9U7MbURitHUC9OE7u89loJLiOclXWOHjRSBT0JZ0
+id: node.field_genre
+field_name: field_genre
+entity_type: node
+type: entity_reference
+settings:
+  target_type: taxonomy_term
+module: core
+locked: false
+cardinality: -1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false
