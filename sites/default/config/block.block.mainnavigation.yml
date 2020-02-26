@@ -12,7 +12,7 @@ _core:
   default_config_hash: 5WvWKvhUbDRPdgOxgJWKMiNft3DkTsjPcn5etYvluZw
 id: mainnavigation
 theme: pippip
-region: header
+region: admin
 weight: 0
 provider: null
 plugin: 'menu_block:main'

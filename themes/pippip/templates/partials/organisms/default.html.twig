@@ -1,29 +1,14 @@
-{% include '@pippip/partials/molecules/banner.html.twig'  with {
-	content : {
-		image : content.field_image[0]['#item'].entity.fid.value,
-		imagealt : content.field_image[0]['#item'].alt,
-		title : node.title.value,
-		summary : content.body,
-		credit : content.field_image_credit,
-		type : 'page'
-	}
-} %}
+{% include '@pippip/partials/molecules/banner.html.twig' %}
 
 <div class="grid justify-center">
-	<div class="col-11">
+	<div class="col-12">
 
 		<div class="grid justify-space-between">
-			<div class="col-sm-7">
-
-				{{ title_prefix }}
-				<h1 class="has-curve">
-					{{ node.title.value }}
-				</h1>
-				{{ title_suffix }}
+			<div class="col-sm-8 col-lg-7 order-1 order-sm-0">
 
 				{% if content.body|render %}
 					<div class="m-entity m-entity__body">
-						{{ content.body}}
+						{{ content.body }}
 					</div>
 				{% endif %}
 
@@ -33,22 +18,16 @@
 
 			</div>
 
-			<div class="col-sm-4 col-lg-3">
-				{% if drupal_menu('main', 2)['#items'] %}
-					<div class="o-sidebar">
-						{% if nav_parent %}
-							<h3>
-								<a href="{{ drupal_url('node/' ~ nav_parent) }}" title="{{nav_parent_title}}" class="nav-parent">{{nav_parent_title}}</a>
-							</h3>
-						{% endif %}
-
-						{{ drupal_menu('main', 2,2) }}
-					</div>
+			<div class="col-sm-4 col-lg-3 order-0 order-sm-1">
+				{% if ct == 'page' %}
+					{% include '@pippip/partials/molecules/subnav.html.twig' %}
 				{% endif %}
 			</div>
-		</div>
 
-		{% include '@pippip/partials/molecules/ymal.html.twig' %}
+		</div>
 
 	</div>
 </div>
+
+
+{% include '@pippip/partials/molecules/related-content.html.twig' %}

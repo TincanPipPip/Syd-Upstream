@@ -202,7 +202,7 @@ class EntityDisplayBulkCloneForm extends FormBase {
       }
     }
 
-    drupal_set_message(t("The displays have been cloned."));
+    $this->messenger()->addMessage(t("The displays have been cloned."));
   }
 
 }

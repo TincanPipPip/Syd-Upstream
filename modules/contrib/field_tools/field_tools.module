@@ -100,6 +100,26 @@ function field_tools_entity_operation(\Drupal\Core\Entity\EntityInterface $entit
     );
   }
 
+  // Add operation links to bundle entity lists for the tools tabs.
+  $bundle_of_entity_type_id = $entity->getEntityType()->getBundleOf();
+  if ($bundle_of_entity_type_id) {
+    $bundle_of_entity_type = \Drupal::entityTypeManager()->getDefinition($bundle_of_entity_type_id);
+
+    if ($bundle_of_entity_type->get('field_ui_base_route')) {
+      $entity_type_id = $entity->getEntityTypeId();
+
+      $parameters = [
+        $entity_type_id => $entity->id(),
+      ];
+
+      $operations['clone_fields'] = array(
+        'title' => t('Clone fields'),
+        'url' => \Drupal\Core\Url::fromRoute("field_tools.field_bulk_clone_{$bundle_of_entity_type_id}", $parameters),
+        'weight' => 50,
+      );
+    }
+  }
+
   return $operations;
 }
 

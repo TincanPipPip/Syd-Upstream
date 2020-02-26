@@ -1,0 +1,9 @@
+uuid: 91b0311a-6022-4575-ab22-d07846821f5c
+langcode: en
+status: true
+dependencies:
+  config:
+    - eck.eck_entity_type.extra_content
+name: 'Image & Text'
+type: image_text
+description: ''

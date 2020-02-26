@@ -16,3 +16,4 @@ permissions:
   - 'view any accordion_row entities'
   - 'view any extra_content entities'
   - 'view any logos entities'
+  - 'view any social_links entities'

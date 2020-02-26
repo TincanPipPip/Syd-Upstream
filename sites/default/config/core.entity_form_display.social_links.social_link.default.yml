@@ -1,0 +1,31 @@
+uuid: c4584a18-37b1-469c-b815-725de4b414cf
+langcode: en
+status: true
+dependencies:
+  config:
+    - eck.eck_type.social_links.social_link
+    - field.field.social_links.social_link.field_social_link
+  module:
+    - link
+id: social_links.social_link.default
+targetEntityType: social_links
+bundle: social_link
+mode: default
+content:
+  field_social_link:
+    weight: 3
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+    type: link_default
+    region: content
+  title:
+    type: string_textfield
+    weight: -5
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden: {  }

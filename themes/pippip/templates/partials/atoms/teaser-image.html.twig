@@ -1,0 +1,16 @@
+{% set jpg= 'jpg' %}
+{% set webp = 'webp' %}
+
+{% if mode == 'teaser' or mode == 'featured' %}
+	{% set imagestyle = 'teaser_thumb' %}
+{% else %}
+	{% set imagestyle = 'main_image_md' %}
+{% endif %}
+
+{% set imageBg = image|image_style(imagestyle)%}
+
+<picture>
+	{# <source data-srcset="{{ imageBg|replace({ (jpg): webp }) }}" type="image/webp"> #}
+	<source data-srcset="{{ imageBg }}" type="image/jpeg">
+	<img data-src="{{ imageBig }}" alt="{{ alt }}" class="lazy" />
+</picture>

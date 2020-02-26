@@ -21,6 +21,7 @@ module:
   datetime_range: 0
   dblog: 0
   devel: 0
+  devel_entity_updates: 0
   dropzonejs: 0
   dropzonejs_eb_widget: 0
   dynamic_page_cache: 0
@@ -43,6 +44,7 @@ module:
   imageapi_optimize: 0
   imageapi_optimize_resmushit: 0
   inline_entity_form: 0
+  kint: 0
   link: 0
   linkit: 0
   m4032404: 0

@@ -13,6 +13,6 @@ effects:
     weight: 1
     data:
       width: null
-      height: 150
+      height: 160
       upscale: false
 pipeline: __default__

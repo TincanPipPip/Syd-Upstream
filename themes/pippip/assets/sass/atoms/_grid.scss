@@ -1,0 +1,42 @@
+/**
+ * ----------------------
+ * Un.titled
+ * Atoms - Grid
+ * ----------------------
+ */
+
+/**
+ * Styling
+ */
+.a-grid {
+  display: grid;
+  gap: $bump/2;
+
+  &--1 {
+    grid-template-columns: 1fr;
+  }
+
+  &--2 {
+    grid-template-columns: 1fr 1fr;
+
+    @include media('<sm') {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  &--3 {
+    grid-template-columns: 1fr 1fr 1fr;
+
+    @include media('<sm') {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  &--4 {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+
+    @include media('<xs') {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+}

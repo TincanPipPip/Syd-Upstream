@@ -1,0 +1,54 @@
+/**
+ * ----------------------
+ * Un.titled
+ * Organisms - Teasers
+ * ----------------------
+ */
+
+.o-teaser {
+  &__thumb {
+    display: block;
+    width: 100%;
+    position: relative;
+    background-color: $c-primary;
+
+    .a-image-credit {
+      left: $bump/1.5;
+    }
+
+    img {
+      width: 100%;
+      height: auto;
+      display: block;
+      transition: 0.2s $easing;
+    }
+
+    &:hover {
+      img {
+        opacity: 0.6;
+      }
+    }
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+
+    p {
+      &:last-of-type {
+        margin-bottom: $bump;
+      }
+    }
+  }
+
+  &__buttons {
+    margin-top: auto;
+    padding: 0 $bump/1.5;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: $bump/2;
+    align-self: flex-start;
+  }
+}

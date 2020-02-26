@@ -72,12 +72,20 @@ class ImageAPIOptimizePipelineListBuilder extends ConfigEntityListBuilder {
     $flush = [
       'title' => $this->t('Flush'),
       'weight' => 200,
-      'url' => $entity->urlInfo('flush-form'),
+      'url' => $entity->toUrl('flush-form'),
     ];
 
-    return parent::getDefaultOperations($entity) + [
-      'flush' => $flush,
-    ];
+    $operations = parent::getDefaultOperations($entity) + [
+        'flush' => $flush,
+      ];
+
+    // Remove destination URL from the edit link to allow editing pipeline
+    // processors.
+    if (isset($operations['edit'])) {
+      $operations['edit']['url'] = $entity->toUrl('edit-form');
+    }
+
+    return $operations;
   }
 
   /**
