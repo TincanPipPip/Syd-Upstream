@@ -1,0 +1,25 @@
+uuid: 284ecd75-c9fe-48d4-beee-81766c58cf07
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - spektrix_import
+  enforced:
+    module:
+      - spektrix_import  
+id: node.field_ymal
+field_name: field_ymal
+entity_type: node
+type: string
+settings:
+  max_length: 255
+  is_ascii: false
+  case_sensitive: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

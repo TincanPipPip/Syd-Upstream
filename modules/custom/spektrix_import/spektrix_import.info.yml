@@ -1,0 +1,12 @@
+type: module
+name: Spektrix import
+description: Imports events / performances from Spektrix XML API
+core: 8.x
+package: Tincan
+
+dependencies:
+  - migrate
+  - migrate_plus
+  - migrate_tools
+  - datetime_range
+  - prepopulate

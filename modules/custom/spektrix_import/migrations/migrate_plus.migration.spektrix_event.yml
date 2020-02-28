@@ -1,0 +1,74 @@
+# Migration configuration for performances.
+id: spektrix_event
+label: Event migration
+migration_group: spektrix
+source:  
+  plugin: spektrix_event
+  data_fetcher_plugin: http
+  data_parser_plugin: spektrix_xml
+  urls: https://system.spektrix.com/queenshalledinburgh/api/v1/eventsrestful.svc/allattributes/next?n=1000
+  item_selector: /Events/Event
+  fields:
+    -
+      name: event_id
+      label: Event ID
+      selector: Id    
+    -
+      name: event_title
+      label: Title
+      selector: Name
+    -
+      name: event_date_from
+      label: Event date from
+      selector: FirstInstance
+    -
+      name: event_date_to
+      label: Event date to
+      selector: LastInstance
+    -
+      name: event_image
+      label: Thumbnail
+      selector: ImageUrl
+    -
+      name: Attributes
+      label: Attributes
+      selector: Attributes     
+    - 
+      name: price
+      label: Pseudo element for price      
+    - 
+      name: venue
+      label: Pseudo element for venue      
+    - 
+      name: genre
+      label: Pseudo element for genre      
+  ids:
+    event_id:
+      type: int
+destination:
+  plugin: entity:node
+process:  
+  type:
+    plugin: default_value
+    default_value: event
+  title: event_title
+  field_price_times: price
+  field_venue: venue
+  #field_genre: genre
+  field_spektrix_event_id: event_id
+  field_run_date:
+    plugin: spektrix_date_range
+    source: 
+      - event_date_from
+      - event_date_to    
+  sticky:
+    plugin: default_value
+    default_value: 0
+#  'body/value': description
+dependencies:
+  module:
+    - spektrix_import
+  enforced:
+    module:
+      - migrate_plus
+      - spektrix_import

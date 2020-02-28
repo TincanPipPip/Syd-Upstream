@@ -1,0 +1,131 @@
+spektrix_import.calendar_modal:
+  path: "performances_modal/{prod_id}"
+  defaults:
+    _controller: '\Drupal\spektrix_import\Controller\PerformancesCalendarModal::modalContent'
+    _title: "Performances"
+    date: "No content"
+  requirements:
+    _permission: "access content"
+spektrix_import.calendar_modal_partner:
+  path: "performances_modal_partner/{prod_id}"
+  defaults:
+    _controller: '\Drupal\spektrix_import\Controller\PerformancesCalendarModal::modalContentPartner'
+    _title: "Performances"
+    date: "No content"
+  requirements:
+    _permission: "access content"    
+spektrix_import.events_feed:
+  path: "events_feed"
+  defaults:
+    _controller: '\Drupal\spektrix_import\Controller\EventsFeed::Feed'
+    _title: "Events feed"
+  requirements:
+    _permission: "access content"
+spektrix_import.booking_modal:
+  path: "book/{perf_id}"
+  defaults:
+    _controller: '\Drupal\spektrix_import\Controller\EmbeddedPages::book'
+    _title: "Create booking"
+  requirements:
+    _permission: "access content"
+spektrix_import.calendar_performances:
+  path: "calendar_perfs/{date}"
+  defaults:
+    _controller: '\Drupal\spektrix_import\Controller\CalendarPerformances::modalContent'
+    _title: "Performances"
+    date: "No content"
+  requirements:
+    _permission: "access content"
+spektrix_import.settings:
+  path: "/admin/structure/spektrix/settings"
+  defaults:
+    _form: '\Drupal\spektrix_import\Form\SpektrixAdminForm'
+    _title: "Spektrix settings"
+  requirements:
+    _permission: "administer site configuration"
+spektrix_import.add_performance.single_tab:
+  path: "/node/{node}/edit/performance"
+  defaults:
+    _controller: '\Drupal\spektrix_import\Controller\AddPerformanceController::singleCreate'
+    _title: "Add performance"
+  requirements:
+    _permission: "add performances"
+    _custom_access: '\Drupal\spektrix_import\Controller\AddPerformanceController::checkAccess'
+  options:
+    _admin_route: TRUE
+spektrix_import.add_performance.multiple_tab:
+  path: "/node/{node}/performance-multiple"
+  defaults:
+    _form: '\Drupal\spektrix_import\Form\AddPerformanceForm'
+    _title: "Add multiple performances"
+  requirements:
+    _permission: "add performances"
+    _custom_access: '\Drupal\spektrix_import\Controller\AddPerformanceController::checkAccess'
+  options:
+    _admin_route: TRUE
+spektrix_import.perfs_tab:
+  path: "/node/{node}/performances"
+  defaults:
+    _controller: '\Drupal\spektrix_import\Controller\PerformancesTab::content'
+    _title: "Add multiple performances"
+  requirements:
+    _permission: "add performances"
+    _custom_access: '\Drupal\spektrix_import\Controller\PerformancesTab::checkAccess'
+  options:
+    _admin_route: TRUE
+spektrix_import.login:
+  path: "login"
+  defaults:
+    _controller: '\Drupal\spektrix_import\Controller\EmbeddedPages::login'
+    _title: "Log in"
+  requirements:
+    _permission: "access content"
+spektrix_import.logout:
+  path: "logout"
+  defaults:
+    _controller: '\Drupal\spektrix_import\Controller\EmbeddedPages::logout'
+    _title: "Log out"
+  requirements:
+    _permission: "access content"
+spektrix_import.checkout:
+  path: "checkout"
+  defaults:
+    _controller: '\Drupal\spektrix_import\Controller\EmbeddedPages::checkout'
+    _title: "Checkout"
+  requirements:
+    _permission: "access content"
+spektrix_import.memberships:
+  path: "memberships"
+  defaults:
+    _controller: '\Drupal\spektrix_import\Controller\EmbeddedPages::memberships'
+    _title: "Memberships"
+  requirements:
+    _permission: "access content"
+spektrix_import.gift_vouchers:
+  path: "gift-vouchers"
+  defaults:
+    _controller: '\Drupal\spektrix_import\Controller\EmbeddedPages::gift_vouchers'
+    _title: "Gift vouchers"
+  requirements:
+    _permission: "access content"
+spektrix_import.register:
+  path: "register"
+  defaults:
+    _controller: '\Drupal\spektrix_import\Controller\EmbeddedPages::register'
+    _title: "Register"
+  requirements:
+    _permission: "access content"
+spektrix_import.basket:
+  path: "basket"
+  defaults:
+    _controller: '\Drupal\spektrix_import\Controller\EmbeddedPages::basket'
+    _title: "Basket"
+  requirements:
+    _permission: "access content"
+spektrix_import.account:
+  path: "my-account"
+  defaults:
+    _controller: '\Drupal\spektrix_import\Controller\EmbeddedPages::account'
+    _title: "Account"
+  requirements:
+    _permission: "access content"

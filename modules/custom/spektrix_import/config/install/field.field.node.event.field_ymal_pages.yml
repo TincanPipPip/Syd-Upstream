@@ -1,0 +1,33 @@
+uuid: 3d8194d3-723a-4dc2-8fdd-bf092e4e7b62
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_ymal_pages
+    - node.type.event
+  module:
+    - spektrix_import
+  enforced:
+    module:
+      - spektrix_import  
+id: node.event.field_ymal_pages
+field_name: field_ymal_pages
+entity_type: node
+bundle: event
+label: 'You might also like (pages)'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      page: page
+      event: event
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: page
+field_type: entity_reference
