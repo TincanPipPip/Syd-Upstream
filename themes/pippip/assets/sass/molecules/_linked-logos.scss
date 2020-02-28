@@ -6,10 +6,6 @@
  */
 
 .m-logos {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: $bump;
-
   a {
     display: block;
 

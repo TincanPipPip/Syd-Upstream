@@ -73,29 +73,34 @@
  */
 #}
 
+{% if view_mode == "full" %}
+	{% set nodeClass = 'o-full' %}
+{% else %}
+	{% set nodeClass = 'o-teaser o-teaser-' ~ view_mode %}
+{% endif %}
+
 {%
 	set classes = [
 		'o-node',
 		'o-' ~ node.bundle|clean_class,
-		view_mode ? 'o-' ~ view_mode|clean_class,
-		view_mode ? 'o-' ~ view_mode|clean_class ~ '--' ~ accent,
+		nodeClass
 	]
 %}
 
-<div{{attributes.addClass(classes)}}>
+<article {{attributes.addClass(classes)}}>
 
 	{% block content %}
 
-		{% if view_mode == "teaser" %}
+		{% if view_mode == "full" %}
 
-			{% include '@pippip/partials/organisms/teaser.html.twig' %}
+			{% include '@pippip/partials/organisms/default.html.twig' with {ct: node.bundle|clean_class} %}
 
 		{% else %}
 
-			{% include '@pippip/partials/organisms/default.html.twig' %}
+			{% include '@pippip/partials/organisms/teaser.html.twig' with {mode: view_mode|clean_class, ct: node.bundle|clean_class} %}
 
 		{% endif %}
 
 	{% endblock %}
 
-</div>
+</article>

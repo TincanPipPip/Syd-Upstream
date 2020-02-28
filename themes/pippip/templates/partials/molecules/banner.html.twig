@@ -1,54 +1,43 @@
-{% set has_media = content.image %}
-{% if has_media %}
+{% if content.field_image|render %}
 
 	<div class="m-banner" role="banner">
 
-		{% include '@pippip/partials/atoms/banner-image.html.twig' with {image: content.image, alt: content.imagealt} %}
+		<div class="m-banner__copy">
+			<div class="grid">
+				<div class="col-sm-12">
+					
+					{% if node.title.value %}
+						<h1>
+							{{ node.title.value }}
+						</h1>
+					{% endif %}
 
-		{% if content.type != 'page' %}
-			<div class="m-banner__inner">
-				<div class="grid justify-center">
-					<div class="col-12">
-
-            {% if content.title %}
-              <h1 class="featured">
-                {{ content.title }}
-              </h1>
-						{% endif %}
-        
-            {% if content.summary %}
-              {{ content.summary }}
-            {% endif %}
-
-					</div>
 				</div>
 			</div>
-		{% endif %}
+		</div>
+		
+		<figure class="m-banner__image">
+			{% include '@pippip/partials/atoms/banner-image.html.twig' with {image: node.field_image[0].entity.uri.value, alt: content.field_image[0]['#item'].alt} %}
 
-		{% include '@pippip/partials/atoms/image-credit.html.twig' %}
+			{% include '@pippip/partials/atoms/image-credit.html.twig' with {credit: content.field_image_credit[0]['#context'].value} %}
+		</figure>
 
 	</div>
 
 {% else %}
 
-	{% if content.type != 'page' %}
-		<div class="m-no-banner" role="banner">
-			<div class="grid justify-center">
-				<div class="col-11">
+	<div class="m-no-banner" role="banner">
+		<div class="grid">
+			<div class="col-12">
 
-          {% if content.title %}
-            <h1 class="featured">
-              {{ content.title }}
-            </h1>
-          {% endif %}
+				{% if node.title.value %}
+					<h1>
+						{{ node.title.value }}
+					</h1>
+				{% endif %}
 
-          {% if content.summary %}
-            {{ content.summary }}
-          {% endif %}
-
-				</div>
 			</div>
 		</div>
-	{% endif %}
+	</div>
 
 {% endif %}

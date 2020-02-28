@@ -1,0 +1,13 @@
+{% if drupal_menu('main', 2)['#items'] %}
+  <aside class="o-sidebar m-entity">
+    {% if nav_parent %}
+      <h3>
+        <a href="{{ drupal_url('node/' ~ nav_parent) }}" title="{{ nav_parent_title }}" class="nav-parent">{{ nav_parent_title }}</a>
+      </h3>
+    {% endif %}
+
+    <div class="o-sidebar__menu">
+      {{ drupal_menu('main', 2,2) }}
+    </div>
+  </aside>
+{% endif %}

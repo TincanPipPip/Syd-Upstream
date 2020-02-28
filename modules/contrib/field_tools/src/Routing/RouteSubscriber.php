@@ -109,6 +109,17 @@ class RouteSubscriber extends RouteSubscriberBase {
         );
         $collection->add("field_tools.displays_settings_copy_$entity_type_id", $route);
 
+        // Route for exporting field configuration to code.
+        $route = new Route(
+          "$path/fields/tools/export-to-code",
+          array(
+            '_form' => '\Drupal\field_tools\Form\ConfigFieldsExportToCodeForm',
+            '_title' => 'Export to base fields code',
+          ) + $defaults,
+          array('_permission' => 'administer ' . $entity_type_id . ' fields'),
+          $options
+        );
+        $collection->add("field_tools.export_to_code_$entity_type_id", $route);
       }
     }
   }

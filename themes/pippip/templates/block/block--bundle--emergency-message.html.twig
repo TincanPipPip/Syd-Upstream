@@ -7,7 +7,7 @@
     <div class="grid justify-center">
       <div class="col-12">
 
-        <a href="#close" class="m-emmsg__close" title="Hide message" id="emmsg-close">{% include '@pippip/partials/svg/close.html.twig' %}</a>
+        <a href="#close" class="m-emmsg__close" title="Hide message" id="emmsg-close" aria-label="Close emergency message">{{ get_icon('icon-close') }}</a>
 
         {% if content.field_title|render %}
           <h3>{{ content.field_title}}</h3>

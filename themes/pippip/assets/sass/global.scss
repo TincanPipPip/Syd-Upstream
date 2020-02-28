@@ -42,8 +42,9 @@
 @import 'base/main';
 
 /**
- * Atoms
- */
+* Atoms
+*/
+@import 'atoms/grid';
 @import 'atoms/nav-toggle';
 @import 'atoms/buttons';
 @import 'atoms/image-credit';
@@ -56,9 +57,9 @@
 @import 'molecules/entity';
 @import 'molecules/forms';
 @import 'molecules/nav';
-@import 'molecules/teasers';
 @import 'molecules/banner';
 @import 'molecules/linked-logos';
+@import 'molecules/social-links';
 
 /**
  * Organisims
@@ -68,6 +69,7 @@
 @import 'organisms/views';
 @import 'organisms/search-results';
 @import 'organisms/sidebar';
+@import 'organisms/teaser';
 
 /**
  * Templates

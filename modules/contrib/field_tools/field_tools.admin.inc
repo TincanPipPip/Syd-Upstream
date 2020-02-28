@@ -338,7 +338,7 @@ function field_tools_field_edit_form($form, &$form_state, $field) {
     )),
     // Ensure field_ui_field_edit_instance_pre_render() gets called in addition
     // to, not instead of, the #pre_render function(s) needed by all fieldsets.
-    '#pre_render' => array_merge(array('field_ui_field_edit_instance_pre_render'), element_info_property('fieldset', '#pre_render', array())),
+    '#pre_render' => array_merge(array('field_ui_field_edit_instance_pre_render'), \Drupal::service('element_info')->getInfoProperty('fieldset', '#pre_render', array())),
   );
 
   // Build the non-configurable instance values.
@@ -466,7 +466,7 @@ function field_tools_field_edit_form_submit($form, &$form_state) {
       $instance_source = field_read_instance($entity_type, $field['field_name'], $bundle);
       $instance = array_merge($instance_source, $instance);
       field_update_instance($instance);
-      drupal_set_message(t('Saved %label instance on entity %entity, bundle %bundle', array(
+      \Drupal::messenger()->addMessage(t('Saved %label instance on entity %entity, bundle %bundle', array(
         '%label' => $instance['label'],
         // TODO: labels.
         '%entity' => $entity_type,
@@ -525,7 +525,7 @@ function field_tools_field_delete_form_submit($form, &$form_state) {
     list($entity_type, $bundle_name) = explode(':', $instance_key);
     $instance = field_info_instance($entity_type, $field['field_name'], $bundle_name);
     field_delete_instance($instance);
-    drupal_set_message(t('Deleted instance of %fieldname from %entity bundle %bundle', array(
+    \Drupal::messenger()->addMessage(t('Deleted instance of %fieldname from %entity bundle %bundle', array(
       '%fieldname' => $field['field_name'],
       '%entity' => $entity_type,
       '%bundle' => $bundle_name,
@@ -911,7 +911,7 @@ function _field_tools_add_instance_to_bundles($instance, $new_instances) {
     $bundles = array_filter($bundles);
     if (!empty($bundles)) {
       if (!_field_tools_entity_can_attach_field($entity_type, $field_info)) {
-        drupal_set_message(t('Field %field_label cannot be attached to entity type %entity_type', array(
+        \Drupal::messenger()->addMessage(t('Field %field_label cannot be attached to entity type %entity_type', array(
           '%field_label' => $instance['label'],
           '%entity_type' => $entity_types[$entity_type]['label'],
         )));
@@ -935,7 +935,7 @@ function _field_tools_add_instance_to_bundles($instance, $new_instances) {
       $instance['entity_type'] = $entity_type;
       foreach ($bundles as $bundle) {
         if (_field_tools_field_already_attached($entity_type, $bundle, $field_info)) {
-          drupal_set_message(t('Field %field_label is already attached to %entity_type - %bundle', array(
+          \Drupal::messenger()->addMessage(t('Field %field_label is already attached to %entity_type - %bundle', array(
             '%field_label' => $instance['label'],
             '%entity_type' => $entity_types[$entity_type]['label'],
             '%bundle' => $entity_types[$entity_type]['bundles'][$bundle]['label'],
@@ -944,7 +944,7 @@ function _field_tools_add_instance_to_bundles($instance, $new_instances) {
         }
         $instance['bundle'] = $bundle;
         field_create_instance($instance);
-        drupal_set_message(t('Attached field %field_label to %entity_type - %bundle', array(
+        \Drupal::messenger()->addMessage(t('Attached field %field_label to %entity_type - %bundle', array(
           '%field_label' => $instance['label'],
           '%entity_type' => $entity_types[$entity_type]['label'],
           '%bundle' => $entity_types[$entity_type]['bundles'][$bundle]['label'],

@@ -50,8 +50,8 @@
     'm-block',
     'm-block--' ~ configuration.provider|clean_class,
     'm-block--' ~ plugin_id|clean_class,
-    'm-block__' ~ attributes.id|clean_class,
-    'm-block__' ~ label|replace(' ','-')|lower
+    'm-block__' ~ content['#block_content'].info.value|replace(' ','-')|lower,
+		'm-' ~ content['#block_content'].info.value|replace(' ','-')|lower
   ]
 %}
 

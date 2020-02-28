@@ -20,7 +20,6 @@ settings:
             - Format
             - Bold
             - Italic
-            - Blockquote
             - SpecialChar
         -
           name: Links
@@ -42,10 +41,10 @@ settings:
             - Copy
             - PasteFromWord
   plugins:
-    stylescombo:
-      styles: ''
     language:
       language_list: un
+    stylescombo:
+      styles: ''
     linkit:
       linkit_profile: default
 image_upload:

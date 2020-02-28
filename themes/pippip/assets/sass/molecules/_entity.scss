@@ -14,10 +14,11 @@
     display: block;
   }
 
-  @import 'entity--body';
-  @import 'entity--image';
-  @import 'entity--view';
-  @import 'entity--quote';
-  @import 'entity--accordion';
-  @import 'entity--gallery';
+  @import './entities/body';
+  @import './entities/image';
+  @import './entities/view';
+  @import './entities/quote';
+  @import './entities/accordion';
+  @import './entities/gallery';
+  @import './entities/image-text';
 }

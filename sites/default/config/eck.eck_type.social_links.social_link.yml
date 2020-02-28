@@ -1,0 +1,9 @@
+uuid: 12a49376-ea5b-4420-b464-acc9ee680977
+langcode: en
+status: true
+dependencies:
+  config:
+    - eck.eck_entity_type.social_links
+name: 'Social link'
+type: social_link
+description: ''

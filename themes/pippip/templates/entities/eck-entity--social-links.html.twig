@@ -1,0 +1,5 @@
+{% if content.field_social_link|render %}
+  <a href="{{ content.field_social_link }}" rel="noopener nofollow" class="m-social-links__link" aria-label="Open {{ content.title }}" title="Open {{ content.title }}">
+    {{ get_icon('icon-'~content.title[0]['#context'].value|lower) }}
+  </a>
+{% endif %}

@@ -6,28 +6,28 @@
 
   <blockquote>
     {{ content.field_quote }}
-
-    <footer>
-      {% if content.field_rating|render %}
-        {% include '@pippip/partials/atoms/rating.html.twig' with {
-          content : {
-            rating : content.field_rating.0
-          }
-        } %}
-      {% endif %}
-
-      {% if content.field_author %}
-        <cite>
-          <span class="name">
-            {{ content.field_author }}
-          </span>
-          {% if content.field_quote_credit|render %}
-            -
-            {{ content.field_quote_credit}}
-          {% endif %}
-        </cite>
-      {% endif %}
-    </footer>
   </blockquote>
+  
+  <div class="m-entity__quote-info">
+    {% if content.field_rating|render %}
+      {% include '@pippip/partials/atoms/rating.html.twig' with {
+        content : {
+          rating : content.field_rating.0
+        }
+      } %}
+    {% endif %}
+
+    {% if content.field_author %}
+      <cite>
+        <span class="name">
+          {{ content.field_author }}
+        </span>
+        {% if content.field_quote_credit|render %}
+          -
+          {{ content.field_quote_credit}}
+        {% endif %}
+      </cite>
+    {% endif %}
+  </div>
 
 {% endblock %}

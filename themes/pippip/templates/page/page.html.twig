@@ -40,19 +40,20 @@
  */
 #}
 <header id="js-header" class="o-header" role="banner">
-  <a href="/" title="{{ drupal_config('system.site', 'name') }}" rel="home" class="o-header__logo">
+  <a href="/" title="{{ drupal_config('system.site', 'name') }}" rel="home" class="o-header__logo" aria-label="Site logo - link to homepage">
     {{ get_icon('logo') }}
   </a>
 
-  {{ page.header }}
-
-  <button class="a-nav-toggle" title="Toggle Nav">
+  <button class="a-nav-toggle" title="Toggle Nav" aria-label="Toggle nav">
     <span class="a-nav-toggle__line a-nav-toggle__line-1"></span>
     <span class="a-nav-toggle__line a-nav-toggle__line-2"></span>
     <span class="a-nav-toggle__line a-nav-toggle__line-3"></span>
   </button>
-</header>
 
+  <nav class="m-main-nav" role="navigation">
+    {{ drupal_menu('main', 1, 3, TRUE) }}
+  </nav>
+</header>
 
 {% include '@pippip/partials/molecules/admin-tabs.html.twig' %}
 
@@ -69,6 +70,7 @@
 <footer class="o-footer" role="contentinfo">
   {{ page.footer }}
   {{ drupal_menu('footer') }}
+  <a href="https://un.titled.co.uk" title="An Un.titled Site" rel="noopener noreferrer">An Un.titled Site</a>
 </footer>
 
 {# 

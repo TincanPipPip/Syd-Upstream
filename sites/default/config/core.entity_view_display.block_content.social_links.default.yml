@@ -1,0 +1,22 @@
+uuid: 708bbff0-844d-4fc8-baa7-e16a0e636eba
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.social_links
+    - field.field.block_content.social_links.field_social_links
+id: block_content.social_links.default
+targetEntityType: block_content
+bundle: social_links
+mode: default
+content:
+  field_social_links:
+    weight: 0
+    label: hidden
+    settings:
+      link: true
+      view_mode: default
+    third_party_settings: {  }
+    type: entity_reference_entity_view
+    region: content
+hidden: {  }
