@@ -1,0 +1,17 @@
+spektrix_import.add_performance.single_tab:
+  title: 'Add performance'
+  route_name: spektrix_import.add_performance.single_tab
+  base_route: entity.node.canonical
+  weight: 99
+
+spektrix_import.add_performance.multiple_tab:
+  title: 'Add multiple performances'
+  route_name: spektrix_import.add_performance.multiple_tab
+  base_route: entity.node.canonical
+  weight: 100
+
+spektrix_import.perfs_tab:
+  title: 'Performances'
+  route_name: spektrix_import.perfs_tab
+  base_route: entity.node.canonical
+  weight: 80

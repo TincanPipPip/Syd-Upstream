@@ -1,0 +1,8 @@
+uuid: a90a3a98-d53a-4a7e-8316-6e286c5c78ad
+langcode: en
+status: true
+dependencies: {  }
+name: Accessibility
+vid: accessibility
+description: ''
+weight: 0
