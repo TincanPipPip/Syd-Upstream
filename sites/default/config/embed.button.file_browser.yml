@@ -2,6 +2,8 @@ uuid: 76364d80-4889-46a1-b0d0-a4044415af9c
 langcode: en
 status: true
 dependencies:
+  config:
+    - entity_browser.browser.browse_files
   module:
     - entity_embed
     - file
@@ -20,4 +22,7 @@ type_settings:
   entity_browser: browse_files
   entity_browser_settings:
     display_review: false
-icon_uuid: db2cad05-1e3b-4b35-b163-99d7d036130c
+icon:
+  data: iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAQAAAD9CzEMAAAA90lEQVR4Ae3WP0oDQRiG8aeQFFoLeoEwaC/kNtEiJ7IxVTxBkj2BheQGewOxlGX/gFuNi7jDsM3M5+fAgvO81STFDyYphtysMxyoscK1FBgiMlTYX66KIQ5YxY4Eq1VAQzCrmxzIgPvi/wEZyEAGntimBF5ZDDv9FbAb5p/fuALgmnf0ACXnw0p3/uSOsRW9Fui4AeCW7ueTe/w2WmDN2MP3+ZFpWw2ww++ZF86YtuAkBfzb97vgkmnuxxYD7vZjWtHLgTWSNvFAq354BYBCBezDgObx+8EyDIDhSIP8cvYsIQToy4C8NvVrukgNGKp0gOJ/75abbV+Z71+lKiSBNwAAAABJRU5ErkJggg==
+  uri: 'public://file_browser_icon.png'
+icon_uuid: null
