@@ -27,7 +27,6 @@ $translateX: 0;
   height: $height-icon;
   position: relative;
   display: none;
-  margin: ($height-icon * 2) auto $height-icon auto;
   outline: none;
 
   @include media('<sm') {

@@ -1,10 +1,10 @@
 {% set jpg= 'jpg' %}
 {% set webp = 'webp' %}
 
-{% if mode == 'teaser' or mode == 'featured' %}
+{% if mode == 'teaser' %}
 	{% set imagestyle = 'teaser_thumb' %}
 {% else %}
-	{% set imagestyle = 'main_image_md' %}
+	{% set imagestyle = 'teaser_thumb' %}
 {% endif %}
 
 {% set imageBg = image|image_style(imagestyle)%}
