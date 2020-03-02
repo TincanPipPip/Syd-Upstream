@@ -8,20 +8,41 @@
 // Pagination
 .pager {
   @include li-reset;
-  text-align: center;
-  display: block;
-  clear: both;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: $bump;
+  flex-wrap: wrap;
+
+  @include media('<sm') {
+    margin-top: $bump/2;
+  }
 
   li {
     display: inline-block;
 
     a {
-      padding: $bump/3 $bump/1.5;
       display: block;
+      padding: 0 10px 0 5px;
+      border-right: 2px solid $c-primary;
+      line-height: 1;
+
+      &:hover {
+        color: $c-primary;
+        text-decoration: none;
+      }
     }
 
-    &.pager-current {
-      padding: $bump/3 $bump/1.5;
+    &:last-child {
+      a {
+        border-right: 0;
+        padding-right: 5px;
+      }
+    }
+
+    &.is-active a {
+      color: $c-primary;
+      text-decoration: none;
     }
   }
 }
