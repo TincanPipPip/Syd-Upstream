@@ -20,3 +20,15 @@
 ### Changed
 - Tweaked node.html.twig teaser classes
 - Removed extraneous field from teaser.html.twig
+
+---
+
+## 02-03-2020
+### Added
+- Search API module
+- Search API Exclude module
+
+### Changed
+- Tweaked admin tabs markup
+- Updated default pagination styling
+- Removed margin from nav toggle
