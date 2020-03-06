@@ -32,3 +32,13 @@
 - Tweaked admin tabs markup
 - Updated default pagination styling
 - Removed margin from nav toggle
+
+---
+
+## 06-03-2020
+### Added
+- views-view-unformatted.html.twig base template
+
+### Changed
+- Default .m-entity margin
+- .o-teaser added flexbox
