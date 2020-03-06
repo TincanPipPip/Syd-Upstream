@@ -6,6 +6,11 @@
  */
 
 .o-teaser {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+
   &__thumb {
     display: block;
     width: 100%;
@@ -35,17 +40,22 @@
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
+    padding: $bump/2;
 
     p {
       &:last-of-type {
         margin-bottom: $bump;
+
+        @include media('<sm') {
+          margin-bottom: $bump/2;
+        }
       }
     }
   }
 
   &__buttons {
     margin-top: auto;
-    padding: 0 $bump/1.5;
+    padding: 0 $bump/1.5 $bump/1.5;
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: $bump/2;
