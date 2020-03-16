@@ -76,8 +76,8 @@
 {% if view_mode == "full" %}
 	{% set nodeClass = 'o-full' %}
 {% else %}
-	{% set nodeClass = 'o-teaser o-teaser-' ~ view_mode %}
-{% endif %}
+	{% set nodeClass = 'o-teaser o-teaser-' ~ view_mode|clean_class %}
+{% endif %}oi
 
 {%
 	set classes = [
