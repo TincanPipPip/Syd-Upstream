@@ -42,3 +42,15 @@
 ### Changed
 - Default .m-entity margin
 - .o-teaser added flexbox
+
+--- 
+
+## 16-03-2020
+### Added
+- Pippip banner partial CT class
+- Downloads entity styling & layout
+- Safari lazyload fix
+
+### Changed
+- _image-credit.scss tidied
+- node.html.twig updated default classes
