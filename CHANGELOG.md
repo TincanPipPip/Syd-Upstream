@@ -50,6 +50,7 @@
 - Pippip banner partial CT class
 - Downloads entity styling & layout
 - Safari lazyload fix
+- Spektrix donation entity & styling
 
 ### Changed
 - _image-credit.scss tidied
