@@ -54,3 +54,7 @@
 ### Changed
 - _image-credit.scss tidied
 - node.html.twig updated default classes
+
+## 17-03-2020
+### Changed
+- quirk of the image pipeline module
