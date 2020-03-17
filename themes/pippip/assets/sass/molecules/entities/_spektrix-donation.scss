@@ -1,0 +1,34 @@
+/**
+* ----------------------
+* Un.titled
+* Molecules - Spektrix donations
+* ----------------------
+*/
+
+/**
+* Config
+*/
+
+/**
+* Styling
+*/
+&__spektrix-donation {
+  .donate {
+    margin-top: $bump/2;
+  }
+
+  label,
+  input[type='text'] {
+    width: 100%;
+    display: block;
+  }
+
+  input[type='text'] {
+    margin: $bump/2 0;
+    border-color: transparent;
+
+    &:focus {
+      border-color: $c-primary;
+    }
+  }
+}

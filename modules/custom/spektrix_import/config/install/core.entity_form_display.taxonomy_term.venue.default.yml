@@ -1,0 +1,56 @@
+uuid: 950f5bbf-69d7-497f-b508-886ef66a8a87
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.taxonomy_term.venue.field_address
+    - field.field.taxonomy_term.venue.field_contact
+    - field.field.taxonomy_term.venue.field_loc
+    - taxonomy.vocabulary.venue
+  module:
+    - link
+    - text
+    - spektrix_import
+  enforced:
+    module:
+      - spektrix_import
+id: taxonomy_term.venue.default
+targetEntityType: taxonomy_term
+bundle: venue
+mode: default
+content:
+  field_address:
+    weight: 1
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: text_textarea
+    region: content
+  field_contact:
+    weight: 2
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_loc:
+    weight: 3
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+    type: link_default
+    region: content
+  name:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  description: true
+  path: true

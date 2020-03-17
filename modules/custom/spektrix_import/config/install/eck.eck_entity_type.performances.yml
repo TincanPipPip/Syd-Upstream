@@ -1,0 +1,16 @@
+uuid: 178efe79-a7a0-4a45-bf54-518da9fa797a
+langcode: en
+status: true
+dependencies: {}
+id: performances
+label: Performances
+created: false
+changed: false
+uid: true
+title: true
+dependencies: 
+  module:
+    - spektrix_import
+  enforced:
+    module:
+      - spektrix_import

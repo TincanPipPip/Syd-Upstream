@@ -1,0 +1,25 @@
+uuid: 5cfd6e4c-b978-49cb-a0ee-0ab09d5ac178
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_address
+    - taxonomy.vocabulary.venue
+  module:
+    - text
+    - spektrix_import
+  enforced:
+    module:
+      - spektrix_import  
+id: taxonomy_term.venue.field_address
+field_name: field_address
+entity_type: taxonomy_term
+bundle: venue
+label: Address
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

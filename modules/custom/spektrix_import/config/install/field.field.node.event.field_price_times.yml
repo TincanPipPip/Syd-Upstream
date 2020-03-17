@@ -1,0 +1,25 @@
+uuid: d20e38d2-c751-4f66-bba7-a85041e05201
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_price_times
+    - node.type.event
+  module:
+    - text
+    - spektrix_import
+  enforced:
+    module:
+      - spektrix_import  
+id: node.event.field_price_times
+field_name: field_price_times
+entity_type: node
+bundle: event
+label: 'Price and times'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

@@ -1,0 +1,91 @@
+# Migration configuration for performances.
+id: spektrix_performance
+label: Performance migration
+migration_group: spektrix
+source:  
+  plugin: spektrix_performance  
+  data_fetcher_plugin: http
+  data_parser_plugin: spektrix_xml
+  urls: https://system.spektrix.com/queenshalledinburgh/api/v1/eventsrestful.svc/allattributes/next?n=1000
+  item_selector: /Events/Event/Times/EventTime
+  fields:
+    -
+      name: EventInstanceId
+      label: Performance ID
+      selector: EventInstanceId    
+    -
+      name: Time
+      label: Performance date
+      selector: Time
+    -
+      name: SeatsAvailable
+      label: Seat availability
+      selector: SeatsAvailable
+    -
+      name: SeatsAvailable
+      label: Seat availability
+      selector: SeatsAvailable  
+    -
+      name: OnSaleOnWeb
+      label: On sale
+      selector: OnSaleOnWeb
+    -
+      name: Capacity
+      label: Capacity
+      selector: Capacity
+    -
+      name: SeatsLocked
+      label: SeatsLocked
+      selector: SeatsLocked  
+    -
+      name: Attributes
+      label: Door Open Times
+      selector: Attributes
+    -
+      name: doTime
+      label: Pseudo element for Door Open Times
+    -
+      name: Event
+      label: Parent XML element
+      selector: ../../Id
+  ids:
+    EventInstanceId:
+      type: int
+destination:
+  plugin: entity:performances
+  default_bundle: performance
+process:
+  field_perf_date:
+    plugin: format_date
+    from_format: 'Y-m-d\TH:i:s'
+    to_format: 'Y-m-d\TH:i:s'
+    from_timezone: 'Europe/London'
+    to_timezone: 'UTC'
+    source: Time
+  field_do_time: doTime
+  field_spektrix_perf_id: EventInstanceId
+  field_event:
+    plugin: migration    
+    migration: spektrix_event
+    source: Event
+  title: EventInstanceId
+  field_onsale: OnSaleOnWeb
+  field_availability_percentage:
+    plugin: availability_percentage
+    source: SeatsAvailable
+  field_availability:
+    plugin: spektrix_availability
+    source: SeatsAvailable
+  field_accessibility:
+    plugin: spektrix_accessibility
+    source: Attributes  
+migration_dependencies:
+  optional:
+    - spektrix_event    
+dependencies:
+  module:
+    - spektrix_import
+  enforced:
+    module:
+      - migrate_plus
+      - spektrix_import
