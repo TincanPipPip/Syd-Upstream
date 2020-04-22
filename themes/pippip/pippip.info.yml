@@ -12,7 +12,6 @@ regions:
   content: Content
   highlighted: Highlighted
   help: Help
-  footer: Footer
   hidden: Hidden
 
 libraries-override:

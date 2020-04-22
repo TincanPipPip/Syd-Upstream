@@ -2,13 +2,13 @@
 
 {% block content %}
 
-  {% include '@pippip/partials/atoms/content-toolkit-title.html.twig' %}
+  {% include '@pippip/partials/atoms/content-toolkit-title.twig' %}
 
   <div class="m-entity__image-wrapper">
 
     {{ content.field_image }}
 
-    {% include '@pippip/partials/atoms/image-credit.html.twig' with {credit: content.field_image_credit[0]['#context'].value} %}
+    {% include '@pippip/partials/atoms/image-credit.twig' with {credit: content.field_image_credit[0]['#context'].value} %}
 
   </div>
 

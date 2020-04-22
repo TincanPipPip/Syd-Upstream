@@ -1,7 +1,5 @@
 {% extends "eck-entity--extra-content.html.twig" %}
 
 {% block content %}
-
-  <a href="{{ content.field_cta[0]['#plain_text'] }}" title="{{ content.title }}" class="a-btn">{{ content.title }}</a>
-
+  <a href="{{ content.field_cta[0]['#url'] }}" title="{{ content.field_cta[0]['#title'] }}" class="a-btn">{{ content.field_cta[0]['#title'] }}</a>
 {% endblock %}

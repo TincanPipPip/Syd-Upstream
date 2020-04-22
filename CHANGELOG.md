@@ -19,7 +19,7 @@
 
 ### Changed
 - Tweaked node.html.twig teaser classes
-- Removed extraneous field from teaser.html.twig
+- Removed extraneous field from teaser.twig
 
 ---
 
@@ -58,3 +58,22 @@
 ## 17-03-2020
 ### Changed
 - quirk of the image pipeline module
+
+---
+
+## 22-04-2020
+### Added
+- Default breadcrumb setup & styling
+- `menu.html.twig` to fix missing 'is-active-trail' classes
+
+### Removed
+- Footer region
+
+### Changed
+- Renamed partials to end `.twig` not `.html.twig`
+- Renamed `page--user.html.twig` to `page--member.html.twig`
+- Updated Emergency Message styling
+- Updated CTA entity link url
+- Removed typo in `node.html.twig`
+- `block--bundle--partners.html.twig` pointing to correct base template
+- `pippip_preprocess_node` changed to allow for multiple menu support without breaking subnav title

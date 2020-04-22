@@ -1,4 +1,4 @@
-{% include '@pippip/partials/molecules/banner.html.twig' with {ct: ct} %}
+{% include '@pippip/partials/molecules/banner.twig' with {ct: ct} %}
 
 <div class="grid justify-center">
 	<div class="col-12">
@@ -20,7 +20,7 @@
 
 			<div class="col-sm-4 col-lg-3 order-0 order-sm-1">
 				{% if ct == 'page' %}
-					{% include '@pippip/partials/molecules/subnav.html.twig' %}
+					{% include '@pippip/partials/molecules/subnav.twig' %}
 				{% endif %}
 			</div>
 
@@ -30,4 +30,4 @@
 </div>
 
 
-{% include '@pippip/partials/molecules/related-content.html.twig' %}
+{% include '@pippip/partials/molecules/related-content.twig' %}

@@ -5,7 +5,7 @@
 		{% set imageUri = node.field_image[0].entity.uri.value %}
 		{% set imageAlt = content.field_image[0]['#item'].alt %}
 
-		{% include '@pippip/partials/atoms/teaser-image.html.twig' with {image: imageUri, alt: imageAlt, mode: mode} %}
+		{% include '@pippip/partials/atoms/teaser-image.twig' with {image: imageUri, alt: imageAlt, mode: mode} %}
 	</a>
 {% endif %}
 

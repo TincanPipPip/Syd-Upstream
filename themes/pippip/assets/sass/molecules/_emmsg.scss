@@ -40,6 +40,7 @@
 
   &[data-state='visible'] {
     opacity: 0;
+    display: block;
     transform: translateY(100%);
     animation: slideInUp 0.2s 0.3s cubic-bezier(0.77, 0.29, 0.35, 0.72) 1 forwards;
   }
@@ -64,13 +65,14 @@
     height: $bump;
     width: $bump;
 
-    .svg {
+    svg {
       fill: $c-white;
+      transition: 0.1s $easing;
     }
 
     &:hover {
-      .svg {
-        fill: $c-white;
+      svg {
+        fill: $c-secondary;
       }
     }
   }

@@ -17,9 +17,9 @@
 		</div>
 		
 		<figure class="m-banner__image">
-			{% include '@pippip/partials/atoms/banner-image.html.twig' with {image: node.field_image[0].entity.uri.value, alt: content.field_image[0]['#item'].alt} %}
+			{% include '@pippip/partials/atoms/banner-image.twig' with {image: node.field_image[0].entity.uri.value, alt: content.field_image[0]['#item'].alt} %}
 
-			{% include '@pippip/partials/atoms/image-credit.html.twig' with {credit: content.field_image_credit[0]['#context'].value} %}
+			{% include '@pippip/partials/atoms/image-credit.twig' with {credit: content.field_image_credit[0]['#context'].value} %}
 		</figure>
 
 	</div>
