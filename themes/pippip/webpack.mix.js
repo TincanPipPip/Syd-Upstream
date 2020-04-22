@@ -18,7 +18,7 @@ const mix = require('laravel-mix'),
 /**
  * Variables
  */
-const hostname = 'syd.upstream',
+const hostname = 'syd.local',
   basePath = './assets',
   glob = new mixGlob({ mix });
 

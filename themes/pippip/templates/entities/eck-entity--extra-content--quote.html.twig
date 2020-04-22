@@ -2,7 +2,7 @@
 
 {% block content %}
 
-  {% include '@pippip/partials/atoms/content-toolkit-title.html.twig' %}
+  {% include '@pippip/partials/atoms/content-toolkit-title.twig' %}
 
   <blockquote>
     {{ content.field_quote }}
@@ -10,7 +10,7 @@
   
   <div class="m-entity__quote-info">
     {% if content.field_rating|render %}
-      {% include '@pippip/partials/atoms/rating.html.twig' with {
+      {% include '@pippip/partials/atoms/rating,twig' with {
         content : {
           rating : content.field_rating.0
         }

@@ -13,7 +13,7 @@
 @import '~include-media/dist/_include-media';
 @import '~normalize.scss/normalize.scss';
 @import '~reflex-grid/scss/reflex.scss';
-//@import 'choices.js/assets/styles/scss/choices';
+// @import '~choices.js/public/assets/styles/choices.min.css';
 
 /**
  * Config
@@ -49,6 +49,7 @@
 @import 'atoms/buttons';
 @import 'atoms/image-credit';
 @import 'atoms/wrapper';
+@import 'atoms/breadcrumbs';
 
 /**
  * Molecules

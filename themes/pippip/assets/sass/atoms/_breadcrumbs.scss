@@ -1,0 +1,41 @@
+/**
+* ----------------------
+* Un.titled
+* Atoms - Breadcrumbs
+* ----------------------
+*/
+
+/**
+* Styling
+*/
+.a-breadcrumb {
+  margin-bottom: $bump;
+  padding: $bump/2 0;
+
+  @include media('<xs') {
+    margin-bottom: $bump/2;
+  }
+
+  ol {
+    @include li-reset;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+
+    li {
+      margin-right: $bump/6;
+      white-space: nowrap;
+
+      &::after {
+        content: '/';
+        margin-left: $bump/10;
+      }
+
+      &:last-child {
+        &::after {
+          display: none;
+        }
+      }
+    }
+  }
+}

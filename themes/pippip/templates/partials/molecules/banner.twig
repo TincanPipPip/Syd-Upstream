@@ -1,0 +1,43 @@
+{% if content.field_image|render %}
+
+	<div class="m-banner m-banner--{{ ct }}" role="banner">
+
+		<div class="m-banner__copy">
+			<div class="grid">
+				<div class="col-sm-12">
+					
+					{% if node.title.value %}
+						<h1>
+							{{ node.title.value }}
+						</h1>
+					{% endif %}
+
+				</div>
+			</div>
+		</div>
+		
+		<figure class="m-banner__image">
+			{% include '@pippip/partials/atoms/banner-image.twig' with {image: node.field_image[0].entity.uri.value, alt: content.field_image[0]['#item'].alt} %}
+
+			{% include '@pippip/partials/atoms/image-credit.twig' with {credit: content.field_image_credit[0]['#context'].value} %}
+		</figure>
+
+	</div>
+
+{% else %}
+
+	<div class="m-no-banner m-no-banner--{{ ct }}" role="banner">
+		<div class="grid">
+			<div class="col-12">
+
+				{% if node.title.value %}
+					<h1>
+						{{ node.title.value }}
+					</h1>
+				{% endif %}
+
+			</div>
+		</div>
+	</div>
+
+{% endif %}
