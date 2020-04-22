@@ -4,5 +4,6 @@ ignored_config_entities:
   - google_analytics.settings
   - system.performance
   - 'block.*'
+  - spektrix_import.settings
 _core:
   default_config_hash: claOMBKuXMxbMKaC3_4aLztnH3sMbzAyQo28b6PDh34
