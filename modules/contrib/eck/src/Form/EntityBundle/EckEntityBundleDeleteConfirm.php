@@ -2,7 +2,7 @@
 
 namespace Drupal\eck\Form\EntityBundle;
 
-use Drupal\Core\Entity\EntityConfirmFormBase;
+use Drupal\Core\Entity\EntityDeleteForm;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Url;
 use Symfony\Component\DependencyInjection\ContainerInterface;
@@ -13,7 +13,7 @@ use Drupal\Core\Entity\EntityTypeManagerInterface;
  *
  * @ingroup eck
  */
-class EckEntityBundleDeleteConfirm extends EntityConfirmFormBase {
+class EckEntityBundleDeleteConfirm extends EntityDeleteForm {
 
   /**
    * The entity type manager.
@@ -45,7 +45,7 @@ class EckEntityBundleDeleteConfirm extends EntityConfirmFormBase {
    * {@inheritdoc}
    */
   public function getQuestion() {
-    return t('Are you sure you want to delete the entity bundle %type?', ['%type' => $this->entity->label()]);
+    return $this->t('Are you sure you want to delete the entity bundle %type?', ['%type' => $this->entity->label()]);
   }
 
   /**
@@ -59,7 +59,7 @@ class EckEntityBundleDeleteConfirm extends EntityConfirmFormBase {
    * {@inheritdoc}
    */
   public function getConfirmText() {
-    return t('Delete');
+    return $this->t('Delete');
   }
 
   /**

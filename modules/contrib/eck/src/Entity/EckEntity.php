@@ -27,9 +27,18 @@ class EckEntity extends ContentEntityBase implements EckEntityInterface {
   /**
    * {@inheritdoc}
    */
+  public static function create(array $values = []) {
+    $entity_type_manager = \Drupal::entityTypeManager();
+    $storage = $entity_type_manager->getStorage($values['entity_type']);
+    return $storage->create($values);
+  }
+
+  /**
+   * {@inheritdoc}
+   */
   public function getOwner() {
     if ($this->hasField('uid')) {
-      return $this->get('uid')->first()->entity;
+      return $this->get('uid')->entity;
     }
     return NULL;
   }
@@ -38,8 +47,8 @@ class EckEntity extends ContentEntityBase implements EckEntityInterface {
    * {@inheritdoc}
    */
   public function getOwnerId() {
-    if ($this->hasField('uid')) {
-      return $this->getOwner()->id();
+    if ($owner = $this->getOwner()) {
+      return $owner->id();
     }
     return NULL;
   }
@@ -65,7 +74,7 @@ class EckEntity extends ContentEntityBase implements EckEntityInterface {
   }
 
   /**
-   * @return \Drupal\Core\Field\FieldItemListInterface|string
+   * {@inheritdoc}
    */
   public function label() {
     if ($this->hasField('title')) {
@@ -99,15 +108,15 @@ class EckEntity extends ContentEntityBase implements EckEntityInterface {
         ->setTranslatable(TRUE)
         ->setSetting('max_length', 255)
         ->setDisplayOptions('view', [
-            'label' => 'hidden',
-            'type' => 'string',
-            'weight' => -5,
-          ]
+          'label' => 'hidden',
+          'type' => 'string',
+          'weight' => -5,
+        ]
         )
         ->setDisplayOptions('form', [
-            'type' => 'string_textfield',
-            'weight' => -5,
-          ]
+          'type' => 'string_textfield',
+          'weight' => -5,
+        ]
         )
         ->setDisplayConfigurable('form', TRUE)
         ->setDisplayConfigurable('view', TRUE);
@@ -139,7 +148,7 @@ class EckEntity extends ContentEntityBase implements EckEntityInterface {
         ->setDisplayConfigurable('view', TRUE);
     }
 
-    // Created field for the entity
+    // Created field for the entity.
     if ($config->get('created')) {
       $fields['created'] = BaseFieldDefinition::create('created')
         ->setLabel(t('Authored on'))
@@ -158,7 +167,7 @@ class EckEntity extends ContentEntityBase implements EckEntityInterface {
         ->setDisplayConfigurable('view', TRUE);
     }
 
-    // Changed field for the entity
+    // Changed field for the entity.
     if ($config->get('changed')) {
       $fields['changed'] = BaseFieldDefinition::create('changed')
         ->setLabel(t('Changed'))

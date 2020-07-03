@@ -5,29 +5,29 @@
  * Contains hook implementations.
  */
 
+use Drupal\Core\Access\AccessResult;
 use Drupal\Core\Config\Entity\ConfigEntityType;
 use Drupal\Core\Entity\Display\EntityViewDisplayInterface;
 use Drupal\Core\Entity\EntityInterface;
-use Drupal\Core\Entity\EntityTypeInterface;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Render\Element;
 use Drupal\Core\Routing\RouteMatchInterface;
 use Drupal\Core\Entity\ContentEntityType;
+use Drupal\Core\Session\AccountInterface;
 use Drupal\Core\Url;
 use Drupal\eck\ArrayDeprecationWrapper;
-use Drupal\eck\EckEntityTypeBundleInfo;
 use Drupal\eck\Entity\EckEntity;
 use Drupal\eck\Entity\EckEntityType;
 
 /**
  * Defines the online documentation url of the ECK module.
  */
-define('ECK_DOCUMENTATION_PAGE', 'https://drupal.org/node/1366144');
+const ECK_DOCUMENTATION_PAGE = 'https://drupal.org/node/1366144';
 
 /**
  * Defines the max length of entity id machine name.
  */
-define("ECK_ENTITY_ID_MAX_LENGTH", 27);
+const ECK_ENTITY_ID_MAX_LENGTH = 27;
 
 /**
  * Implements hook_help().
@@ -36,7 +36,7 @@ function eck_help($route_name, RouteMatchInterface $route_match) {
   switch ($route_name) {
     case 'help.page.eck':
       $output = '<h3>' . t('About') . '</h3>';
-      $output .= '<p>' . t('The Entity Construction Kit (ECK) builds upon the entity system to create a flexible and extensible data modeling system both with a UI for site builders, and with useful abstractions (classes, plugins, etc) to help developers use entities with ease. For more information, see the <a href="!eck">online documentation for the ECK module</a>.', ['!eck' => ECK_DOCUMENTATION_PAGE]) . '</p>';
+      $output .= '<p>' . t('The Entity Construction Kit (ECK) builds upon the entity system to create a flexible and extensible data modeling system both with a UI for site builders, and with useful abstractions (classes, plugins, etc) to help developers use entities with ease. For more information, see the <a href="@eck">online documentation for the ECK module</a>.', ['@eck' => ECK_DOCUMENTATION_PAGE]) . '</p>';
       break;
 
     default:
@@ -157,6 +157,7 @@ function eck_entity_type_build(array &$entity_types) {
           'delete-form' => '/admin/structure/eck/entity/' . $eck_type->id . '/bundles/{' . $eck_type->id . '_type}/delete',
           'collection' => '/admin/structure/eck/' . $eck_type->id . '/bundles',
         ],
+        'config_export' => ['type', 'name', 'description'],
       ];
       // Merge the definitions.
       $bundle_definition = array_merge($bundle_definition, $bundle_base_definition);
@@ -176,7 +177,7 @@ function eck_entity_type_build(array &$entity_types) {
 function eck_menu_local_actions_alter(&$local_actions) {
   $eck_types = EckEntityType::loadMultiple();
 
-  /** @var EckEntityTypeBundleInfo $eckBundleInfo */
+  /** @var \Drupal\eck\EckEntityTypeBundleInfo $eckBundleInfo */
   $eckBundleInfo = Drupal::service('eck.entity_type.bundle.info');
 
   $defaults = [
@@ -186,32 +187,30 @@ function eck_menu_local_actions_alter(&$local_actions) {
     'weight' => 0,
   ];
 
-  /**
-   * @var string $name
-   * @var EckEntity $type
-   */
+  /* @var string $name */
+  /* @var \Drupal\eck\Entity\EckEntity $type */
   foreach ($eck_types as $name => $type) {
     $local_actions['eck.bundle.' . $type->id() . '.add'] = $defaults + [
-        'id' => 'eck.bundle.' . $type->id() . '.add',
-        'route_name' => 'eck.entity.' . $type->id() . '_type.add',
-        'title' => t('Add @label bundle', ['@label' => $type->label()]),
-        'appears_on' => [
-          'eck.entity.' . $type->id() . '_type.list',
-        ],
-      ];
+      'id' => 'eck.bundle.' . $type->id() . '.add',
+      'route_name' => 'eck.entity.' . $type->id() . '_type.add',
+      'title' => t('Add @label bundle', ['@label' => $type->label()]),
+      'appears_on' => [
+        'eck.entity.' . $type->id() . '_type.list',
+      ],
+    ];
 
     if ($eckBundleInfo->entityTypeHasBundles($type->id())) {
       $bundle_machine_names = $eckBundleInfo->getEntityTypeBundleMachineNames($type->id());
       $local_actions['eck.' . $type->id() . '.add'] = $defaults + [
-          'id' => 'eck.' . $type->id() . '.add',
-          'title' => t('Add @label', ['@label' => $type->label()]),
-          'appears_on' => [
-            'eck.entity.' . $type->id() . '.list',
-          ],
-          'route_parameters' => [
-            'eck_entity_type' => $type->id(),
-          ],
-        ];
+        'id' => 'eck.' . $type->id() . '.add',
+        'title' => t('Add @label', ['@label' => $type->label()]),
+        'appears_on' => [
+          'eck.entity.' . $type->id() . '.list',
+        ],
+        'route_parameters' => [
+          'eck_entity_type' => $type->id(),
+        ],
+      ];
 
       if (count($bundle_machine_names) === 1) {
         $local_actions['eck.' . $type->id() . '.add']['route_name'] = 'eck.entity.add';
@@ -228,7 +227,7 @@ function eck_menu_local_actions_alter(&$local_actions) {
  * Implements hook_entity_view_alter().
  */
 function eck_entity_view_alter(array &$build, EntityInterface $entity, EntityViewDisplayInterface $display) {
-  if ($entity instanceof \Drupal\eck\Entity\EckEntity) {
+  if ($entity instanceof EckEntity) {
     // Generalize the entity-type-specific defaults for easier default theming.
     $build['#theme'] = 'eck_entity';
     $build['#eck_entity'] = $entity;
@@ -271,15 +270,6 @@ function eck_theme_suggestions_eck_entity(array $variables) {
 }
 
 /**
- * Implements hook_entity_bundle_field_info_alter().
- */
-function eck_entity_bundle_field_info_alter(&$fields, EntityTypeInterface $entity_type, $bundle) {
-  if ($entity_type->getProvider() == 'eck') {
-    unset($fields['title']);
-  }
-}
-
-/**
  * Implements template_preprocess_HOOK().
  */
 function template_preprocess_eck_entity(&$variables) {
@@ -311,7 +301,7 @@ function eck_form_system_themes_admin_form_alter(&$form, FormStateInterface $for
     '#title' => t('Use the administration theme when editing or creating ECK entities'),
     '#description' => t('Control which roles can "View the administration theme" on the <a href=":permissions">Permissions page</a>.', [
       ':permissions' => Url::fromRoute('user.admin_permissions')
-        ->toString()
+        ->toString(),
     ]),
     '#default_value' => \Drupal::configFactory()
       ->getEditable('eck.settings')
@@ -330,4 +320,19 @@ function eck_form_system_themes_admin_form_submit($form, FormStateInterface $for
     ->set('use_admin_theme', $form_state->getValue('eck_use_admin_theme'))
     ->save();
   \Drupal::service('router.builder')->setRebuildNeeded();
+}
+
+/**
+ * Implements hook_jsonapi_entity_filter_access() for all eck entities.
+ */
+function eck_jsonapi_entity_filter_access(ContentEntityType $entity_type, AccountInterface $account) {
+  $result = [];
+  if ($entity_type->getProvider() == 'eck') {
+    $result = [
+      JSONAPI_FILTER_AMONG_ALL => AccessResult::allowedIfHasPermission($account, "view any {$entity_type->id()} entities"),
+      JSONAPI_FILTER_AMONG_OWN => AccessResult::allowedIfHasPermission($account, "view own {$entity_type->id()} entities"),
+    ];
+  }
+
+  return $result;
 }

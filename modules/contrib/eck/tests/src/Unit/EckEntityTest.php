@@ -9,9 +9,18 @@ use Drupal\eck\Entity\EckEntity;
 use Drupal\eck\Entity\EckEntityType;
 
 /**
+ * Tests eck entities.
+ *
  * @group eck
  */
 class EckEntityTest extends UnitTestBase {
+
+  /**
+   * Provides test base field definition data.
+   *
+   * @return array
+   *   The test data.
+   */
   public function baseFieldDefinitionTestDataProvider() {
     return [
       'default' => [
@@ -67,9 +76,18 @@ class EckEntityTest extends UnitTestBase {
   }
 
   /**
+   * Tests base field definitions.
+   *
+   * @param array $config
+   *   The configuration.
+   * @param array $expectedBaseFieldDefinitionIds
+   *   The expected base field definition ids.
+   *
    * @dataProvider baseFieldDefinitionTestDataProvider
+   *
+   * @throws \ReflectionException
    */
-  public function testBaseFieldDefinitions($config, $expectedBaseFieldDefinitionIds) {
+  public function testBaseFieldDefinitions(array $config, array $expectedBaseFieldDefinitionIds) {
     $configs = [
       'eck.eck_entity_type.eck_entity_type' => $config,
     ];

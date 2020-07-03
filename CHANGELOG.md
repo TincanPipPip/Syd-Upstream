@@ -91,3 +91,9 @@
 - Safari lazyload image fix
 - Cleaned up `defaults.js`, moved `toggleState()` function to module
 - Updated dependencies in package.json *Note: now requires npm minimum v10*
+
+---
+
+## 03-07-2020 #2
+## Changed
+- Updated contrib modules

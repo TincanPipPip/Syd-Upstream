@@ -31,6 +31,82 @@ class EntityCRUDTest extends FunctionalTestBase {
   }
 
   /**
+   * Entities can be created and edited with title overrides.
+   *
+   * @test
+   */
+  public function entitiesCanBeCreatedAndEdited() {
+    $entityTypeInfo = $this->createEntityType();
+    $entity_type = $entityTypeInfo['id'];
+
+    $title_overrides = [];
+    foreach ($this->getConfigurableBaseFields() as $field) {
+      $title_overrides[$field] = $this->randomMachineName(16);
+    }
+
+    $bundleInfo = $this->createEntityBundle($entity_type, NULL, $title_overrides);
+
+    $params = [
+      'eck_entity_type' => $entityTypeInfo['id'],
+      'eck_entity_bundle' => $bundleInfo['type'],
+    ];
+
+    $url = Url::fromRoute('eck.entity.add', $params);
+    $this->drupalGet($url);
+    $this->assertSession()->statusCodeEquals(200);
+
+    foreach ($title_overrides as $field => $title_override) {
+      if ($field === 'changed') {
+        // Changed does not appear on the edit form.
+        $this->assertSession()->responseNotContains($title_override);
+      }
+      else {
+        // Other base fields appear on the edit form.
+        $this->assertSession()->responseContains($title_override);
+      }
+    }
+
+    $values = [
+      'title[0][value]' => $this->randomMachineName(16),
+      'created[0][value][date]' => '2010-01-02',
+      'created[0][value][time]' => '15:24:59',
+    ];
+
+    // Create entity.
+    $this->drupalPostForm(NULL, $values, 'Save');
+    $this->assertSession()->statusCodeEquals(200);
+
+    $view_url = $this->getSession()->getCurrentUrl();
+    $matches = [];
+    $this->assertEquals(1, preg_match("@/{$entity_type}/(\d+)$@", $view_url, $matches));
+    $entity_id = $matches[1];
+
+    $edit_url = Url::fromRoute("entity.{$entity_type}.edit_form", [$entity_type => $entity_id]);
+
+    // Edit entity.
+    $this->drupalGet($edit_url);
+    $this->assertSession()->statusCodeEquals(200);
+
+    foreach ($values as $value) {
+      $this->assertSession()->responseContains($value);
+    }
+
+    // Save entity with different values.
+    $values = [
+      'title[0][value]' => $this->randomMachineName(16),
+      'created[0][value][date]' => '2015-05-31',
+      'created[0][value][time]' => '02:37:10',
+    ];
+
+    $this->drupalPostForm(NULL, $values, 'Save');
+    $this->drupalGet($edit_url);
+
+    foreach ($values as $value) {
+      $this->assertSession()->responseContains($value);
+    }
+  }
+
+  /**
    * @test
    */
   public function attemptedCreationOfNonExistingEntityTypeResultsIn404() {

@@ -28,16 +28,17 @@ class EckEntityTypeEditForm extends EckEntityTypeFormBase {
   public function buildForm(array $form, FormStateInterface $form_state) {
     $form = parent::buildForm($form, $form_state);
 
-    $manager = \Drupal::entityTypeManager();
     /** @var \Drupal\Core\Entity\Sql\SqlContentEntityStorage $fieldStorage */
-    $fieldStorage = $manager->getStorage($this->entity->id());
-    $definitions = $fieldStorage->getFieldStorageDefinitions();
+    $fieldStorage = $this->entityTypeManager->getStorage($this->entity->id());
+
+    /** @var \Drupal\Core\Entity\EntityFieldManagerInterface $efm */
+    $definitions = $this->entityFieldManager->getBaseFieldDefinitions($this->entity->id());
+
     foreach (['title', 'created', 'changed', 'uid'] as $field) {
       if (isset($definitions[$field]) && $fieldStorage->countFieldData($definitions[$field], TRUE)) {
         $form['base_fields'][$field]['#disabled'] = TRUE;
       }
     }
-
 
     return $form;
   }

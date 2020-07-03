@@ -33,7 +33,7 @@ class UITest extends FunctionalTestBase {
    */
   public function testAddEntityTypeActions() {
     $this->drupalGet(Url::fromRoute('eck.entity_type.list'));
-    $this->assertSession()->linkExists(t('Add entity type'));
+    $this->assertSession()->linkExists($this->t('Add entity type'));
   }
 
   /**
@@ -50,23 +50,23 @@ class UITest extends FunctionalTestBase {
 
     // Test title of the entity bundles listing.
     $this->drupalGet(Url::fromRoute("eck.entity.{$type['id']}_type.list"));
-    $this->assertSession()->responseContains((string) t('%type bundles', ['%type' => ucfirst($type['label'])]));
+    $this->assertSession()->responseContains((string) $this->t('%type bundles', ['%type' => ucfirst($type['label'])]));
 
     // Test title of the add bundle page.
     $this->drupalGet(Url::fromRoute("eck.entity.{$type['id']}_type.add"));
-    $this->assertSession()->responseContains((string) t('Add %type bundle', ['%type' => $type['label']]));
+    $this->assertSession()->responseContains((string) $this->t('Add %type bundle', ['%type' => $type['label']]));
 
     // Test title of the edit bundle page.
     $this->drupalGet(Url::fromRoute("entity.{$type['id']}_type.edit_form", ["{$type['id']}_type" => $bundle['type']]));
-    $this->assertSession()->responseContains((string) t('Edit %type bundle', ['%type' => $type['label']]));
+    $this->assertSession()->responseContains((string) $this->t('Edit %type bundle', ['%type' => $type['label']]));
 
     // Test title of the delete bundle page.
     $this->drupalGet(Url::fromRoute("entity.{$type['id']}_type.delete_form", ["{$type['id']}_type" => $bundle['type']]));
-    $this->assertSession()->responseContains((string) t('Are you sure you want to delete the entity bundle %type?', ['%type' => $bundle['name']]));
+    $this->assertSession()->responseContains((string) $this->t('Are you sure you want to delete the entity bundle %type?', ['%type' => $bundle['name']]));
 
     // Test title of the entity content listing.
     $this->drupalGet(Url::fromRoute("eck.entity.{$type['id']}.list"));
-    $this->assertSession()->responseContains((string) t('%type content', ['%type' => ucfirst($type['label'])]));
+    $this->assertSession()->responseContains((string) $this->t('%type content', ['%type' => ucfirst($type['label'])]));
   }
 
   /**
@@ -76,49 +76,49 @@ class UITest extends FunctionalTestBase {
     $entityTypeManager = \Drupal::entityTypeManager();
     $entity = $entityTypeManager->getDefinition('eck_entity_type');
     $this->drupalGet(Url::fromRoute('eck.entity_type.list'));
-    $noEntitiesYetText = (string) t('There are no @label entities yet.', ['@label' => \strtolower($entity->getLabel())]);
+    $noEntitiesYetText = (string) $this->t('There are no @label entities yet.', ['@label' => \strtolower($entity->getLabel())]);
     $this->assertSession()->responseContains($noEntitiesYetText);
 
     $entityType = $this->createEntityType();
     $this->drupalGet(Url::fromRoute('eck.entity_type.list'));
     $this->assertSession()->responseNotContains($noEntitiesYetText);
     foreach (['Add content', 'Content list'] as $option) {
-      $this->assertSession()->linkNotExists(t($option), t('No %option option is shown when there are no bundles.', ['%option' => t($option)]));
+      $this->assertSession()->linkNotExists($this->t($option), $this->t('No %option option is shown when there are no bundles.', ['%option' => $this->t($option)]));
     }
-    $this->assertSession()->linkExists(t('Add bundle'));
-    $this->assertSession()->linkExists(t('Bundle list'));
-    $this->assertSession()->linkExists(t('Edit'));
-    $this->assertSession()->linkExists(t('Delete'));
+    $this->assertSession()->linkExists($this->t('Add bundle'));
+    $this->assertSession()->linkExists($this->t('Bundle list'));
+    $this->assertSession()->linkExists($this->t('Edit'));
+    $this->assertSession()->linkExists($this->t('Delete'));
 
     $bundles[] = $this->createEntityBundle($entityType['id'], $entityType['id']);
     $this->drupalGet(Url::fromRoute('eck.entity_type.list'));
     $this->assertSession()->responseNotContains($noEntitiesYetText);
-    $this->assertSession()->linkNotExists(t('Content list'), t('No %option option is shown when there is no content.', ['%option' => t('Content list')]));
-    $this->assertSession()->linkExists(t('Add content'));
-    $this->assertSession()->linkExists(t('Bundle list'));
-    $this->assertSession()->linkExists(t('Edit'));
-    $this->assertSession()->linkExists(t('Delete'));
+    $this->assertSession()->linkNotExists($this->t('Content list'), $this->t('No %option option is shown when there is no content.', ['%option' => $this->t('Content list')]));
+    $this->assertSession()->linkExists($this->t('Add content'));
+    $this->assertSession()->linkExists($this->t('Bundle list'));
+    $this->assertSession()->linkExists($this->t('Edit'));
+    $this->assertSession()->linkExists($this->t('Delete'));
 
     // Since there is only one bundle. The add content link should point
     // directly to the correct add entity form. We should be able to add a new
     // entity directly after clicking the link.
-    $this->clickLink(t('Add content'));
-    $this->drupalPostForm(NULL, ['title[0][value]' => $this->randomMachineName()], t('Save'));
+    $this->clickLink($this->t('Add content'));
+    $this->drupalPostForm(NULL, ['title[0][value]' => $this->randomMachineName()], $this->t('Save'));
     // There is now content in the datbase, which means the content list link
     // should also be displayed.
     $this->drupalGet(Url::fromRoute('eck.entity_type.list'));
     $this->assertSession()->responseNotContains($noEntitiesYetText);
-    $this->assertSession()->linkExists(t('Content list'));
-    $this->assertSession()->linkExists(t('Add content'));
-    $this->assertSession()->linkExists(t('Bundle list'));
-    $this->assertSession()->linkExists(t('Edit'));
-    $this->assertSession()->linkExists(t('Delete'));
+    $this->assertSession()->linkExists($this->t('Content list'));
+    $this->assertSession()->linkExists($this->t('Add content'));
+    $this->assertSession()->linkExists($this->t('Bundle list'));
+    $this->assertSession()->linkExists($this->t('Edit'));
+    $this->assertSession()->linkExists($this->t('Delete'));
 
     // If there are multiple bundles, clicking the add Content button should end
     // up with a choice between all available bundles.
     $bundles[] = $this->createEntityBundle($entityType['id']);
     $this->drupalGet(Url::fromRoute('eck.entity_type.list'));
-    $this->clickLink(t('Add content'));
+    $this->clickLink($this->t('Add content'));
     foreach ($bundles as $bundle) {
       $this->assertSession()->responseContains($bundle['name']);
     }
@@ -154,7 +154,7 @@ class UITest extends FunctionalTestBase {
     // entity form when clicking the action link.
     $route = "entity.{$entityType['id']}_type.delete_form";
     $routeArguments = ["{$entityType['id']}_type" => $bundles[1]['type']];
-    $this->drupalPostForm(Url::fromRoute($route, $routeArguments), [], t('Delete'));
+    $this->drupalPostForm(Url::fromRoute($route, $routeArguments), [], $this->t('Delete'));
     $this->drupalGet(Url::fromRoute("eck.entity.{$entityType['id']}.list"));
     $this->clickLink("Add {$entityType['label']}");
     $this->assertSession()->fieldExists('title[0][value]');

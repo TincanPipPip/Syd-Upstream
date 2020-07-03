@@ -18,8 +18,8 @@ class EckEntityTypeDeleteForm extends EntityDeleteForm {
    */
   public function getQuestion() {
     return $this->t('Are you sure you want to delete entity type %label?', [
-        '%label' => $this->entity->label(),
-      ]
+      '%label' => $this->entity->label(),
+    ]
     );
   }
 

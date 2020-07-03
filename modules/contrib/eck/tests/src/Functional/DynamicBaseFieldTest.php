@@ -30,8 +30,8 @@ class DynamicBaseFieldTest extends FunctionalTestBase {
 
     // Add a field to the entity type.
     $edit = ['title' => TRUE];
-    $this->drupalPostForm(Url::fromRoute('entity.eck_entity_type.edit_form', ['eck_entity_type' => $type['id']]), $edit, t('Update @type', ['@type' => $type['label']]));
-    $this->assertSession()->responseContains((string) t('Entity type %label has been updated.', ['%label' => $type['label']]));
+    $this->drupalPostForm(Url::fromRoute('entity.eck_entity_type.edit_form', ['eck_entity_type' => $type['id']]), $edit, $this->t('Update @type', ['@type' => $type['label']]));
+    $this->assertSession()->responseContains((string) $this->t('Entity type %label has been updated.', ['%label' => $type['label']]));
 
     // Make sure the field was added.
     $this->drupalGet(Url::fromRoute('eck.entity.add', $route_args));
@@ -39,8 +39,8 @@ class DynamicBaseFieldTest extends FunctionalTestBase {
 
     // Remove a field from the entity type.
     $edit = ['created' => FALSE];
-    $this->drupalPostForm(Url::fromRoute('entity.eck_entity_type.edit_form', ['eck_entity_type' => $type['id']]), $edit, t('Update @type', ['@type' => $type['label']]));
-    $this->assertSession()->responseContains((string) t('Entity type %label has been updated.', ['%label' => $type['label']]));
+    $this->drupalPostForm(Url::fromRoute('entity.eck_entity_type.edit_form', ['eck_entity_type' => $type['id']]), $edit, $this->t('Update @type', ['@type' => $type['label']]));
+    $this->assertSession()->responseContains((string) $this->t('Entity type %label has been updated.', ['%label' => $type['label']]));
 
     // Make sure the base field was removed.
     $this->drupalGet(Url::fromRoute('eck.entity.add', $route_args));
@@ -48,7 +48,7 @@ class DynamicBaseFieldTest extends FunctionalTestBase {
 
     // Add an entity to make sure there is data in the title field.
     $edit = ['title[0][value]' => $this->randomMachineName()];
-    $this->drupalPostForm(Url::fromRoute('eck.entity.add', $route_args), $edit, t('Save'));
+    $this->drupalPostForm(Url::fromRoute('eck.entity.add', $route_args), $edit, $this->t('Save'));
     $this->assertSession()->responseContains($edit['title[0][value]']);
 
     // We should not be able to remove fields that have data.
@@ -70,7 +70,7 @@ class DynamicBaseFieldTest extends FunctionalTestBase {
       'eck_entity_type' => $type['id'],
       'eck_entity_bundle' => $bundle['type'],
     ];
-    $this->drupalPostForm(Url::fromRoute('eck.entity.add', $route_args), $edit, t('Save'));
+    $this->drupalPostForm(Url::fromRoute('eck.entity.add', $route_args), $edit, $this->t('Save'));
     $this->assertSession()->responseContains($edit['title[0][value]']);
   }
 

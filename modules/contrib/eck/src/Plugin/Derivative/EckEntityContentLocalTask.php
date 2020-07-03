@@ -13,11 +13,14 @@ use Drupal\eck\Entity\EckEntityType;
  * Provides local task definitions for all entity bundles.
  */
 class EckEntityContentLocalTask extends DeriverBase implements ContainerDeriverInterface {
+
   use StringTranslationTrait;
 
   private $basePluginDefinition;
 
   /**
+   * The constructor.
+   *
    * @param \Drupal\Core\StringTranslation\TranslationInterface $string_translation
    *   The translation manager.
    */
@@ -41,7 +44,7 @@ class EckEntityContentLocalTask extends DeriverBase implements ContainerDeriverI
     $this->basePluginDefinition = $basePluginDefinition;
     $derivatives = [];
 
-    /** @var EckEntityType $type */
+    /** @var \Drupal\eck\Entity\EckEntityType $type */
     foreach (EckEntityType::loadMultiple() as $type) {
       $entity_type = $type->id();
       $base_route = "entity.{$entity_type}.canonical";
@@ -60,19 +63,28 @@ class EckEntityContentLocalTask extends DeriverBase implements ContainerDeriverI
   }
 
   /**
+   * Creates a derivative definition.
+   *
    * @param string $routeName
+   *   The route name.
    * @param int $weight
+   *   The weight.
    * @param string $title
+   *   The title.
    * @param string $base_route
+   *   The base route.
+   *
    * @return array
+   *   The created derivative definition.
    */
   private function createDerivativeDefinition($routeName, $weight, $title, $base_route) {
     $derivative = [
-        'route_name' => $routeName,
-        'weight' => $weight,
-        'title' => $this->t($title),
-        'base_route' => $base_route,
-      ] + $this->basePluginDefinition;
+      'route_name' => $routeName,
+      'weight' => $weight,
+      'title' => $this->t($title),
+      'base_route' => $base_route,
+    ] + $this->basePluginDefinition;
     return $derivative;
   }
+
 }

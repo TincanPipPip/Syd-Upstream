@@ -39,7 +39,7 @@ function views_bulk_operations_update_8034(&$sandbox) {
                 }
                 $action_config_array = ['action_id' => $plugin_id];
                 if (isset($field['preconfiguration']) && isset($field['preconfiguration'][$plugin_id])) {
-                  $action_array['preconfiguration'] = $field['preconfiguration'][$plugin_id];
+                  $action_config_array['preconfiguration'] = $field['preconfiguration'][$plugin_id];
                 }
                 $new_selected_actions[] = $action_config_array;
               }

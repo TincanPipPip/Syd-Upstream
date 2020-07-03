@@ -3,7 +3,7 @@
 # Defines the administer permission for the entity types.
 
 bypass eck entity access:
-  title: 'Bypass ECK enity access control'
+  title: 'Bypass ECK entity access control'
   description: 'View, edit and delete all ECK entities regardless of permission restrictions.'
   restrict access: true
 administer eck entity types:
@@ -15,7 +15,7 @@ administer eck entity bundles:
   description: 'Create, edit, delete and perform other tasks across all ECK entity bundles.'
   restrict access: true
 administer eck entities:
-  title: 'Administer ECK entites'
+  title: 'Administer ECK entities'
   description: 'Create, edit, delete and perform other tasks across all ECK entities.'
   restrict access: true
 
