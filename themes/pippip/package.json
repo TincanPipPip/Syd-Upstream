@@ -12,9 +12,9 @@
     "start": "NODE_ENV=development node_modules/webpack/bin/webpack.js --watch --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js"
   },
   "dependencies": {
-    "baguettebox.js": "^1.11.0",
+    "baguettebox.js": "^1.11.1",
     "enquire.js": "^2.1.6",
-    "focus-visible": "^5.0.2",
+    "focus-visible": "^5.1.0",
     "focus-within": "^3.0.2",
     "include-media": "^1.4.9",
     "js-cookie": "^2.2.1",
@@ -24,20 +24,18 @@
     "picturefill": "^3.0.3",
     "reflex-grid": "^2.0.4",
     "van11y-accessible-accordion-aria": "^3.0.1",
-    "vanilla-lazyload": "^12.5.0",
+    "vanilla-lazyload": "^17.1.0",
     "zenscroll": "^4.0.2"
   },
   "devDependencies": {
     "browser-sync": "^2.26.7",
     "browser-sync-webpack-plugin": "^2.2.2",
-    "copy-webpack-plugin": "^5.1.1",
+    "copy-webpack-plugin": "^6.0.3",
     "imagemin-webpack-plugin": "^2.4.2",
-    "laravel-mix": "^5.0.1",
+    "laravel-mix": "^5.0.4",
     "laravel-mix-glob": "^1.1.4",
-    "modernizr": "^3.9.1",
-    "modernizr-loader": "^1.0.1",
-    "sass": "^1.26.1",
-    "sass-loader": "^8.0.2",
+    "sass": "^1.26.9",
+    "sass-loader": "^9.0.0",
     "vue-template-compiler": "^2.6.11"
   }
 }

@@ -77,3 +77,17 @@
 - Removed typo in `node.html.twig`
 - `block--bundle--partners.html.twig` pointing to correct base template
 - `pippip_preprocess_node` changed to allow for multiple menu support without breaking subnav title
+
+---
+
+## 03-07-2020
+## Added
+- Autoprefixer set to cover IE11
+
+## Removed
+- Modernizr.js
+
+## Changed
+- Safari lazyload image fix
+- Cleaned up `defaults.js`, moved `toggleState()` function to module
+- Updated dependencies in package.json *Note: now requires npm minimum v10*

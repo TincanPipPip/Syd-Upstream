@@ -36,7 +36,7 @@ Pippip v3 is a Drupal 8 base theme, utilising Laravel Mix, Browsersync, ES6 & SA
 
 ## Laravel Mix
 
-Pippip v3 runs [Laravel Mix](https://laravel.com/docs/5.7/mix). Run `npm start` to begin development.
+Pippip v3 runs [Laravel Mix](https://laravel.com/docs/5.7/mix). Run `npm start` to begin development. _Note: requires npm minumum version 10_
 
 ### Tasks
 
