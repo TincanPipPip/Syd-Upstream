@@ -1,0 +1,21 @@
+/**
+* ----------------------
+* Un.titled
+* Molecules - Downloads
+* ----------------------
+*/
+
+/**
+* Config
+*/
+
+/**
+* Styling
+*/
+&__downloads {
+  .file {
+    padding-left: 0;
+    background-image: none;
+    @include font-title;
+  }
+}

@@ -55,7 +55,7 @@
   </nav>
 </header>
 
-{% include '@pippip/partials/molecules/admin-tabs.html.twig' %}
+{% include '@pippip/partials/molecules/admin-tabs.twig' %}
 
 <div class="visually-hidden">
   <a id="main-content" tabindex="-1"></a>
@@ -68,9 +68,8 @@
 </main>
 
 <footer class="o-footer" role="contentinfo">
-  {{ page.footer }}
   {{ drupal_menu('footer') }}
-  <a href="https://un.titled.co.uk" title="An Un.titled Site" rel="noopener noreferrer">An Un.titled Site</a>
+  <a href="https://un.titled.co.uk" title="An Un.titled Site">An Un.titled Site</a>
 </footer>
 
 {# 

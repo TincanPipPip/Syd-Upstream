@@ -13,7 +13,11 @@ use Drupal\eck\EckEntityTypeInterface;
  */
 class EckEntityCreateAccessCheck implements AccessInterface {
 
-  /** @var \Drupal\Core\Entity\EntityTypeManagerInterface $entityTypeManager . */
+  /**
+   * The entity type manager.
+   *
+   * @var \Drupal\Core\Entity\EntityTypeManagerInterface
+   */
   protected $entityTypeManager;
 
   /**
@@ -29,9 +33,9 @@ class EckEntityCreateAccessCheck implements AccessInterface {
   /**
    * Checks access to the eck entity add page for the entity bundle type.
    *
-   * @param AccountInterface $account
+   * @param \Drupal\Core\Session\AccountInterface $account
    *   The currently logged in account.
-   * @param EckEntityTypeInterface $eck_entity_type
+   * @param \Drupal\eck\EckEntityTypeInterface $eck_entity_type
    *   The entity type.
    * @param string $eck_entity_bundle
    *   (optional) The entity type bundle.

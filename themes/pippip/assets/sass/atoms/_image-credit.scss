@@ -14,16 +14,6 @@
   height: $bump;
   width: $bump;
 
-  .banner--home & {
-    top: $bump;
-    bottom: auto;
-
-    @include media('<sm') {
-      top: $bump/2;
-      bottom: auto;
-    }
-  }
-
   @include media('<sm') {
     bottom: $bump/2;
     right: $bump/2;

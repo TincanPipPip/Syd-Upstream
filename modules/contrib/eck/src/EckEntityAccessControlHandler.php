@@ -19,9 +19,11 @@ class EckEntityAccessControlHandler extends EntityAccessControlHandler {
   /**
    * Determines if the given account is allowed to bypass access control.
    *
-   * @param \Drupal\Core\Session\AccountInterface|NULL $account
+   * @param \Drupal\Core\Session\AccountInterface|null $account
+   *   The account.
    *
    * @return bool
+   *   Can the user bypass the access check?
    */
   private function canBypassAccessCheck(AccountInterface $account = NULL) {
     $account = $this->prepareUser($account);
@@ -31,8 +33,11 @@ class EckEntityAccessControlHandler extends EntityAccessControlHandler {
   /**
    * Generates an AccessResult.
    *
-   * @param $return_as_object
+   * @param bool $return_as_object
+   *   Should a bool or AccessResult object be returned?
+   *
    * @return \Drupal\Core\Access\AccessResult|bool
+   *   The created access result.
    */
   private function getBypassAccessResult($return_as_object) {
     $result = AccessResult::allowed()->cachePerPermissions();

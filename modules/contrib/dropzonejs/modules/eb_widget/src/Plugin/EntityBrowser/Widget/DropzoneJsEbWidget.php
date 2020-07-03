@@ -14,6 +14,7 @@ use Drupal\Core\Utility\Token;
 use Drupal\dropzonejs\DropzoneJsUploadSaveInterface;
 use Drupal\entity_browser\WidgetBase;
 use Symfony\Component\DependencyInjection\ContainerInterface;
+use Drupal\Core\Asset\LibraryDiscoveryInterface;
 
 /**
  * Provides an Entity Browser widget that uploads new files.
@@ -56,6 +57,13 @@ class DropzoneJsEbWidget extends WidgetBase {
   protected $fileSystem;
 
   /**
+   * The library discovery service.
+   *
+   * @var \Drupal\Core\Asset\LibraryDiscoveryInterface
+   */
+  protected $libraryDiscovery;
+
+  /**
    * {@inheritdoc}
    */
   public static function create(ContainerInterface $container, array $configuration, $plugin_id, $plugin_definition) {
@@ -64,6 +72,7 @@ class DropzoneJsEbWidget extends WidgetBase {
     $widget->setCurrentUser($container->get('current_user'));
     $widget->setToken($container->get('token'));
     $widget->setFileSystem($container->get('file_system'));
+    $widget->setLibraryDiscovery($container->get('library.discovery'));
 
     return $widget;
   }
@@ -106,6 +115,16 @@ class DropzoneJsEbWidget extends WidgetBase {
    */
   protected function setFileSystem(FileSystemInterface $fileSystem) {
     $this->fileSystem = $fileSystem;
+  }
+
+  /**
+   * Set the Library Discovery service.
+   *
+   * @param \Drupal\Core\Asset\LibraryDiscoveryInterface $library_discovery
+   *   The library discovery service.
+   */
+  protected function setLibraryDiscovery(LibraryDiscoveryInterface $library_discovery) {
+    $this->libraryDiscovery = $library_discovery;
   }
 
   /**
@@ -391,7 +410,7 @@ class DropzoneJsEbWidget extends WidgetBase {
     ];
 
 
-    $exif_found = \Drupal::service('library.discovery')->getLibraryByName('dropzonejs', 'exif-js');
+    $exif_found = $this->libraryDiscovery->getLibraryByName('dropzonejs', 'exif-js');
 
     $form['clientside_resize'] = [
       '#type' => 'checkbox',

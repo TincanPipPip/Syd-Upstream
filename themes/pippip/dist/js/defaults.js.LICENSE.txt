@@ -1,0 +1,30 @@
+/*!
+ * baguetteBox.js
+ * @author  feimosi
+ * @version 1.11.1
+ * @url https://github.com/feimosi/baguetteBox.js
+ */
+
+/*! Gecko-Picture - v1.0
+ * https://github.com/scottjehl/picturefill/tree/3.0/src/plugins/gecko-picture
+ * Firefox's early picture implementation (prior to FF41) is static and does
+ * not react to viewport changes. This tiny module fixes this.
+ */
+
+/*! Picturefill - v3.0.2
+ * http://scottjehl.github.io/picturefill
+ * Copyright (c) 2015 https://github.com/scottjehl/picturefill/blob/master/Authors.txt;
+ *  License: MIT
+ */
+
+/*! picturefill - v3.0.2 - 2016-02-12
+ * https://scottjehl.github.io/picturefill/
+ * Copyright (c) 2016 https://github.com/scottjehl/picturefill/blob/master/Authors.txt; Licensed MIT
+ */
+
+/**
+ * van11y-accessible-accordion-aria - ES2015 accessible accordion system, using ARIA (compatible IE9+ when transpiled)
+ * @version v3.0.1
+ * @link https://van11y.net/accessible-accordion/
+ * @license MIT : https://github.com/nico3333fr/van11y-accessible-accordion-aria/blob/master/LICENSE
+ */

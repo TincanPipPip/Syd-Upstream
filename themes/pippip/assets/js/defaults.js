@@ -8,11 +8,12 @@ import LazyLoad from 'vanilla-lazyload';
 import Accordions from 'van11y-accessible-accordion-aria';
 import FocusWithin from 'focus-within';
 import UpdateViewportHeight from './components/UpdateViewportHeight';
+import toggleDataAttr from './components/toggleDataAttr';
 
 // Global function to toggle states
-window.toggleState = function(el, dataname, on, off) {
-  el.setAttribute(`data-${dataname}`, el.getAttribute(`data-${dataname}`) === on ? off : on);
-};
+// window.toggleState = function(el, dataname, on, off) {
+//   el.setAttribute(`data-${dataname}`, el.getAttribute(`data-${dataname}`) === on ? off : on);
+// };
 
 new UpdateViewportHeight();
 
@@ -58,26 +59,28 @@ if (document.querySelectorAll('.gallery')) {
 // }
 
 /*
-        Menu burger
-    */
+  Menu burger
+*/
 const menuBurgerBtn = document.querySelector('.a-nav-toggle');
 
+function toggleNav() {
+  toggleDataAttr(document.body, 'nav', 'open', 'closed');
+}
+
 if (menuBurgerBtn) {
-  menuBurgerBtn.addEventListener('click', function(e) {
-    toggleState(document.body, 'nav', 'open', 'closed');
-  });
+  menuBurgerBtn.addEventListener('click', toggleNav);
 }
 
 /*
-  Automatically open external links in new tab
+  Automatically set external links to have nofollow/noopener attrs
 */
-const links = document.links;
+const links = document.querySelectorAll('a');
 
-for (let i = 0, linksLength = links.length; i < linksLength; i++) {
-  if (links[i].hostname != window.location.hostname) {
-    links[i].setAttribute('rel', 'nofollow noopener');
+links.forEach((link) => {
+  if (link.hostname != window.location.hostname) {
+    link.setAttribute('rel', 'nofollow noopener');
   }
-}
+});
 
 // LazyLoad
 const lazyLoadImages = new LazyLoad();

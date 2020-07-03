@@ -12,7 +12,6 @@ use Symfony\Component\Routing\Route;
  */
 class EckEntityRouteProvider implements EntityRouteProviderInterface {
 
-
   /**
    * {@inheritdoc}
    */

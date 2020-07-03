@@ -145,7 +145,7 @@ class AccessTest extends FunctionalTestBase {
       'eck_entity_type' => $entityTypeName,
       'eck_entity_bundle' => $this->bundleInfo['type'],
     ];
-    $this->drupalPostForm(Url::fromRoute("eck.entity.add", $route_args), $edit, t('Save'));
+    $this->drupalPostForm(Url::fromRoute("eck.entity.add", $route_args), $edit, $this->t('Save'));
 
     $this->drupalLogin($ownEntityUser);
     $edit['title[0][value]'] = $this->randomMachineName();
@@ -153,7 +153,7 @@ class AccessTest extends FunctionalTestBase {
       'eck_entity_type' => $entityTypeName,
       'eck_entity_bundle' => $this->bundleInfo['type'],
     ];
-    $this->drupalPostForm(Url::fromRoute("eck.entity.add", $route_args), $edit, t('Save'));
+    $this->drupalPostForm(Url::fromRoute("eck.entity.add", $route_args), $edit, $this->t('Save'));
 
     // Get the entity that was created by the 'any' user.
     $arguments = [$entityTypeName => 1];

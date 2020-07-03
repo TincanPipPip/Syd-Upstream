@@ -2,8 +2,6 @@
 
 namespace Drupal\Tests\eck\Functional;
 
-use Drupal\Core\Url;
-
 /**
  * Tests eck's bundle creation, update and deletion.
  *
@@ -12,7 +10,11 @@ use Drupal\Core\Url;
 class BundleCRUDTest extends FunctionalTestBase {
 
   /**
+   * Tests single bundle creation.
+   *
    * @test
+   *
+   * @throws \Behat\Mink\Exception\ExpectationException
    */
   public function singleBundleCreation() {
     $entityTypeInfo = $this->createEntityType([], 'TestType');
@@ -20,7 +22,54 @@ class BundleCRUDTest extends FunctionalTestBase {
   }
 
   /**
+   * Tests single bundle creation with title overrides.
+   *
    * @test
+   *
+   * @throws \Behat\Mink\Exception\ExpectationException
+   */
+  public function singleBundleCreationWithOverrides() {
+    $entityTypeInfo = $this->createEntityType();
+
+    $title_overrides = [];
+    foreach ($this->getConfigurableBaseFields() as $field) {
+      $title_overrides[$field] = $this->randomMachineName(16);
+    }
+
+    $this->createEntityBundle($entityTypeInfo['id'], '', $title_overrides);
+  }
+
+  /**
+   * Tests single bundle edit with title overrides.
+   *
+   * @test
+   *
+   * @throws \Behat\Mink\Exception\ExpectationException
+   */
+  public function singleBundleEditWithOverrides() {
+    $entityTypeInfo = $this->createEntityType();
+
+    $title_overrides = [];
+    foreach ($this->getConfigurableBaseFields() as $field) {
+      $title_overrides[$field] = $this->randomMachineName(16);
+    }
+
+    $bundle_info = $this->createEntityBundle($entityTypeInfo['id'], '', $title_overrides);
+
+    $new_title_overrides = [];
+    foreach ($this->getConfigurableBaseFields() as $field) {
+      $new_title_overrides[$field] = $this->randomMachineName(16);
+    }
+
+    $this->editEntityBundle($entityTypeInfo['id'], $bundle_info['type'], $this->randomMachineName(16), $new_title_overrides);
+  }
+
+  /**
+   * Tests multiple bundle creation.
+   *
+   * @test
+   *
+   * @throws \Behat\Mink\Exception\ExpectationException
    */
   public function multipleBundleCreation() {
     $entityTypeInfo = $this->createEntityType([], 'TestType');
@@ -29,7 +78,11 @@ class BundleCRUDTest extends FunctionalTestBase {
   }
 
   /**
+   * Tests identically named bundle creation.
+   *
    * @test
+   *
+   * @throws \Behat\Mink\Exception\ExpectationException
    */
   public function identicallyNamedBundleCreation() {
     $entityTypeInfo1 = $this->createEntityType([], 'TestType1');

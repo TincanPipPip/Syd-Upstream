@@ -3,7 +3,7 @@
 namespace Drupal\Tests\view_unpublished\Functional;
 
 use Drupal\Tests\BrowserTestBase;
-use Drupal\simpletest\ContentTypeCreationTrait;
+use Drupal\Tests\node\Traits\ContentTypeCreationTrait;
 
 /**
  * Tests the View Unpublished module with views.
@@ -21,6 +21,14 @@ class ViewUnpublishedViewsTest extends BrowserTestBase {
    */
   public static $modules = ['view_unpublished', 'node', 'views'];
 
+  /**
+   * {@inheritdoc}
+   */
+  protected $defaultTheme = 'stark';
+
+  /**
+   * {@inheritdoc}
+   */
   protected function setUp() {
     parent::setUp();
 

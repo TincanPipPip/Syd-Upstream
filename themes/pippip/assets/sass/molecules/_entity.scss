@@ -8,6 +8,10 @@
 .m-entity {
   margin: $bump * 1.5 0;
 
+  @include media('<sm') {
+    margin: $bump 0;
+  }
+
   img {
     width: 100%;
     height: auto;
@@ -21,4 +25,5 @@
   @import './entities/accordion';
   @import './entities/gallery';
   @import './entities/image-text';
+  @import './entities/downloads';
 }

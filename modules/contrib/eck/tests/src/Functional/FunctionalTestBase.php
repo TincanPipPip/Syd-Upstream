@@ -3,6 +3,7 @@
 namespace Drupal\Tests\eck\Functional;
 
 use Drupal\Core\Url;
+use Drupal\Core\StringTranslation\StringTranslationTrait;
 use Drupal\Tests\BrowserTestBase;
 
 /**
@@ -10,10 +11,17 @@ use Drupal\Tests\BrowserTestBase;
  */
 abstract class FunctionalTestBase extends BrowserTestBase {
 
+  use StringTranslationTrait;
+
   /**
    * {@inheritdoc}
    */
   public static $modules = ['node', 'eck'];
+
+  /**
+   * {@inheritdoc}
+   */
+  protected $defaultTheme = 'classy';
 
   /**
    * {@inheritdoc}
@@ -43,8 +51,10 @@ abstract class FunctionalTestBase extends BrowserTestBase {
    *   Information about the created entity type.
    *   - id:    the type's machine name
    *   - label: the type's label.
+   *
+   * @throws \Behat\Mink\Exception\ExpectationException
    */
-  protected function createEntityType($fields = [], $label = '') {
+  protected function createEntityType(array $fields = [], $label = '') {
     $label = empty($label) ? $this->randomMachineName() : $label;
     $fields = empty($fields) ? $this->getConfigurableBaseFields() : $fields;
 
@@ -57,7 +67,7 @@ abstract class FunctionalTestBase extends BrowserTestBase {
       $edit[$field] = TRUE;
     }
 
-    $this->drupalPostForm(Url::fromRoute('eck.entity_type.add'), $edit, t('Create entity type'));
+    $this->drupalPostForm(Url::fromRoute('eck.entity_type.add'), $edit, $this->t('Create entity type'));
     $this->assertSession()->statusCodeEquals(200);
     $this->assertSession()->responseContains("Entity type <em class=\"placeholder\">$label</em> has been added.");
     return ['id' => $id, 'label' => $label];
@@ -67,6 +77,7 @@ abstract class FunctionalTestBase extends BrowserTestBase {
    * Returns an array of the configurable base fields.
    *
    * @return array
+   *   The machine names of the configurable base fields.
    */
   protected function getConfigurableBaseFields() {
     return ['created', 'changed', 'uid', 'title'];
@@ -75,15 +86,19 @@ abstract class FunctionalTestBase extends BrowserTestBase {
   /**
    * Adds a bundle for a given entity type.
    *
-   * @param $entity_type
-   *  The entity type to add the bundle for.
+   * @param string $entity_type
+   *   The entity type to add the bundle for.
    * @param string $label
-   *  The bundle label
+   *   The bundle label.
+   * @param array $title_overrides
+   *   A key / value array of title overrides.
    *
-   * @return array The machine name and label of the new bundle.
-   * The machine name and label of the new bundle.
+   * @return array
+   *   The machine name and label of the new bundle.
+   *
+   * @throws \Behat\Mink\Exception\ExpectationException
    */
-  protected function createEntityBundle($entity_type, $label = '') {
+  protected function createEntityBundle($entity_type, $label = '', $title_overrides = []) {
     if (empty($label)) {
       $label = $this->randomMachineName();
     }
@@ -93,11 +108,46 @@ abstract class FunctionalTestBase extends BrowserTestBase {
       'name' => $label,
       'type' => $bundle,
     ];
-    $this->drupalPostForm(Url::fromRoute("eck.entity.{$entity_type}_type.add"), $edit, t('Save bundle'));
+
+    foreach ($title_overrides as $field => $title_override) {
+      $edit[$field . '_title_override'] = $title_override;
+    }
+
+    $this->drupalPostForm(Url::fromRoute("eck.entity.{$entity_type}_type.add"), $edit, $this->t('Save bundle'));
     $this->assertSession()->responseContains("The entity bundle <em class=\"placeholder\">$label</em> has been added.");
 
     return $edit;
   }
 
+  /**
+   * Edits a bundle for a given entity type.
+   *
+   * @param string $entity_type
+   *   The entity type to add the bundle for.
+   * @param string $bundle
+   *   The bundle type.
+   * @param string $label
+   *   The bundle label.
+   * @param array $title_overrides
+   *   A key / value array of title overrides.
+   *
+   * @return array
+   *   The machine name and label of the new bundle.
+   *
+   * @throws \Behat\Mink\Exception\ExpectationException
+   */
+  protected function editEntityBundle($entity_type, $bundle, $label, $title_overrides = []) {
+    $this->drupalGet(Url::fromRoute("entity.{$entity_type}_type.edit_form", ["{$entity_type}_type" => $bundle]));
+    $this->assertSession()->statusCodeEquals(200);
+
+    $edit = ['name' => $label];
+
+    foreach ($title_overrides as $field =>  $title_override) {
+      $edit[$field . '_title_override'] = $title_override;
+    }
+
+    $this->drupalPostForm(NULL, $edit, $this->t('Save bundle'));
+    $this->assertSession()->responseContains("The entity bundle <em class=\"placeholder\">$label</em> has been updated.");
+  }
 
 }

@@ -24,6 +24,12 @@ img {
 
   &.lazy {
     opacity: 0;
+
+    @media not all and (min-resolution: 0.001dpcm) {
+      @supports (-webkit-appearance: none) {
+        opacity: 1;
+      }
+    }
   }
 
   &.loaded {
