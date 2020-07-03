@@ -1,10 +1,10 @@
 name: 'Administer Users by Role'
-description: "Allows users with 'administer users' permission and a role (specified in 'Permissions') to edit/delete other users with a specified role.  Also provides control over user creation."
-# core: 8.x
+description: 'Allows site builders to set up fine-grained permissions for allowing "sub-admin" users to edit and delete other users.'
+core_version_requirement: ^8 || ^9
 type: module
+configure: administerusersbyrole.settings
 
-# Information added by Drupal.org packaging script on 2019-03-23
-version: '8.x-2.0-beta1'
-core: '8.x'
+# Information added by Drupal.org packaging script on 2020-04-15
+version: '8.x-3.0'
 project: 'administerusersbyrole'
-datestamp: 1553362692
+datestamp: 1586962922

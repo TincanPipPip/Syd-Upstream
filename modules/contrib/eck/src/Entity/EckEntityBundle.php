@@ -13,7 +13,7 @@ use Drupal\eck\EckEntityBundleInterface;
  *   id = "eck_entity_bundle",
  *   label = @Translation("ECK entity bundle"),
  *   handlers = {
- *     "access" = "Drupal\eck\EckEntityAccessControlHandler",
+ *     "access" = "Drupal\eck\EckBundleAccessControlHandler",
  *     "form" = {
  *       "add" = "Drupal\eck\Form\EntityBundle\EckEntityBundleForm",
  *       "edit" = "Drupal\eck\Form\EntityBundle\EckEntityBundleForm",

@@ -15,7 +15,6 @@ class RouteSubscriber extends RouteSubscriberBase {
    */
   public function alterRoutes(RouteCollection $collection) {
     // Provide additional access according to our permissions.
-
     if ($route = $collection->get('entity.user.collection')) {
       $perm = $route->getRequirement('_permission') . '+access users overview';
       $route->setRequirement('_permission', $perm);

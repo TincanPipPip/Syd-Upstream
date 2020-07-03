@@ -42,6 +42,12 @@ class PublishContentAccess implements AccessInterface {
     $this->node = $node;
     $this->arguments = ['@type' => $node->bundle()];
 
+    $langcode = $node->language()->getId();
+    // We don't want to show the action if the translation doesn't even exist.
+    if ($node->isTranslatable() && !$node->hasTranslation($langcode)) {
+      return AccessResult::forbidden();
+    }
+
     $action = $node->isPublished() ? 'unpublish' : 'publish';
 
     if (($action == 'publish'

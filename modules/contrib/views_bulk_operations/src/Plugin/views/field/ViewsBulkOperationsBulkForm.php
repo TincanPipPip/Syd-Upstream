@@ -453,6 +453,7 @@ class ViewsBulkOperationsBulkForm extends FieldPluginBase implements CacheableDe
         '#type' => 'checkbox',
         '#title' => $action['label'],
         '#default_value' => empty($selected_actions_data[$id]) ? 0 : 1,
+        '#attributes' => ['class' => ['vbo-action-state']],
       ];
 
       // There are problems with AJAX on this form when adding

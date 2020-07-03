@@ -11,14 +11,21 @@ namespace Drupal\Tests\eck\Unit {
   use Drupal\Tests\eck\Unit\TestDoubles\FieldTypePluginManagerMock;
   use Drupal\Tests\UnitTestCase;
 
+  /**
+   * Base class for unit tests.
+   */
   abstract class UnitTestBase extends UnitTestCase {
 
     /**
+     * The entities.
+     *
      * @var array
      */
     protected $entities;
 
     /**
+     * The services.
+     *
      * @var array
      */
     private $services;
@@ -51,10 +58,13 @@ namespace Drupal\Tests\eck\Unit {
 
       $container->method('get')->willReturnCallback([
         $this,
-        'containerMockGetServiceCallback'
+        'containerMockGetServiceCallback',
       ]);
     }
 
+    /**
+     * Retrieves the entity storage mock.
+     */
     private function getEntityStorageMock() {
       $entity_storage = $this->getMockForAbstractClass('\Drupal\Core\Entity\EntityStorageInterface');
       $entity_storage->method('loadMultiple')->willReturnCallback([
@@ -69,17 +79,23 @@ namespace Drupal\Tests\eck\Unit {
       return $entity_storage;
     }
 
+    /**
+     * Retrieves the entity manager mock.
+     */
     private function getEntityManagerMock() {
       $entity_storage = $this->getEntityStorageMock();
       $definition = $this->getMockForAbstractClass(EntityTypeInterface::class);
 
-      $entity_manager = $this->getMockForAbstractClass(EntityManagerInterface::class);
+      $entity_manager = $this->getMockForAbstractClass(EntityTypeManagerInterface::class);
       $entity_manager->method('getStorage')->willReturn($entity_storage);
       $entity_manager->method('getDefinition')->willReturn($definition);
 
       return $entity_manager;
     }
 
+    /**
+     * Retrieves the entity type manager mock.
+     */
     private function getEntityTypeManagerMock() {
       $entity_storage = $this->getEntityStorageMock();
       $definition = $this->getMockForAbstractClass(EntityTypeInterface::class);
@@ -91,6 +107,9 @@ namespace Drupal\Tests\eck\Unit {
       return $entity_type_manager;
     }
 
+    /**
+     * Retrieves the entity type repository mock.
+     */
     private function getEntityTypeRepositoryMock() {
       $entity_type_repository = $this->getMockForAbstractClass(EntityTypeRepositoryInterface::class);
       $entity_type_repository->method('getEntityTypeFromClass')
@@ -140,6 +159,9 @@ namespace Drupal\Tests\eck\Unit {
       return NULL;
     }
 
+    /**
+     * Creates the language manager mock.
+     */
     protected function createLanguageManagerMock() {
       $current_language_mock = $this->getMockForAbstractClass('\Drupal\Core\Language\LanguageInterface');
       $current_language_mock->method('getId')->willReturn('en');
@@ -150,6 +172,9 @@ namespace Drupal\Tests\eck\Unit {
       return $mock;
     }
 
+    /**
+     * Callback for entity storage load multiple.
+     */
     public function entityStorageLoadMultiple($id = '') {
       if (!empty($id)) {
         return $this->entities[$id];
@@ -159,22 +184,35 @@ namespace Drupal\Tests\eck\Unit {
       }
     }
 
+    /**
+     * Adds an entity to the mock storage.
+     */
     protected function addEntityToStorage(EntityInterface $entity) {
       $this->entities[$entity->id()] = $entity;
     }
 
     /**
+     * Creates a test entity type.
+     *
      * @param string $entity_type_id
+     *   The entity type id.
+     * @param array $values
+     *   The values to be set on the created entity.
+     *
      * @return \Drupal\eck\Entity\EckEntityType
+     *   The created eck entity type.
      */
     protected function createEckEntityType($entity_type_id, array $values = []) {
       $values = $values + [
-          'label' => ucfirst($entity_type_id),
-          'id' => $entity_type_id,
-        ];
+        'label' => ucfirst($entity_type_id),
+        'id' => $entity_type_id,
+      ];
       return new EckEntityType($values, $entity_type_id);
     }
 
+    /**
+     * Asserts that the array keys of an array equal the expected keys.
+     */
     protected function assertArrayKeysEqual($expectedKeys, $arrayToAssert) {
       $this->assertEquals($expectedKeys, array_keys($arrayToAssert));
     }
@@ -183,9 +221,15 @@ namespace Drupal\Tests\eck\Unit {
 }
 
 namespace Drupal\eck\Entity {
+
   if (!function_exists('t')) {
+
+    /**
+     * Mock for the t() function.
+     */
     function t($string) {
       return $string;
     }
+
   }
 }

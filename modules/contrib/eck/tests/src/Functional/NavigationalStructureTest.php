@@ -3,15 +3,15 @@
 namespace Drupal\Tests\eck\Functional;
 
 use Drupal\Core\Url;
-use Drupal\eck\Entity\EckEntity;
 use Drupal\eck\Entity\EckEntityType;
 use Drupal\field\Entity\FieldConfig;
 use Drupal\field\Entity\FieldStorageConfig;
 use Drupal\Tests\BrowserTestBase;
 
 /**
- * Test ECK's navigational structure. This includes routing, paths, breadcrumbs
- * and page titles.
+ * Test Entity Construction Kit's navigational structure.
+ *
+ * This includes routing, paths, breadcrumbs and page titles.
  *
  * @group eck
  */
@@ -22,22 +22,52 @@ class NavigationalStructureTest extends BrowserTestBase {
    */
   public static $modules = ['eck', 'block', 'field'];
 
+  /**
+   * The base breadcrumb labels.
+   *
+   * @var string[]
+   */
   private $baseCrumbs = [
     'Home',
     'Administration',
   ];
 
-  /** @var string */
+  /**
+   * The entity type machine name.
+   *
+   * @var string
+   */
   private $entityTypeMachineName;
-  /** @var string */
+  /**
+   * The entity type label.
+   *
+   * @var string
+   */
   private $entityTypeLabel;
-  /** @var string */
+  /**
+   * The entity bundle machine name.
+   *
+   * @var string
+   */
   private $entityBundleMachineName;
-  /** @var string */
+  /**
+   * The entity bundle label.
+   *
+   * @var string
+   */
   private $entityBundleLabel;
 
   /**
    * {@inheritdoc}
+   */
+  protected $defaultTheme = 'classy';
+
+  /**
+   * {@inheritdoc}
+   *
+   * @throws \Drupal\Component\Plugin\Exception\InvalidPluginDefinitionException
+   * @throws \Drupal\Component\Plugin\Exception\PluginNotFoundException
+   * @throws \Drupal\Core\Entity\EntityStorageException
    */
   public function setUp() {
     parent::setUp();
@@ -65,15 +95,17 @@ class NavigationalStructureTest extends BrowserTestBase {
   /**
    * Creates an entity type.
    *
-   * @param $entityTypeId
+   * @param string $entityTypeId
    *   The entity type id.
-   * @param $entityTypeLabel
+   * @param string $entityTypeLabel
    *   The entity type label.
+   *
+   * @throws \Drupal\Core\Entity\EntityStorageException
    */
   protected function createEntityType($entityTypeId, $entityTypeLabel) {
     $entityType = EckEntityType::create([
       'id' => $entityTypeId,
-      'label' => $entityTypeLabel
+      'label' => $entityTypeLabel,
     ]);
     $entityType->save();
   }
@@ -81,19 +113,23 @@ class NavigationalStructureTest extends BrowserTestBase {
   /**
    * Creates a bundle on an entity type.
    *
-   * @param $entityTypeId
+   * @param string $entityTypeId
    *   The id of the entity type to add the bundle to.
-   * @param $entityBundleMachineName
+   * @param string $entityBundleMachineName
    *   The machine name of the bundle to create.
-   * @param $entityBundleName
+   * @param string $entityBundleName
    *   The label of the bundle to create.
+   *
+   * @throws \Drupal\Component\Plugin\Exception\InvalidPluginDefinitionException
+   * @throws \Drupal\Component\Plugin\Exception\PluginNotFoundException
+   * @throws \Drupal\Core\Entity\EntityStorageException
    */
   protected function createEntityBundle($entityTypeId, $entityBundleMachineName, $entityBundleName) {
     $entityBundle = \Drupal::entityTypeManager()
       ->getStorage($entityTypeId . '_type')
       ->create([
         'type' => $entityBundleMachineName,
-        'name' => $entityBundleName
+        'name' => $entityBundleName,
       ]);
     $entityBundle->save();
   }
@@ -103,6 +139,9 @@ class NavigationalStructureTest extends BrowserTestBase {
    *
    * @return \Drupal\Core\Entity\EntityStorageInterface
    *   The entity storage handler.
+   *
+   * @throws \Drupal\Component\Plugin\Exception\InvalidPluginDefinitionException
+   * @throws \Drupal\Component\Plugin\Exception\PluginNotFoundException
    */
   private function getEntityStorageHandler() {
     return \Drupal::entityTypeManager()
@@ -112,18 +151,18 @@ class NavigationalStructureTest extends BrowserTestBase {
   /**
    * Asserts that the page on a given route contains all the elements we expect.
    *
-   * @param $route
+   * @param string $route
    *   The route to test.
-   * @param $routeArguments
+   * @param array $routeArguments
    *   Arguments for the route to test.
-   * @param $expectedUrl
+   * @param string $expectedUrl
    *   The expected url.
-   * @param $expectedTitle
+   * @param string $expectedTitle
    *   The expected title.
-   * @param $crumbs
+   * @param array $crumbs
    *   The expected breadcrumbs after the base crumbs.
    */
-  private function assertCorrectPageOnRoute($route, $routeArguments, $expectedUrl, $expectedTitle, $crumbs = []) {
+  private function assertCorrectPageOnRoute($route, array $routeArguments, $expectedUrl, $expectedTitle, array $crumbs = []) {
     $url = Url::fromRoute($route, $routeArguments);
 
     self::assertEquals($expectedUrl, $url->getInternalPath());
@@ -165,6 +204,8 @@ class NavigationalStructureTest extends BrowserTestBase {
   }
 
   /**
+   * Tests entity type listing.
+   *
    * @test
    */
   public function entityTypeList() {
@@ -177,6 +218,8 @@ class NavigationalStructureTest extends BrowserTestBase {
   }
 
   /**
+   * Tests entity type creation.
+   *
    * @test
    */
   public function entityTypeAdd() {
@@ -186,13 +229,15 @@ class NavigationalStructureTest extends BrowserTestBase {
     $expectedTitle = 'Add entity type';
     $crumbs = [
       'Structure',
-      'ECK Entity Types'
+      'ECK Entity Types',
     ];
 
     $this->assertCorrectPageOnRoute($route, $routeArguments, $expectedUrl, $expectedTitle, $crumbs);
   }
 
   /**
+   * Tests entity type edit.
+   *
    * @test
    */
   public function entityTypeEdit() {
@@ -202,14 +247,18 @@ class NavigationalStructureTest extends BrowserTestBase {
     $expectedTitle = 'Edit entity type';
     $crumbs = [
       'Structure',
-      'ECK Entity Types'
+      'ECK Entity Types',
     ];
 
     $this->assertCorrectPageOnRoute($route, $routeArguments, $expectedUrl, $expectedTitle, $crumbs);
   }
 
   /**
+   * Tests entity type deletion.
+   *
    * @test
+   *
+   * @throws \Behat\Mink\Exception\ResponseTextException
    */
   public function entityTypeDelete() {
     $route = 'entity.eck_entity_type.delete_form';
@@ -219,7 +268,7 @@ class NavigationalStructureTest extends BrowserTestBase {
     $crumbs = [
       'Structure',
       'ECK Entity Types',
-      "Edit entity type"
+      "Edit entity type",
     ];
 
     $this->assertCorrectPageOnRoute($route, $routeArguments, $expectedUrl, $expectedTitle, $crumbs);
@@ -228,7 +277,11 @@ class NavigationalStructureTest extends BrowserTestBase {
   }
 
   /**
+   * Tests entity type deletion with multiple bundles.
+   *
    * @test
+   *
+   * @throws \Behat\Mink\Exception\ResponseTextException
    */
   public function entityTypeDeleteWithMultipleBundles() {
     $additional_bundle_name = strtolower($this->randomMachineName());
@@ -243,7 +296,7 @@ class NavigationalStructureTest extends BrowserTestBase {
     $crumbs = [
       'Structure',
       'ECK Entity Types',
-      "Edit entity type"
+      "Edit entity type",
     ];
 
     $this->assertCorrectPageOnRoute($route, $routeArguments, $expectedUrl, $expectedTitle, $crumbs);
@@ -254,7 +307,15 @@ class NavigationalStructureTest extends BrowserTestBase {
   }
 
   /**
+   * Tests entity type deletion with matching bundle.
+   *
    * @test
+   *
+   * @throws \Behat\Mink\Exception\ExpectationException
+   * @throws \Behat\Mink\Exception\ResponseTextException
+   * @throws \Drupal\Component\Plugin\Exception\InvalidPluginDefinitionException
+   * @throws \Drupal\Component\Plugin\Exception\PluginNotFoundException
+   * @throws \Drupal\Core\Entity\EntityStorageException
    */
   public function entityTypeDeleteWithMatchingBundle() {
     $this->createEntityBundle($this->entityTypeMachineName, $this->entityTypeMachineName, $this->entityTypeLabel);
@@ -274,7 +335,7 @@ class NavigationalStructureTest extends BrowserTestBase {
     $crumbs = [
       'Structure',
       'ECK Entity Types',
-      "Edit entity type"
+      "Edit entity type",
     ];
 
     $this->assertCorrectPageOnRoute($route, $routeArguments, $expectedUrl, $expectedTitle, $crumbs);
@@ -297,7 +358,15 @@ class NavigationalStructureTest extends BrowserTestBase {
   }
 
   /**
+   * Tests entity type deletion if fields are present.
+   *
    * @test
+   *
+   * @throws \Behat\Mink\Exception\ExpectationException
+   * @throws \Behat\Mink\Exception\ResponseTextException
+   * @throws \Drupal\Component\Plugin\Exception\InvalidPluginDefinitionException
+   * @throws \Drupal\Component\Plugin\Exception\PluginNotFoundException
+   * @throws \Drupal\Core\Entity\EntityStorageException
    */
   public function entityTypeDeleteWithField() {
     // Delete the original bundle.
@@ -329,7 +398,7 @@ class NavigationalStructureTest extends BrowserTestBase {
     $crumbs = [
       'Structure',
       'ECK Entity Types',
-      "Edit entity type"
+      "Edit entity type",
     ];
 
     $this->assertCorrectPageOnRoute($route, $routeArguments, $expectedUrl, $expectedTitle, $crumbs);
@@ -353,7 +422,12 @@ class NavigationalStructureTest extends BrowserTestBase {
   }
 
   /**
+   * Tests entity type deletion if content is available.
+   *
    * @test
+   *
+   * @throws \Drupal\Core\Entity\EntityStorageException
+   * @throws \Exception
    */
   public function entityTypeDeleteWithContent() {
     $field_machine_name = strtolower($this->randomMachineName());
@@ -384,7 +458,7 @@ class NavigationalStructureTest extends BrowserTestBase {
     $crumbs = [
       'Structure',
       'ECK Entity Types',
-      "Edit entity type"
+      "Edit entity type",
     ];
 
     $this->assertCorrectPageOnRoute($route, $routeArguments, $expectedUrl, $expectedTitle, $crumbs);
@@ -405,7 +479,7 @@ class NavigationalStructureTest extends BrowserTestBase {
     $crumbs = [
       'Structure',
       'ECK Entity Types',
-      "Edit entity type"
+      "Edit entity type",
     ];
 
     $this->assertCorrectPageOnRoute($route, $routeArguments, $expectedUrl, $expectedTitle, $crumbs);
@@ -413,6 +487,8 @@ class NavigationalStructureTest extends BrowserTestBase {
   }
 
   /**
+   * Tests the entity listing page.
+   *
    * @test
    */
   public function entityList() {
@@ -426,6 +502,8 @@ class NavigationalStructureTest extends BrowserTestBase {
   }
 
   /**
+   * Tests the entity add page.
+   *
    * @test
    */
   public function entityAddPage() {
@@ -435,20 +513,22 @@ class NavigationalStructureTest extends BrowserTestBase {
     $expectedTitle = "Add " . $this->entityTypeLabel . " content";
     $crumbs = [
       'Content',
-      ucfirst("{$this->entityTypeLabel} content")
+      ucfirst("{$this->entityTypeLabel} content"),
     ];
 
     $this->assertCorrectPageOnRoute($route, $routeArguments, $expectedUrl, $expectedTitle, $crumbs);
   }
 
   /**
+   * Test entity creation.
+   *
    * @test
    */
   public function entityAdd() {
     $route = 'eck.entity.add';
     $routeArguments = [
       'eck_entity_type' => $this->entityTypeMachineName,
-      'eck_entity_bundle' => $this->entityBundleMachineName
+      'eck_entity_bundle' => $this->entityBundleMachineName,
     ];
     $expectedUrl = "admin/content/{$this->entityTypeMachineName}/add/{$this->entityBundleMachineName}";
     $expectedTitle = "Add {$this->entityBundleMachineName} content";
@@ -462,7 +542,11 @@ class NavigationalStructureTest extends BrowserTestBase {
   }
 
   /**
+   * Test entity viewing.
+   *
    * @test
+   *
+   * @throws \Drupal\Core\Entity\EntityStorageException
    */
   public function entityView() {
     $entity = $this->getEntityStorageHandler()
@@ -479,7 +563,11 @@ class NavigationalStructureTest extends BrowserTestBase {
   }
 
   /**
+   * Tests entity editing.
+   *
    * @test
+   *
+   * @throws \Drupal\Core\Entity\EntityStorageException
    */
   public function entityEdit() {
     $entity = $this->getEntityStorageHandler()
@@ -499,7 +587,11 @@ class NavigationalStructureTest extends BrowserTestBase {
   }
 
   /**
+   * Tests entity deletion.
+   *
    * @test
+   *
+   * @throws \Drupal\Core\Entity\EntityStorageException
    */
   public function entityDelete() {
     $entity = $this->getEntityStorageHandler()
@@ -519,6 +611,8 @@ class NavigationalStructureTest extends BrowserTestBase {
   }
 
   /**
+   * Tests entity bundle listing.
+   *
    * @test
    */
   public function entityBundleList() {
@@ -532,6 +626,8 @@ class NavigationalStructureTest extends BrowserTestBase {
   }
 
   /**
+   * Tests entity bundle creation.
+   *
    * @test
    */
   public function entityBundleAdd() {
@@ -550,6 +646,8 @@ class NavigationalStructureTest extends BrowserTestBase {
   }
 
   /**
+   * Tests entity bundle editing.
+   *
    * @test
    */
   public function entityBundleEdit() {
@@ -568,6 +666,8 @@ class NavigationalStructureTest extends BrowserTestBase {
   }
 
   /**
+   * Tests entity bundle deletion.
+   *
    * @test
    */
   public function entityBundleDelete() {
@@ -585,4 +685,5 @@ class NavigationalStructureTest extends BrowserTestBase {
 
     $this->assertCorrectPageOnRoute($route, $routeArguments, $expectedUrl, $expectedTitle, $crumbs);
   }
+
 }

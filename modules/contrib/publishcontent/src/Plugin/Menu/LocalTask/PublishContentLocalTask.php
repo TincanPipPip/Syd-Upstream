@@ -17,7 +17,7 @@ class PublishContentLocalTask extends LocalTaskDefault {
   /**
    * Current node.
    *
-   * @var \Drupal\node\Entity\NodeInterface
+   * @var \Drupal\node\NodeInterface
    */
   protected $node;
 
@@ -34,6 +34,11 @@ class PublishContentLocalTask extends LocalTaskDefault {
    * {@inheritdoc}
    */
   public function getTitle(Request $request = NULL) {
+    $langcode = \Drupal::languageManager()->getCurrentLanguage()->getId();
+    if ($this->node->isTranslatable() && $this->node->hasTranslation($langcode) && $translatedNode = $this->node->getTranslation($langcode)) {
+      $translatedNode->setPublished($translatedNode->isPublished());
+      return $translatedNode->isPublished() ? $this->t('Unpublish (this translation)') : $this->t('Publish (this translation)');
+    }
     return $this->node->isPublished() ? $this->t('Unpublish') : $this->t('Publish');
   }
 

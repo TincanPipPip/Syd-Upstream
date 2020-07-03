@@ -1,5 +1,6 @@
 <?php
 
+use Drupal\Component\Utility\SafeMarkup;
 /**
  * @file
  * Describe hooks provided by the publishcontent module.
@@ -31,9 +32,9 @@ function hook_publishcontent_publish_access($node, $account) {
     || \Drupal::currentUser()->hasPermission('publish any content')
     || (\Drupal::currentUser()->hasPermission('publish own content') && $account->uid == $node->uid)
     || (\Drupal::currentUser()->hasPermission('publish editable content') && node_access('update', $node))
-    || ($account->hasPermission('publish own ' . \Drupal\Component\Utility\SafeMarkup::checkPlain($node->type) . ' content') && $account->uid == $node->uid)
-    || \Drupal::currentUser()->hasPermission('publish any ' . \Drupal\Component\Utility\SafeMarkup::checkPlain($node->type) . ' content')
-    || (\Drupal::currentUser()->hasPermission('publish editable ' . \Drupal\Component\Utility\SafeMarkup::checkPlain($node->type) . ' content') && node_access('update', $node))
+    || ($account->hasPermission('publish own ' . SafeMarkup::checkPlain($node->type) . ' content') && $account->uid == $node->uid)
+    || \Drupal::currentUser()->hasPermission('publish any ' . SafeMarkup::checkPlain($node->type) . ' content')
+    || (\Drupal::currentUser()->hasPermission('publish editable ' . SafeMarkup::checkPlain($node->type) . ' content') && node_access('update', $node))
   );
 
   if ($access) {
@@ -74,9 +75,9 @@ function hook_publishcontent_unpublish_access($node, $account) {
     || \Drupal::currentUser()->hasPermission('unpublish any content')
     || (\Drupal::currentUser()->hasPermission('unpublish own content') && $user->uid == $node->uid)
     || (\Drupal::currentUser()->hasPermission('unpublish editable content') && node_access('update', $node))
-    || ($user->hasPermission('unpublish own ' . \Drupal\Component\Utility\SafeMarkup::checkPlain($node->type) . ' content') && $user->uid == $node->uid)
-    || \Drupal::currentUser()->hasPermission('unpublish any ' . \Drupal\Component\Utility\SafeMarkup::checkPlain($node->type) . ' content')
-    || (\Drupal::currentUser()->hasPermission('unpublish editable ' . \Drupal\Component\Utility\SafeMarkup::checkPlain($node->type) . ' content') && node_access('update', $node))
+    || ($user->hasPermission('unpublish own ' . SafeMarkup::checkPlain($node->type) . ' content') && $user->uid == $node->uid)
+    || \Drupal::currentUser()->hasPermission('unpublish any ' . SafeMarkup::checkPlain($node->type) . ' content')
+    || (\Drupal::currentUser()->hasPermission('unpublish editable ' . SafeMarkup::checkPlain($node->type) . ' content') && node_access('update', $node))
   );
 
   if ($access) {

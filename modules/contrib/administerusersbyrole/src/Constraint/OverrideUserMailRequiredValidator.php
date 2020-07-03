@@ -23,7 +23,7 @@ class OverrideUserMailRequiredValidator extends UserMailRequiredValidator {
     $account = $items->getEntity();
     $existing_value = NULL;
     if ($account->id()) {
-      $account_unchanged = \Drupal::entityManager()
+      $account_unchanged = \Drupal::entityTypeManager()
         ->getStorage('user')
         ->loadUnchanged($account->id());
       $existing_value = $account_unchanged->getEmail();

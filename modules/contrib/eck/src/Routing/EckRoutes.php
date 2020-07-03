@@ -19,7 +19,7 @@ class EckRoutes {
   public function routes() {
     $routeCollection = new RouteCollection();
 
-    /** @var EckEntityType $entityType */
+    /** @var \Drupal\eck\Entity\EckEntityType $entityType */
     foreach (EckEntityType::loadMultiple() as $entityType) {
       $entityTypeId = $entityType->id();
       $entityTypeLabel = $entityType->label();
@@ -34,9 +34,15 @@ class EckRoutes {
   }
 
   /**
+   * Creates the listing route.
+   *
    * @param string $entityTypeId
+   *   The entity type id.
    * @param string $entityTypeLabel
+   *   The entity type label.
+   *
    * @return \Symfony\Component\Routing\Route
+   *   The created listing route.
    */
   private function createListRoute($entityTypeId, $entityTypeLabel) {
     $path = "admin/content/{$entityTypeId}";
@@ -56,9 +62,15 @@ class EckRoutes {
   }
 
   /**
+   * Creates the bundle listing route.
+   *
    * @param string $entityTypeId
+   *   The entity type id.
    * @param string $entityTypeLabel
+   *   The entity type label.
+   *
    * @return \Symfony\Component\Routing\Route
+   *   The created bundle listing route.
    */
   private function createBundleListRoute($entityTypeId, $entityTypeLabel) {
     $path = "admin/structure/eck/{$entityTypeId}/bundles";
@@ -72,16 +84,25 @@ class EckRoutes {
   }
 
   /**
+   * Retrieves the bundle route requirements.
+   *
    * @return array
+   *   The bundle route requirements.
    */
   private function getBundleRouteRequirements() {
     return ['_permission' => 'administer eck entity bundles'];
   }
 
   /**
+   * Creates the add bundle route.
+   *
    * @param string $entityTypeId
+   *   The entity type id.
    * @param string $entityTypeLabel
+   *   The entity type label.
+   *
    * @return \Symfony\Component\Routing\Route
+   *   The add bundle route.
    */
   private function createAddBundleRoute($entityTypeId, $entityTypeLabel) {
     $path = "admin/structure/eck/{$entityTypeId}/bundles/add";
@@ -89,11 +110,19 @@ class EckRoutes {
   }
 
   /**
+   * Creates a bundle crud route.
+   *
    * @param string $entityTypeId
+   *   The entity type id.
    * @param string $entityTypeLabel
-   * @param $path
-   * @param $op
+   *   The entity type label.
+   * @param string $path
+   *   The path.
+   * @param string $op
+   *   The operation.
+   *
    * @return \Symfony\Component\Routing\Route
+   *   The bundle crud route.
    */
   private function createBundleCrudRoute($entityTypeId, $entityTypeLabel, $path, $op) {
     $defaults = [
@@ -105,23 +134,35 @@ class EckRoutes {
   }
 
   /**
+   * Creates the edit bundle route.
+   *
    * @param string $entityTypeId
+   *   The entity type id.
    * @param string $entityTypeLabel
+   *   The entity type label.
+   *
    * @return \Symfony\Component\Routing\Route
+   *   The edit bundle route.
    */
   private function createEditBundleRoute($entityTypeId, $entityTypeLabel) {
     $path = "admin/structure/eck/{$entityTypeId}/bundles/{{$entityTypeId}_type}";
     return $this->createBundleCrudRoute($entityTypeId, $entityTypeLabel, $path, "edit");
   }
 
-
   /**
+   * Creates the delete bundle route.
+   *
    * @param string $entityTypeId
+   *   The entity type id.
    * @param string $entityTypeLabel
+   *   The entity type label.
+   *
    * @return \Symfony\Component\Routing\Route
+   *   The delete bundle route.
    */
   private function createDeleteBundleRoute($entityTypeId, $entityTypeLabel) {
     $path = "admin/structure/eck/{$entityTypeId}/bundles/{{$entityTypeId}_type}/delete";
     return $this->createBundleCrudRoute($entityTypeId, $entityTypeLabel, $path, "delete");
   }
+
 }

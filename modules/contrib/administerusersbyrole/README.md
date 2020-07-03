@@ -1,48 +1,66 @@
 # Administer Users by Role
 
-## SUMMARY
-This module allows site builders to set up fine-grained permissions for
-allowing "sub-admin" users to edit and delete other users — more specific
-than Drupal Core's all-or-nothing 'administer users' permission. It also
-provides and enforces a 'create users' permission.
+## Contents of this file
 
-## CORE PERMISSIONS
+* Introduction
+* Requirements
+* Installation
+* Configuration
+* Maintainers
 
-### Administer users
-DO NOT set this for sub-admins.  This permission bypasses all of the
-permissions in "Administer Users by Role".
+## Introduction
 
-### View user information
-Your sub-admins should probably have this permission.  (Most things work
-without it, but for example with a View showing users, the user name
-will only become a link if this permission is set.)
+Administer Users by Role allows site builders to set up fine-grained
+permissions for allowing "sub-admin" users to manage other users based on the
+target user's role.
 
-### Select method for cancelling account
-If you set this for sub-admins, then the sub-admin can choose a cancellation
-method when cancelling an account.  If not, then the sum-admin will always
-use the default cancellation method.
+The module defines new permissions to control access to edit/delete users and
+assign roles - more specific than Drupal Core's all-or-nothing 'Administer
+users' and 'Administer permissions'. It also provides a 'Create new users'
+permission and fine-grained permissions for viewing users.
 
-## NEW PERMISSIONS
+* For a full description of the module, visit the project page:
+[https://www.drupal.org/project/administerusersbyrole](https://www.drupal.org/project/administerusersbyrole)
 
-### Access the users overview page
-See the list of users at admin/people.  Only users that can be edited are shown.
+* To submit bug reports and feature suggestions, or to track changes:
+[https://www.drupal.org/project/issues/administerusersbyrole](https://www.drupal.org/project/issues/administerusersbyrole)
 
-### Create new users
-Create users, at admin/people/create.
+## Requirements
 
-### Allow empty user mail when managing users
-Create and manage users that have no email address.
+This module requires no modules outside of Drupal core.
 
-### Edit users with no custom roles
-Allows editing of any authenticated user that has no custom roles set.
+## Installation
 
-### Edit users with role XXX
-Allows editing of any authenticated user with the specified role.
-To edit a user with multiple roles, the sub-admin must have permission to
-edit ALL of those roles.  ("Edit users with no custom roles" is NOT needed.)
+Install the Administer Users by Role module as you would normally install a
+contributed Drupal module. Visit
+[https://www.drupal.org/node/1897420](https://www.drupal.org/node/1897420) for
+further information.
 
-### Cancel
-The permission for cancel work exactly the same as those for edit.
+## Configuration
 
-## GOOGLE CODE-IN
-Drupal 8 port done with assistance from the student gvso as a Google Code-In (GCI) 2014 task. Google Code-in is a contest for pre-university students (e.g., high school and secondary school students ages 13-17) with the goal of encouraging young people to participate in open source. More info about GCI [https://developers.google.com/open-source/gci/](https://developers.google.com/open-source/gci/)
+Use the configuration settings (Administration > People > Administer Users) to
+classify each role.
+
+* Safe - Grants sub-admins the ability to manage users with that role if they
+  have the related permission such as 'Edit users with safe roles'.
+* Unsafe - Means sub-admins cannot manage users with that role. For example,
+  the "admin" role is always unsafe.
+* Custom - Allows for more selective access determined by extra permissions for
+  that role.
+
+The sub-admin can access a target user provided they have access to all of
+that user's roles.
+
+## Maintainers
+
+* Adam Shepherd (AdamPS) -
+[https://www.drupal.org/u/adamps](https://www.drupal.org/u/adamps)
+* Steve Mokris (smokris) -
+[https://www.drupal.org/u/smokris](https://www.drupal.org/u/smokris)
+* Tom Kirkpatrick (mrfelton) -
+[https://www.drupal.org/u/mrfelton](https://www.drupal.org/u/mrfelton)
+
+Supporting organizations:
+
+* AlbanyWeb -
+[https://www.drupal.org/albanyweb](https://www.drupal.org/albanyweb)

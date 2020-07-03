@@ -15,6 +15,11 @@ class WorkspacesIntegrationTest extends BrowserTestBase {
   protected static $modules = ['eck'];
 
   /**
+   * {@inheritdoc}
+   */
+  protected $defaultTheme = 'classy';
+
+  /**
    * @test
    */
   public function workspacesCanBeEnabledWhenNoEntityTypesAreDefined() {

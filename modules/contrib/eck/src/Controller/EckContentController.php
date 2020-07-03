@@ -4,7 +4,6 @@ namespace Drupal\eck\Controller;
 
 use Drupal\Core\Controller\ControllerBase;
 use Drupal\Core\DependencyInjection\ContainerInjectionInterface;
-use Drupal\Core\Entity\EntityTypeManagerInterface;
 use Drupal\Core\Render\RendererInterface;
 use Drupal\eck\EckEntityTypeInterface;
 use Drupal\eck\Entity\EckEntityBundle;
@@ -21,14 +20,14 @@ class EckContentController extends ControllerBase implements ContainerInjectionI
   /**
    * The render service.
    *
-   * @var RendererInterface
+   * @var \Drupal\Core\Render\RendererInterface
    */
   protected $renderer;
 
   /**
    * Constructs an EckContentController object.
    *
-   * @param RendererInterface $renderer
+   * @param \Drupal\Core\Render\RendererInterface $renderer
    *   The renderer service.
    */
   public function __construct(RendererInterface $renderer) {
@@ -47,7 +46,7 @@ class EckContentController extends ControllerBase implements ContainerInjectionI
   /**
    * Displays add content link for available entity types.
    *
-   * @param EckEntityTypeInterface $eck_entity_type
+   * @param \Drupal\eck\EckEntityTypeInterface $eck_entity_type
    *   The request parameters.
    *
    * @return array
@@ -56,7 +55,7 @@ class EckContentController extends ControllerBase implements ContainerInjectionI
   public function addPage(EckEntityTypeInterface $eck_entity_type) {
     $content = [];
     $bundleStorage = $this->getBundleStorage($eck_entity_type);
-    /** @var EckEntityBundle $bundle */
+    /** @var \Drupal\eck\Entity\EckEntityBundle $bundle */
     foreach ($bundleStorage->loadMultiple() as $bundle) {
       if ($this->entityTypeManager()
         ->getAccessControlHandler($eck_entity_type->id())
@@ -79,7 +78,7 @@ class EckContentController extends ControllerBase implements ContainerInjectionI
   /**
    * Provides the entity submission form.
    *
-   * @param EckEntityTypeInterface $eck_entity_type
+   * @param \Drupal\eck\EckEntityTypeInterface $eck_entity_type
    *   The entity type.
    * @param string $eck_entity_bundle
    *   The entity type bundle.
@@ -103,7 +102,7 @@ class EckContentController extends ControllerBase implements ContainerInjectionI
   /**
    * Title callback for add page.
    *
-   * @param EckEntityTypeInterface $eck_entity_type
+   * @param \Drupal\eck\EckEntityTypeInterface $eck_entity_type
    *   The entity type.
    *
    * @return string

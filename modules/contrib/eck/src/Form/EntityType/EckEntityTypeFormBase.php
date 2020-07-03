@@ -2,6 +2,7 @@
 
 namespace Drupal\eck\Form\EntityType;
 
+use Drupal\Core\Entity\EntityFieldManagerInterface;
 use Drupal\Core\Entity\EntityForm;
 use Drupal\Core\Form\FormStateInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
@@ -22,13 +23,23 @@ class EckEntityTypeFormBase extends EntityForm {
   protected $eckEntityTypeStorage;
 
   /**
+   * The entity field manager service.
+   *
+   * @var \Drupal\Core\Entity\EntityFieldManagerInterface
+   */
+  protected $entityFieldManager;
+
+  /**
    * Construct the EckEntityTypeFormBase.
    *
    * @param \Drupal\Core\Entity\EntityStorageInterface $eck_entity_type_storage
    *   The eck_entity_type storage.
+   * @param \Drupal\Core\Entity\EntityFieldManagerInterface $entity_field_manager
+   *   The entity field manager service.
    */
-  public function __construct(EntityStorageInterface $eck_entity_type_storage) {
+  public function __construct(EntityStorageInterface $eck_entity_type_storage, EntityFieldManagerInterface $entity_field_manager) {
     $this->eckEntityTypeStorage = $eck_entity_type_storage;
+    $this->entityFieldManager = $entity_field_manager;
   }
 
   /**
@@ -37,8 +48,10 @@ class EckEntityTypeFormBase extends EntityForm {
    * {@inheritdoc}
    */
   public static function create(ContainerInterface $container) {
-    return new static($container->get('entity_type.manager')
-      ->getStorage('eck_entity_type'));
+    return new static(
+      $container->get('entity_type.manager')->getStorage('eck_entity_type'),
+      $container->get('entity_field.manager')
+    );
   }
 
   /**
@@ -74,7 +87,7 @@ class EckEntityTypeFormBase extends EntityForm {
 
     $form['base_fields'] = [
       '#type' => 'fieldset',
-      '#title' => t('Available base fields'),
+      '#title' => $this->t('Available base fields'),
     ];
 
     $config = \Drupal::config('eck.eck_entity_type.' . $eck_entity_type->id());
@@ -83,7 +96,7 @@ class EckEntityTypeFormBase extends EntityForm {
 
       $form['base_fields'][$field] = [
         '#type' => 'checkbox',
-        '#title' => t('%field field', ['%field' => ucfirst($title)]),
+        '#title' => $this->t('%field field', ['%field' => ucfirst($title)]),
         '#default_value' => $config->get($field),
       ];
     }
@@ -98,7 +111,7 @@ class EckEntityTypeFormBase extends EntityForm {
    *   The entity ID.
    * @param array $element
    *   The form element.
-   * @param FormStateInterface $form_state
+   * @param \Drupal\Core\Form\FormStateInterface $form_state
    *   The form state.
    *
    * @return bool
