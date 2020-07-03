@@ -66,3 +66,5 @@ priv
 node_modules
 .DS_Store
 /nbproject/private/
+sites/default/files
+sites/default/settings.local.php
