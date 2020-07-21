@@ -97,3 +97,9 @@
 ## 03-07-2020 #2
 ## Changed
 - Updated contrib modules
+
+---
+
+## 21-07-2020
+## Changed
+- Updated 'skip to content' link url
