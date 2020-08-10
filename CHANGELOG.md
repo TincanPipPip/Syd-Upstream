@@ -103,3 +103,14 @@
 ## 21-07-2020
 ## Changed
 - Updated 'skip to content' link url
+
+---
+
+## 10-08-2020
+## Changed
+- Updated npm packages package.json in Pippip
+- Added keybarod navigation for image captions
+
+## Added
+- `font-display:swap` to default font css
+- Focus styles for form elements
