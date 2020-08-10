@@ -22,6 +22,10 @@ select {
   border: 1px solid $c-primary;
   transition: all 0.2s $easing;
   background-color: $c-white;
+
+  &:focus {
+    border: 1px solid $c-secondary;
+  }
 }
 
 input[type='search'],
@@ -91,6 +95,10 @@ button {
   transform: scale(1);
 }
 
+[type='checkbox']:focus + label:before {
+  border-color: $c-secondary;
+}
+
 // Radios
 [type='radio']:checked,
 [type='radio']:not(:checked) {
@@ -137,4 +145,7 @@ button {
 [type='radio']:checked + label:after {
   opacity: 1;
   transform: scale(1);
+}
+[type='radio']:focus + label:before {
+  border-color: $c-secondary;
 }

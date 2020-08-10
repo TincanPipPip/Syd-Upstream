@@ -51,10 +51,9 @@
     word-spacing: 0;
   }
 
+  &:focus,
+  &:active,
   &:hover {
-    span {
-    }
-
     &::before {
       opacity: 1;
     }
