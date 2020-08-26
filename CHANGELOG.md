@@ -114,3 +114,10 @@
 ## Added
 - `font-display:swap` to default font css
 - Focus styles for form elements
+
+---
+
+## 26-08-2020
+## Changed
+- Updated `webpack.mix.js` file to fix `copyWebpackPlugin` configuration
+- Updated `package.json` dependency versions to latest
