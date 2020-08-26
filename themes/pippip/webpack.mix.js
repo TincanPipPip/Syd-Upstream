@@ -30,6 +30,11 @@ mix.disableSuccessNotifications();
 
 mix.options({
   processCssUrls: false,
+  postCss: [
+    require('autoprefixer')({
+      grid: 'no-autoplace',
+    }),
+  ],
 });
 
 mix.browserSync({
@@ -56,6 +61,7 @@ mix.webpackConfig({
 glob.sass(`${basePath}/sass/*.scss`, 'css');
 glob.js(`${basePath}/js/*.js`, 'js');
 mix.copyDirectory(`${basePath}/font`, 'dist/font');
+
 /**
  * Custom Webpack Configuration
  * 1. Generate Modernizr file
@@ -80,10 +86,12 @@ mix.webpackConfig({
     },
   },
   plugins: [
-    new copyWebpackPlugin([
-      { from: `${basePath}/icon`, to: 'icon' },
-      { from: `${basePath}/img`, to: 'img' },
-    ]),
+    new copyWebpackPlugin({
+      patterns: [
+        { from: `${basePath}/icon`, to: 'icon' },
+        { from: `${basePath}/img`, to: 'img' },
+      ],
+    }),
     new imageminPlugin({
       test: /\.(svg)$/i,
       svgo: {
