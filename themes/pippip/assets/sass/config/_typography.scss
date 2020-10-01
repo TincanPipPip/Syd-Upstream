@@ -47,6 +47,7 @@ $font-dir: '../font';
 //   src: url('#{$font-dir}/font.woff2') format('woff2'), url('#{$font-dir}/font.woff') format('woff');
 //   font-weight: $weight-regular;
 //   font-style: normal;
+//   font-display:swap;
 // }
 
 // @font-face {
@@ -54,4 +55,5 @@ $font-dir: '../font';
 //   src: url('#{$font-dir}/font-italic.woff2') format('woff2'), url('#{$font-dir}/font-italic.woff') format('woff');
 //   font-weight: $weight-regular;
 //   font-style: italic;
+//   font-display:swap;
 // }
