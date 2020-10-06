@@ -21,6 +21,8 @@ use Composer\Util\Filesystem;
  * directory within an HTTP server's docroot.
  *
  * @see https://www.drupal.org/docs/develop/using-composer/using-drupals-vendor-cleanup-composer-plugin
+ *
+ * @internal
  */
 class VendorHardeningPlugin implements PluginInterface, EventSubscriberInterface {
 
@@ -41,7 +43,7 @@ class VendorHardeningPlugin implements PluginInterface, EventSubscriberInterface
   /**
    * Configuration.
    *
-   * @var \Drupal\Composer\VendorHardening\Config
+   * @var \Drupal\Composer\Plugin\VendorHardening\Config
    */
   protected $config;
 
@@ -61,6 +63,18 @@ class VendorHardeningPlugin implements PluginInterface, EventSubscriberInterface
 
     // Set up configuration.
     $this->config = new Config($this->composer->getPackage());
+  }
+
+  /**
+   * {@inheritdoc}
+   */
+  public function deactivate(Composer $composer, IOInterface $io) {
+  }
+
+  /**
+   * {@inheritdoc}
+   */
+  public function uninstall(Composer $composer, IOInterface $io) {
   }
 
   /**

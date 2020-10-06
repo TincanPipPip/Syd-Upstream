@@ -244,7 +244,6 @@ abstract class ExposedFormPluginBase extends PluginBase implements CacheableDepe
           '#default_value' => $default_sort_order,
         ];
       }
-      $form['submit']['#weight'] = 10;
     }
 
     if (!empty($this->options['reset_button'])) {
@@ -365,9 +364,9 @@ abstract class ExposedFormPluginBase extends PluginBase implements CacheableDepe
 
     // Merge in cache contexts for all exposed filters to prevent display of
     // cached forms.
-    foreach ($this->displayHandler->getHandlers('filter') as $filter_hander) {
-      if ($filter_hander->isExposed()) {
-        $contexts = Cache::mergeContexts($contexts, $filter_hander->getCacheContexts());
+    foreach ($this->displayHandler->getHandlers('filter') as $filter_handler) {
+      if ($filter_handler->isExposed()) {
+        $contexts = Cache::mergeContexts($contexts, $filter_handler->getCacheContexts());
       }
     }
 
