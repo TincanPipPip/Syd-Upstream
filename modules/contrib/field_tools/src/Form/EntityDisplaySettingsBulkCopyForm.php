@@ -6,7 +6,6 @@ use Drupal\Core\Entity\EntityTypeBundleInfoInterface;
 use Drupal\Core\Entity\EntityTypeManagerInterface;
 use Drupal\Core\Entity\EntityDisplayRepositoryInterface;
 use Drupal\Core\Entity\EntityFieldManagerInterface;
-use Drupal\Core\Entity\Query\QueryFactory;
 use Drupal\Core\Form\FormBase;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\field_tools\DisplaySettingsCopier;
@@ -46,13 +45,6 @@ class EntityDisplaySettingsBulkCopyForm extends FormBase {
   protected $entityDisplayRepository;
 
   /**
-   * The query factory to create entity queries.
-   *
-   * @var \Drupal\Core\Entity\Query\QueryFactory
-   */
-  protected $queryFactory;
-
-  /**
    * The field cloner.
    *
    * @var \Drupal\field_tools\DisplaySettingsCopier
@@ -70,8 +62,6 @@ class EntityDisplaySettingsBulkCopyForm extends FormBase {
    *   The entity field manager service.
    * @param \Drupal\Core\Entity\EntityDisplayRepositoryInterface $entity_display_repository
    *   The entity display repository service.
-   * @param \Drupal\Core\Entity\Query\QueryFactory $query_factory
-   *   The entity query factory.
    * @param \Drupal\field_tools\DisplaySettingsCopier $display_settings_copier
    *   The display settings copier.
    */
@@ -80,14 +70,12 @@ class EntityDisplaySettingsBulkCopyForm extends FormBase {
     EntityTypeBundleInfoInterface $entity_type_bundle_info,
     EntityFieldManagerInterface $entity_field_manager,
     EntityDisplayRepositoryInterface $entity_display_repository,
-    QueryFactory $query_factory,
     DisplaySettingsCopier $display_settings_copier
   ) {
     $this->entityTypeManager = $entity_type_manager;
     $this->entityTypeBundleInfo = $entity_type_bundle_info;
     $this->entityFieldManager = $entity_field_manager;
     $this->entityDisplayRepository = $entity_display_repository;
-    $this->queryFactory = $query_factory;
     $this->displaySettingsCopier = $display_settings_copier;
   }
 
@@ -100,7 +88,6 @@ class EntityDisplaySettingsBulkCopyForm extends FormBase {
       $container->get('entity_type.bundle.info'),
       $container->get('entity_field.manager'),
       $container->get('entity_display.repository'),
-      $container->get('entity.query'),
       $container->get('field_tools.display_settings_copier')
     );
   }
@@ -227,7 +214,7 @@ class EntityDisplaySettingsBulkCopyForm extends FormBase {
     ];
 
     foreach ($types as $type => $label) {
-      $display_ids = $this->queryFactory->get($type)
+      $display_ids = $this->entityTypeManager->getStorage($type)->getQuery()
         ->condition('targetEntityType', $entity_type_id)
         ->condition('bundle', $bundle)
         ->execute();

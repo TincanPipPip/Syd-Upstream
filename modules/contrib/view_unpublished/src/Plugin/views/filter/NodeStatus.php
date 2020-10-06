@@ -4,7 +4,6 @@ namespace Drupal\view_unpublished\Plugin\views\filter;
 
 use Drupal\node\Entity\NodeType;
 use Drupal\node\Plugin\views\filter\Status;
-use Drupal\views\Annotation\ViewsFilter;
 
 /**
  * Filter by view all unpublished permissions granted by view_unpublished.
@@ -12,8 +11,6 @@ use Drupal\views\Annotation\ViewsFilter;
  * Takes over the Published or Admin filter query.
  *
  * @ingroup views_filter_handlers
- *
- * @ViewsFilter("view_unpublished_node_status")
  */
 class NodeStatus extends Status {
 

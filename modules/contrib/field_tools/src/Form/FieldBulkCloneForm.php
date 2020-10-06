@@ -4,7 +4,6 @@ namespace Drupal\field_tools\Form;
 
 use Drupal\Core\Entity\EntityTypeBundleInfoInterface;
 use Drupal\Core\Entity\EntityTypeManagerInterface;
-use Drupal\Core\Entity\Query\QueryFactory;
 use Drupal\Core\Form\FormBase;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\field_tools\FieldCloner;
@@ -32,13 +31,6 @@ class FieldBulkCloneForm extends FormBase {
   protected $entityTypeBundleInfo;
 
   /**
-   * The query factory to create entity queries.
-   *
-   * @var \Drupal\Core\Entity\Query\QueryFactory
-   */
-  protected $queryFactory;
-
-  /**
    * The field cloner.
    *
    * @var \Drupal\field_tools\FieldCloner
@@ -52,15 +44,12 @@ class FieldBulkCloneForm extends FormBase {
    *   The entity type manager.
    * @param \Drupal\Core\Entity\EntityTypeBundleInfoInterface $entity_type_bundle_info
    *   The entity type bundle info service.
-   * @param \Drupal\Core\Entity\Query\QueryFactory $query_factory
-   *   The entity query factory.
    * @param \Drupal\field_tools\FieldCloner $field_cloner
    *   The field cloner.
    */
-  public function __construct(EntityTypeManagerInterface $entity_type_manager, EntityTypeBundleInfoInterface $entity_type_bundle_info, QueryFactory $query_factory, FieldCloner $field_cloner) {
+  public function __construct(EntityTypeManagerInterface $entity_type_manager, EntityTypeBundleInfoInterface $entity_type_bundle_info, FieldCloner $field_cloner) {
     $this->entityTypeManager = $entity_type_manager;
     $this->entityTypeBundleInfo = $entity_type_bundle_info;
-    $this->queryFactory = $query_factory;
     $this->fieldCloner = $field_cloner;
   }
 
@@ -71,7 +60,6 @@ class FieldBulkCloneForm extends FormBase {
     return new static(
       $container->get('entity_type.manager'),
       $container->get('entity_type.bundle.info'),
-      $container->get('entity.query'),
       $container->get('field_tools.field_cloner')
     );
   }
@@ -87,7 +75,7 @@ class FieldBulkCloneForm extends FormBase {
    * {@inheritdoc}
    */
   public function buildForm(array $form, FormStateInterface $form_state, $entity_type_id = NULL, $bundle = NULL) {
-    $field_ids = $this->queryFactory->get('field_config')
+    $field_ids = $this->entityTypeManager->getStorage('field_config')->getQuery()
       ->condition('entity_type', $entity_type_id)
       ->condition('bundle', $bundle)
       ->execute();
@@ -146,7 +134,7 @@ class FieldBulkCloneForm extends FormBase {
         $field_config = $this->entityTypeManager->getStorage('field_config')->load($field_id);
 
         // Check the field is not already on the destination bundle.
-        $field_ids = $this->queryFactory->get('field_config')
+        $field_ids = $this->entityTypeManager->getStorage('field_config')->getQuery()
           ->condition('entity_type', $destination_entity_type)
           ->condition('bundle', $destination_bundle)
           ->condition('field_name', $field_config->getName())
@@ -165,7 +153,7 @@ class FieldBulkCloneForm extends FormBase {
 
         // Check the field is not already on the destination entity type but
         // with a different type.
-        $existing_destination_field_storage_ids = $this->queryFactory->get('field_storage_config')
+        $existing_destination_field_storage_ids = $this->entityTypeManager->getStorage('field_storage_config')->getQuery()
           ->condition('entity_type', $destination_entity_type)
           ->condition('field_name', $field_config->getName())
           ->execute();

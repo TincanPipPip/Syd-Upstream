@@ -4,7 +4,6 @@ namespace Drupal\field_tools\Form;
 
 use Drupal\Core\Entity\EntityTypeBundleInfoInterface;
 use Drupal\Core\Entity\EntityTypeManagerInterface;
-use Drupal\Core\Entity\Query\QueryFactory;
 use Drupal\Core\Form\FormBase;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\field_tools\FieldCloner;
@@ -30,13 +29,6 @@ class ConfigFieldsExportToCodeForm extends FormBase {
   protected $entityTypeBundleInfo;
 
   /**
-   * The query factory to create entity queries.
-   *
-   * @var \Drupal\Core\Entity\Query\QueryFactory
-   */
-  protected $queryFactory;
-
-  /**
    * The field cloner.
    *
    * @var \Drupal\field_tools\FieldCloner
@@ -50,15 +42,12 @@ class ConfigFieldsExportToCodeForm extends FormBase {
    *   The entity type manager.
    * @param \Drupal\Core\Entity\EntityTypeBundleInfoInterface $entity_type_bundle_info
    *   The entity type bundle info service.
-   * @param \Drupal\Core\Entity\Query\QueryFactory $query_factory
-   *   The entity query factory.
    * @param \Drupal\field_tools\FieldCloner $field_cloner
    *   The field cloner.
    */
-  public function __construct(EntityTypeManagerInterface $entity_type_manager, EntityTypeBundleInfoInterface $entity_type_bundle_info, QueryFactory $query_factory, FieldCloner $field_cloner) {
+  public function __construct(EntityTypeManagerInterface $entity_type_manager, EntityTypeBundleInfoInterface $entity_type_bundle_info, FieldCloner $field_cloner) {
     $this->entityTypeManager = $entity_type_manager;
     $this->entityTypeBundleInfo = $entity_type_bundle_info;
-    $this->queryFactory = $query_factory;
     $this->fieldCloner = $field_cloner;
   }
 
@@ -69,7 +58,6 @@ class ConfigFieldsExportToCodeForm extends FormBase {
     return new static(
       $container->get('entity_type.manager'),
       $container->get('entity_type.bundle.info'),
-      $container->get('entity.query'),
       $container->get('field_tools.field_cloner')
     );
   }
