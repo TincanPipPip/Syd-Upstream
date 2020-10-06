@@ -121,3 +121,8 @@
 ## Changed
 - Updated `webpack.mix.js` file to fix `copyWebpackPlugin` configuration
 - Updated `package.json` dependency versions to latest
+
+## 06-Oct-2020
+## Changed
+- Drupal 8.9.6 Update
+- Contrib updates
