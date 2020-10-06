@@ -60,7 +60,7 @@ class M4032404EventSubscriberTest extends UnitTestCase {
       ->disableOriginalConstructor()
       ->getMock();
 
-    $kernel = $this->getMock('\Symfony\Component\HttpKernel\HttpKernelInterface');
+    $kernel = $this->createMock('\Symfony\Component\HttpKernel\HttpKernelInterface');
     $request = new Request();
 
     $this->event = new GetResponseForExceptionEvent($kernel, $request, HttpKernelInterface::MASTER_REQUEST, new AccessDeniedHttpException());

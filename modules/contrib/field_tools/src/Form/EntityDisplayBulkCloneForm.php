@@ -5,7 +5,6 @@ namespace Drupal\field_tools\Form;
 use Drupal\Core\Entity\EntityTypeBundleInfoInterface;
 use Drupal\Core\Entity\EntityTypeManagerInterface;
 use Drupal\Core\Entity\EntityDisplayRepositoryInterface;
-use Drupal\Core\Entity\Query\QueryFactory;
 use Drupal\Core\Form\FormBase;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\field_tools\DisplayCloner;
@@ -38,13 +37,6 @@ class EntityDisplayBulkCloneForm extends FormBase {
   protected $entityDisplayRepository;
 
   /**
-   * The query factory to create entity queries.
-   *
-   * @var \Drupal\Core\Entity\Query\QueryFactory
-   */
-  protected $queryFactory;
-
-  /**
    * The field cloner.
    *
    * @var \Drupal\field_tools\DisplayCloner
@@ -60,8 +52,6 @@ class EntityDisplayBulkCloneForm extends FormBase {
    *   The entity type bundle info service.
    * @param \Drupal\Core\Entity\EntityDisplayRepositoryInterface $entity_display_repository
    *   The entity display repository service.
-   * @param \Drupal\Core\Entity\Query\QueryFactory $query_factory
-   *   The entity query factory.
    * @param \Drupal\field_tools\DisplayCloner $display_cloner
    *   The display cloner.
    */
@@ -69,12 +59,10 @@ class EntityDisplayBulkCloneForm extends FormBase {
       EntityTypeManagerInterface $entity_type_manager,
       EntityTypeBundleInfoInterface $entity_type_bundle_info,
       EntityDisplayRepositoryInterface $entity_display_repository,
-      QueryFactory $query_factory,
       DisplayCloner $display_cloner) {
     $this->entityTypeManager = $entity_type_manager;
     $this->entityTypeBundleInfo = $entity_type_bundle_info;
     $this->entityDisplayRepository = $entity_display_repository;
-    $this->queryFactory = $query_factory;
     $this->displayCloner = $display_cloner;
   }
 
@@ -86,7 +74,6 @@ class EntityDisplayBulkCloneForm extends FormBase {
       $container->get('entity_type.manager'),
       $container->get('entity_type.bundle.info'),
       $container->get('entity_display.repository'),
-      $container->get('entity.query'),
       $container->get('field_tools.display_cloner')
     );
   }
@@ -155,7 +142,7 @@ class EntityDisplayBulkCloneForm extends FormBase {
    *  An array of form options.
    */
   protected function getDisplayOptions($type, $entity_type_id, $bundle) {
-    $display_ids = $this->queryFactory->get($type)
+    $display_ids = $this->entityTypeManager->getStorage($type)->getQuery()
       ->condition('targetEntityType', $entity_type_id)
       ->condition('bundle', $bundle)
       ->execute();

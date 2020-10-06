@@ -3,7 +3,6 @@
 namespace Drupal\field_tools;
 
 use Drupal\Core\Entity\EntityTypeManagerInterface;
-use Drupal\Core\Entity\Query\QueryFactory;
 use Drupal\Core\Extension\ModuleHandlerInterface;
 use Drupal\Core\Field\FieldException;
 use Drupal\field\FieldConfigInterface;
@@ -21,13 +20,6 @@ class FieldCloner {
   protected $entityTypeManager;
 
   /**
-   * The entity query service.
-   *
-   * @var \Drupal\Core\Entity\Query\QueryFactory
-   */
-  protected $queryFactory;
-
-  /**
    * The module handler.
    *
    * @var \Drupal\Core\Extension\ModuleHandlerInterface
@@ -39,14 +31,11 @@ class FieldCloner {
    *
    * @param \Drupal\Core\Entity\EntityTypeManagerInterface $entity_type_manager
    *   The entity type manager.
-   * @param \Drupal\Core\Entity\Query\QueryFactory $entity_query
-   *   The entity query service.
    * @param \Drupal\Core\Extension\ModuleHandlerInterface $module_handler
    *   The module handler.
    */
-  public function __construct(EntityTypeManagerInterface $entity_type_manager, QueryFactory $entity_query, ModuleHandlerInterface $module_handler) {
+  public function __construct(EntityTypeManagerInterface $entity_type_manager, ModuleHandlerInterface $module_handler) {
     $this->entityTypeManager = $entity_type_manager;
-    $this->queryFactory = $entity_query;
     $this->moduleHandler = $module_handler;
   }
 
@@ -81,7 +70,7 @@ class FieldCloner {
     // clone the field storage.
     if ($destination_entity_type_id != $field_config_target_entity_type_id) {
       // Check there isn't already a field storage on the target entity type.
-      $field_storage_config_ids = $this->queryFactory->get('field_storage_config')
+      $field_storage_config_ids = $this->entityTypeManager->getStorage('field_storage_config')->getQuery()
         ->condition('entity_type', $destination_entity_type_id)
         ->condition('field_name', $field_config->getName())
         ->execute();
@@ -109,6 +98,11 @@ class FieldCloner {
     $new_field_config = $field_config->createDuplicate();
     if ($destination_entity_type_id != $field_config_target_entity_type_id) {
       $new_field_config->set('entity_type', $destination_entity_type_id);
+
+      // Make the field use newly created storage.
+      if (isset($new_field_storage_config)) {
+        $new_field_config->set('fieldStorage', $new_field_storage_config);
+      }
     }
     $new_field_config->set('bundle', $destination_bundle);
     $new_field_config->save();
@@ -143,14 +137,14 @@ class FieldCloner {
     $field_config_target_bundle = $field_config->getTargetBundle();
 
     // Get the view displays on the source entity bundle.
-    $display_ids = $this->queryFactory->get($display_type)
+    $display_ids = $this->entityTypeManager->getStorage($display_type)->getQuery()
       ->condition('targetEntityType', $field_config_target_entity_type_id)
       ->condition('bundle', $field_config_target_bundle)
       ->execute();
     $original_field_bundle_displays = $this->entityTypeManager->getStorage($display_type)->loadMultiple($display_ids);
 
     // Get the views displays on the destination's target entity bundle.
-    $display_ids = $this->queryFactory->get($display_type)
+    $display_ids = $this->entityTypeManager->getStorage($display_type)->getQuery()
       ->condition('targetEntityType', $destination_entity_type_id)
       ->condition('bundle', $destination_bundle)
       ->execute();

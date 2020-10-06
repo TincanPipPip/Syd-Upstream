@@ -12,9 +12,6 @@ use Drupal\views\ViewExecutable;
  * Implements hook_views_query_substitutions().
  */
 function view_unpublished_views_query_substitutions(ViewExecutable $view) {
-  if ($view->id() != 'content' && !empty($view->filter['status']->value) && $view->filter['status']->value == 1) {
-    return;
-  }
   $account = \Drupal::currentUser();
   $substitutions = [];
   foreach (NodeType::loadMultiple() as $type) {

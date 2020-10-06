@@ -332,7 +332,12 @@ class ViewsBulkOperationsActionProcessor implements ViewsBulkOperationsActionPro
     }
 
     if (isset($this->view->query->fields[$base_field])) {
-      $base_field_alias = $this->view->query->fields[$base_field]['table'] . '.' . $this->view->query->fields[$base_field]['alias'];
+      if (!empty($this->view->query->fields[$base_field]['table'])) {
+        $base_field_alias = $this->view->query->fields[$base_field]['table'] . '.' . $this->view->query->fields[$base_field]['alias'];
+      }
+      else {
+        $base_field_alias = $this->view->query->fields[$base_field]['alias'];
+      }
     }
     else {
       $base_field_alias = $base_field;
@@ -342,6 +347,10 @@ class ViewsBulkOperationsActionProcessor implements ViewsBulkOperationsActionPro
 
     // Rebuild the view query.
     $this->view->query->build($this->view);
+
+    // We just destroyed any metadata that other modules may have added to the
+    // query. Give those modules the opportunity to alter the query again.
+    $this->view->query->alter($this->view);
 
     // Execute the view.
     $this->moduleHandler->invokeAll('views_pre_execute', [$this->view]);
@@ -455,13 +464,9 @@ class ViewsBulkOperationsActionProcessor implements ViewsBulkOperationsActionPro
       for ($i = 0; $i < $count; $i++) {
         $output[] = $this->bulkFormData['action_label'];
       }
+      return $output;
     }
-    else {
-      foreach ($results as $result) {
-        $output[] = $result;
-      }
-    }
-    return $output;
+    return array_merge($output, $results);
   }
 
   /**

@@ -3,7 +3,6 @@
 namespace Drupal\field_tools;
 
 use Drupal\Core\Entity\EntityTypeManagerInterface;
-use Drupal\Core\Entity\Query\QueryFactory;
 use Drupal\Core\Entity\EntityDisplayBase;
 use Drupal\Core\Entity\EntityFieldManagerInterface;
 use Drupal\Core\Extension\ModuleHandlerInterface;
@@ -28,13 +27,6 @@ class DisplayCloner {
   protected $entityFieldManager;
 
   /**
-   * The entity query service.
-   *
-   * @var \Drupal\Core\Entity\Query\QueryFactory
-   */
-  protected $queryFactory;
-
-  /**
    * The module handler.
    *
    * @var \Drupal\Core\Extension\ModuleHandlerInterface
@@ -48,20 +40,16 @@ class DisplayCloner {
    *   The entity type manager.
    * @param \Drupal\Core\Entity\EntityFieldManagerInterface $entity_field_manager
    *   The entity field manager service.
-   * @param \Drupal\Core\Entity\Query\QueryFactory $entity_query
-   *   The entity query service.
    * @param \Drupal\Core\Extension\ModuleHandlerInterface $module_handler
    *   The module handler.
    */
   public function __construct(
     EntityTypeManagerInterface $entity_type_manager,
     EntityFieldManagerInterface $entity_field_manager,
-    QueryFactory $entity_query,
     ModuleHandlerInterface $module_handler
   ) {
     $this->entityTypeManager = $entity_type_manager;
     $this->entityFieldManager = $entity_field_manager;
-    $this->queryFactory = $entity_query;
     $this->moduleHandler = $module_handler;
   }
 
