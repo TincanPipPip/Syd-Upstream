@@ -10,3 +10,10 @@ function syd_tweaks_form_alter(&$form, &$form_state, $form_id) {
 	  $form['keys']['#attributes']['placeholder'] = t('Search...');
   }
 }
+
+function syd_tweaks_form_views_exposed_form_alter(&$form, $form_state, $form_id) {
+  if($form['#id'] == 'views-exposed-form-search-search') {  
+    $form['for']['#attributes']['placeholder'] = t('Search site');
+    $form['for']['#attributes']['aria-label'] = "Search form input";
+}
+}
