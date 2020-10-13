@@ -126,3 +126,7 @@
 ## Changed
 - Drupal 8.9.6 Update
 - Contrib updates
+
+## 03-Oct-2020
+## Changed
+- Search aria label
