@@ -6,6 +6,6 @@ dependencies:
     - eck.eck_entity_type.accordion_row
 _core:
   default_config_hash: qZxf1iXG90IUQDXgG-vRzqulHzLnyZOh1RJQhZusikM
-name: Row
 type: row
+name: Row
 description: ''

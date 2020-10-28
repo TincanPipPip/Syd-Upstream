@@ -6,6 +6,6 @@ dependencies:
     - eck.eck_entity_type.extra_content
 _core:
   default_config_hash: '-kV_uURPbzFGpvdzJqjTnxSsCSKg1ZwiHSw5rs5Se3I'
-name: Video
 type: video
+name: Video
 description: ''

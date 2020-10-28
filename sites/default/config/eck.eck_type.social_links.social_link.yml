@@ -4,6 +4,6 @@ status: true
 dependencies:
   config:
     - eck.eck_entity_type.social_links
-name: 'Social link'
 type: social_link
+name: 'Social link'
 description: ''

@@ -6,6 +6,6 @@ dependencies:
     - eck.eck_entity_type.extra_content
 _core:
   default_config_hash: O7kf9-ZJIIw8NADU7oWCwvwE3vk-KZLzAMREB_B6g6Y
-name: Text
 type: text
+name: Text
 description: ''

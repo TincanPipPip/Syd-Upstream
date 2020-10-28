@@ -6,6 +6,6 @@ dependencies:
     - eck.eck_entity_type.extra_content
 _core:
   default_config_hash: VCRWQ0-qvKvq0rv0EuU2k00LfYluWPhzvqeZ2eprIkg
-name: Image
 type: image
+name: Image
 description: ''

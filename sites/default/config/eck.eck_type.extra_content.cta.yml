@@ -6,6 +6,6 @@ dependencies:
     - eck.eck_entity_type.extra_content
 _core:
   default_config_hash: zfjJXqnkpQQGmtuYhwNYpfIRhlRm1VfpgMx6jgMcMPQ
-name: CTA
 type: cta
+name: CTA
 description: ''

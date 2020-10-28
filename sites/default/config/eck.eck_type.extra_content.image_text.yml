@@ -4,6 +4,6 @@ status: true
 dependencies:
   config:
     - eck.eck_entity_type.extra_content
-name: 'Image & Text'
 type: image_text
+name: 'Image & Text'
 description: ''

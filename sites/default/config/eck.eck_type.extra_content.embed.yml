@@ -6,6 +6,6 @@ dependencies:
     - eck.eck_entity_type.extra_content
 _core:
   default_config_hash: ylp97TxEHQASXlX0tUNWWn16O-teLVAURqzEhQJK_MA
-name: Embed
 type: embed
+name: Embed
 description: ''

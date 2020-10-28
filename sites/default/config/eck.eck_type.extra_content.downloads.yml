@@ -6,6 +6,6 @@ dependencies:
     - eck.eck_entity_type.extra_content
 _core:
   default_config_hash: 0KCBaeHGohlenhcn3KPhejQ5694IGYAkVKW5ZJcRyis
-name: Downloads
 type: downloads
+name: Downloads
 description: ''
