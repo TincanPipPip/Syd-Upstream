@@ -7,6 +7,7 @@ dependencies:
     - field.field.node.page.field_content
     - field.field.node.page.field_image
     - field.field.node.page.field_image_credit
+    - field.field.node.page.field_thumbnail_override
     - node.type.page
   module:
     - image
@@ -27,7 +28,7 @@ content:
     third_party_settings: {  }
     region: content
   field_content:
-    weight: 102
+    weight: 3
     label: hidden
     settings:
       view_mode: default
@@ -36,7 +37,7 @@ content:
     type: entity_reference_entity_view
     region: content
   field_image:
-    weight: 101
+    weight: 2
     label: hidden
     settings:
       image_style: ''
@@ -45,7 +46,7 @@ content:
     type: image
     region: content
   field_image_credit:
-    weight: 103
+    weight: 4
     label: hidden
     settings:
       link_to_entity: false
@@ -53,8 +54,9 @@ content:
     type: string
     region: content
   links:
-    weight: 100
+    weight: 1
     region: content
     settings: {  }
     third_party_settings: {  }
-hidden: {  }
+hidden:
+  field_thumbnail_override: true

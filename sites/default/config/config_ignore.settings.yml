@@ -1,7 +1,6 @@
 ignored_config_entities:
   - stage_file_proxy.settings
   - yv_tnew.settings
-  - google_analytics.settings
   - system.performance
   - 'block.*'
 _core:

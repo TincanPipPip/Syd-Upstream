@@ -6,6 +6,6 @@ dependencies:
     - eck.eck_entity_type.extra_content
 _core:
   default_config_hash: vgjaA1_XKGIafcWKSmkOdYBeFRKjFum6tUydFM6_cIM
-name: Quote
 type: quote
+name: Quote
 description: ''

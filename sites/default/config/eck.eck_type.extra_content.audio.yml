@@ -6,6 +6,6 @@ dependencies:
     - eck.eck_entity_type.extra_content
 _core:
   default_config_hash: H3ybUI8u8S99OyGeZtPut3joYYCzgS2GMVUY27fVW6o
-name: Audio
 type: audio
+name: Audio
 description: ''

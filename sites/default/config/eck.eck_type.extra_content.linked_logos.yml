@@ -6,6 +6,6 @@ dependencies:
     - eck.eck_entity_type.extra_content
 _core:
   default_config_hash: 3DCYbvLHpG2H9RD1vSXLlMV5EnqGv3CIiMQaeRrsrv4
-name: 'Linked logos'
 type: linked_logos
+name: 'Linked logos'
 description: ''

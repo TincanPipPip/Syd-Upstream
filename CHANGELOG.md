@@ -130,3 +130,11 @@
 ## 03-Oct-2020
 ## Changed
 - Search aria label
+
+## 28-oct-2020
+## Added
+- Content Lock Module
+- EU Cookie Compliance Module
+- Thumbnail Override field
+## Changed
+- Config ignore-Removed GA Settings
