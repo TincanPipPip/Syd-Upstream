@@ -8,13 +8,10 @@ dependencies:
     - field.field.node.page.field_content
     - field.field.node.page.field_image
     - field.field.node.page.field_image_credit
-    - field.field.node.page.field_thumbnail_override
-    - image.style.thumbnail
     - node.type.page
   module:
     - entity_browser
     - field_group
-    - image
     - inline_entity_form
     - path
     - text
@@ -111,14 +108,6 @@ content:
       placeholder: ''
     third_party_settings: {  }
     type: string_textfield
-    region: content
-  field_thumbnail_override:
-    weight: 10
-    settings:
-      progress_indicator: throbber
-      preview_image_style: thumbnail
-    third_party_settings: {  }
-    type: image_image
     region: content
   path:
     type: path
