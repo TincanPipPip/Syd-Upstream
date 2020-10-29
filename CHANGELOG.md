@@ -138,3 +138,8 @@
 - Thumbnail Override field
 ## Changed
 - Config ignore-Removed GA Settings
+
+## 29-oct-2020
+## Changed
+- Removed thumbnail override field in favour of existing builds
+

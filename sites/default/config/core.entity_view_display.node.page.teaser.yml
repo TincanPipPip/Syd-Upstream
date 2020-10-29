@@ -8,8 +8,6 @@ dependencies:
     - field.field.node.page.field_content
     - field.field.node.page.field_image
     - field.field.node.page.field_image_credit
-    - field.field.node.page.field_thumbnail_override
-    - image.style.teaser_thumb
     - node.type.page
   module:
     - image
@@ -50,15 +48,6 @@ content:
     third_party_settings: {  }
     type: image
     region: content
-  field_thumbnail_override:
-    type: image
-    weight: 3
-    region: content
-    label: hidden
-    settings:
-      image_style: teaser_thumb
-      image_link: ''
-    third_party_settings: {  }
   links:
     weight: 1
     region: content

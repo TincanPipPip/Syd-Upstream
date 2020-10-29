@@ -7,7 +7,6 @@ dependencies:
     - field.field.node.page.field_content
     - field.field.node.page.field_image
     - field.field.node.page.field_image_credit
-    - field.field.node.page.field_thumbnail_override
     - node.type.page
   module:
     - image
@@ -58,5 +57,4 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
-hidden:
-  field_thumbnail_override: true
+hidden: {  }
