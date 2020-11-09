@@ -1,5 +1,4 @@
 import 'focus-visible';
-import 'picturefill';
 
 import baguetteBox from 'baguettebox.js';
 //import Choices from 'choices.js';
@@ -84,3 +83,6 @@ links.forEach((link) => {
 
 // LazyLoad
 const lazyLoadImages = new LazyLoad();
+
+// ZenScroll
+zenscroll.setup(null, 0);

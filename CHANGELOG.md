@@ -143,3 +143,14 @@
 ## Changed
 - Removed thumbnail override field in favour of existing builds
 
+---
+
+## 09-11-2020
+## Changed
+- Replaced SASS vars with CSS vars
+- Updated image paths in theme to work from a single folder - `img`
+- Updated `webpack.mix.js`
+- Updated default libraries removed from Drupal
+
+## Added
+- Added aria-label descriptions to default markup

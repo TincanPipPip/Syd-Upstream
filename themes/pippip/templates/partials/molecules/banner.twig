@@ -1,6 +1,6 @@
 {% if content.field_image|render %}
 
-	<div class="m-banner m-banner--{{ ct }}" role="banner">
+	<div class="m-banner m-banner--{{ ct }}" aria-label="Page banner">
 
 		<div class="m-banner__copy">
 			<div class="grid">
@@ -26,7 +26,7 @@
 
 {% else %}
 
-	<div class="m-no-banner m-no-banner--{{ ct }}" role="banner">
+	<div class="m-no-banner m-no-banner--{{ ct }}" aria-label="Page banner">
 		<div class="grid">
 			<div class="col-12">
 

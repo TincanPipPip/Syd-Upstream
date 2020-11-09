@@ -99,4 +99,4 @@ Usage notes for each plugin can be found in `assets/js/defaults.js`
 - [Van11y accessible accordion](https://github.com/nico3333fr/van11y-accessible-accordion-aria)
   - Accessible vanilla JS accordion
 - [Zenscroll](https://github.com/zengabor/zenscroll)
-  - Anchor scroll animation
+  - Anchor scroll animation plugin

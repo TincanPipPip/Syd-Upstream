@@ -16,6 +16,6 @@
   .file {
     padding-left: 0;
     background-image: none;
-    @include font-title;
+    font-family: var(--fontTitle);
   }
 }

@@ -8,9 +8,13 @@
 /**
  * Styles
  */
-html {
-  font-size: $font-base-size;
+html,
+body {
+  @include font-smoothing(true);
+  font-size: var(--fontSize);
   box-sizing: border-box;
+  line-height: var(--lineHeight);
+  font-family: var(--fontBody);
 }
 
 *,
@@ -20,11 +24,6 @@ html {
 }
 
 body {
-  @include font-smoothing(true);
-  font-family: $font-body;
-  line-height: $line-body;
-  letter-spacing: normal;
   display: flex;
   flex-direction: column;
-  @include ms-respond(font-size, 0);
 }

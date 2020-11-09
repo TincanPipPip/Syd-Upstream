@@ -12,19 +12,19 @@ input[type='email'],
 input[type='submit'],
 textarea,
 select {
-  @include font-body;
-  color: $c-primary;
+  font-family: var(--fontBody);
+  color: var(--c-primary);
   resize: none;
-  padding: $bump/2 $bump;
+  padding: calc(var(--bump) / 2) var(--bump);
   -webkit-border-radius: 0px;
   border-radius: 0;
   outline: 0;
-  border: 1px solid $c-primary;
-  transition: all 0.2s $easing;
-  background-color: $c-white;
+  border: 1px solid var(--c-primary);
+  transition: all 0.2s var(--easing);
+  background-color: var(--c-white);
 
   &:focus {
-    border: 1px solid $c-secondary;
+    border: 1px solid var(--c-secondary);
   }
 }
 
@@ -48,7 +48,7 @@ button {
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
-  margin-bottom: $bump/2;
+  margin-bottom: calc(var(--bump) / 2);
 }
 
 // Checkboxes
@@ -74,17 +74,17 @@ button {
   width: 20px;
   height: 20px;
   border-radius: 3px;
-  background-color: $c-white;
-  border: 2px solid $c-primary;
+  background-color: var(--c-white);
+  border: 2px solid var(--c-primary);
 }
 [type='checkbox']:checked + label:after,
 [type='checkbox']:not(:checked) + label:after {
   content: '\2714\0020';
-  color: $c-primary;
+  color: var(--c-primary);
   position: absolute;
   top: 1px;
   left: 3.5px;
-  transition: all 0.2s $easing;
+  transition: all 0.2s var(--easing);
 }
 [type='checkbox']:not(:checked) + label:after {
   opacity: 0;
@@ -96,7 +96,7 @@ button {
 }
 
 [type='checkbox']:focus + label:before {
-  border-color: $c-secondary;
+  border-color: var(--c-secondary);
 }
 
 // Radios
@@ -112,7 +112,7 @@ button {
   cursor: pointer;
   line-height: 20px;
   display: inline-block;
-  color: $c-primary;
+  color: var(--c-primary);
 }
 [type='radio']:checked + label:before,
 [type='radio']:not(:checked) + label:before {
@@ -122,21 +122,21 @@ button {
   top: 0;
   width: 20px;
   height: 20px;
-  border: 2px solid $c-primary;
+  border: 2px solid var(--c-primary);
   border-radius: 100%;
-  background-color: $c-white;
+  background-color: var(--c-white);
 }
 [type='radio']:checked + label:after,
 [type='radio']:not(:checked) + label:after {
   content: '';
   width: 12px;
   height: 12px;
-  background: $c-primary;
+  background: var(--c-primary);
   position: absolute;
   top: 4px;
   left: 4px;
   border-radius: 100%;
-  transition: all 0.2s $easing;
+  transition: all 0.2s var(--easing);
 }
 [type='radio']:not(:checked) + label:after {
   opacity: 0;
@@ -147,5 +147,5 @@ button {
   transform: scale(1);
 }
 [type='radio']:focus + label:before {
-  border-color: $c-secondary;
+  border-color: var(--c-secondary);
 }

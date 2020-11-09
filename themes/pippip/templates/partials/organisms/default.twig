@@ -4,7 +4,7 @@
 	<div class="col-12">
 
 		<div class="grid justify-space-between">
-			<div class="col-sm-8 col-lg-7 order-1 order-sm-0">
+			<div class="col-sm-8 col-lg-7 order-1 order-sm-0" aria-label="Main content">
 
 				{% if content.body|render %}
 					<div class="m-entity m-entity__body">
@@ -18,7 +18,7 @@
 
 			</div>
 
-			<div class="col-sm-4 col-lg-3 order-0 order-sm-1">
+			<div class="col-sm-4 col-lg-3 order-0 order-sm-1" aria-label="Sidebar">
 				{% if ct == 'page' %}
 					{% include '@pippip/partials/molecules/subnav.twig' %}
 				{% endif %}

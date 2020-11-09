@@ -40,7 +40,7 @@ mix.options({
 mix.browserSync({
   proxy: `https://${hostname}`,
   ghostMode: false,
-  files: ['templates/**/*.+(html|twig)', 'assets/sass/**/*.scss', 'assets/js/*.js'],
+  files: ['templates/**/*.twig', 'assets/sass/**/*.scss', 'assets/js/*.js'],
 });
 
 if (mix.inProduction()) {
@@ -64,33 +64,13 @@ mix.copyDirectory(`${basePath}/font`, 'dist/font');
 
 /**
  * Custom Webpack Configuration
- * 1. Generate Modernizr file
- * - Add options
- * - https://github.com/Modernizr/Modernizr/blob/master/lib/config-all.json
- * 2. Copy icon/img assets after being optimised
- * 3. Optimise SVGs
+ * 1. Copy icon/img assets after being optimised
+ * 2. Optimise SVGs
  */
 mix.webpackConfig({
-  module: {
-    rules: [
-      {
-        loader: 'modernizr-loader',
-        test: /\.modernizrrc\.js$/,
-      },
-    ],
-  },
-  resolve: {
-    alias: {
-      modernizr$: path.resolve(__dirname, '.modernizrrc.js'),
-      swiper$: 'swiper/dist/js/swiper.js',
-    },
-  },
   plugins: [
     new copyWebpackPlugin({
-      patterns: [
-        { from: `${basePath}/icon`, to: 'icon' },
-        { from: `${basePath}/img`, to: 'img' },
-      ],
+      patterns: [{ from: `${basePath}/img`, to: 'img' }],
     }),
     new imageminPlugin({
       test: /\.(svg)$/i,

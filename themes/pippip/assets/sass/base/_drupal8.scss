@@ -11,11 +11,11 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: $bump;
+  margin-top: var(--bump);
   flex-wrap: wrap;
 
   @include media('<sm') {
-    margin-top: $bump/2;
+    margin-top: calc(var(--bump) / 2);
   }
 
   li {
@@ -24,11 +24,11 @@
     a {
       display: block;
       padding: 0 10px 0 5px;
-      border-right: 2px solid $c-primary;
+      border-right: 2px solid var(--c-primary);
       line-height: 1;
 
       &:hover {
-        color: $c-primary;
+        color: var(--c-primary);
         text-decoration: none;
       }
     }
@@ -41,19 +41,18 @@
     }
 
     &.is-active a {
-      color: $c-primary;
+      color: var(--c-primary);
       text-decoration: none;
     }
   }
 }
 
 // Admnin styles
-
 .admin-functions {
   position: sticky;
   top: 0;
   width: 100%;
-  background-color: $c-primary;
+  background-color: var(--c-primary);
   max-width: 100%;
   z-index: 31;
 
@@ -66,21 +65,21 @@
   }
 
   [class*='col-'] {
-    padding: 0 $bump/2;
+    padding: 0 calc(var(--bump) / 2);
   }
 
   ul {
     @include li-reset;
     border: 0;
-    margin: $bump/2 0;
+    margin: calc(var(--bump) / 2) 0;
     padding: 0;
 
     li {
-      margin-right: $bump;
+      margin-right: var(--bump);
       display: inline-block;
 
       a {
-        color: $c-white;
+        color: var(--c-white);
       }
     }
   }
@@ -106,9 +105,9 @@ a.skip-main {
 }
 a.skip-main:focus,
 a.skip-main:active {
-  @include font-bold;
-  color: $c-white;
-  background-color: $c-primary;
+  font-weight: bold;
+  color: var(--c-white);
+  background-color: var(--c-primary);
   left: auto;
   top: auto;
   width: 30%;

@@ -1,5 +1,5 @@
 {% if content.field_ymal_pages|render %}
-  <div class="m-entity">
+  <section class="m-entity" aria-label="Related content">
     {% if content.field_ymal|render %}
       <div class="grid">
         <div class="col-sm-12">
@@ -9,5 +9,5 @@
     {% endif %}
 
     {{ content.field_ymal_pages}}
-  </div>
+  </section>
 {% endif %}

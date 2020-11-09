@@ -20,13 +20,13 @@
   }
 
   &__list {
-    margin-bottom: $bump * 2;
+    margin-bottom: calc(var(--bump) * 2);
 
     ol {
       @include li-reset;
 
       li {
-        margin-bottom: $bump;
+        margin-bottom: var(--bump);
       }
     }
   }

@@ -3,7 +3,7 @@
 {% block content %}
   {% if content.field_image|render %}
     {% set jpg= 'jpg' %}
-    {% set webp = 'webp' %}
+    {# {% set webp = 'webp' %} #}
     {% set image = content.field_image['#items'][0].entity.uri.value|image_style('inline_image') %}
 
     <picture>

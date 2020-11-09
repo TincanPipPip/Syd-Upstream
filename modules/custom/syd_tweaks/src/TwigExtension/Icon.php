@@ -11,7 +11,7 @@ class Icon extends \Twig_Extension
     {
         return [
             new TwigFunction('get_icon', function ($icon) {
-                self::getIcon($icon, '/dist/icon/');
+                self::getIcon($icon, '/dist/img/');
             })
         ];
     }

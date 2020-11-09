@@ -8,6 +8,7 @@
 /**
  * Config
  */
+$bump: 30px;
 $height-icon: $bump;
 $width-line: $bump * 1.5;
 $height-line: 4px;
@@ -40,13 +41,13 @@ $translateX: 0;
 
   &__line {
     display: block;
-    background: $c-primary;
+    background: var(--c-primary);
     width: $width-line;
     height: $height-line;
     position: absolute;
     left: 0;
     border-radius: ($height-line / 2);
-    transition: 0.2s $easing;
+    transition: 0.2s var(--easing);
 
     &-1 {
       top: 0;

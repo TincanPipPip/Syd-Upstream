@@ -6,10 +6,10 @@
  */
 
 .m-no-banner {
-  margin-top: $bump * 3;
+  margin-top: calc(var(--bump) * 3);
 
   @include media('<sm') {
-    margin-top: $bump;
+    margin-top: var(--bump);
   }
 }
 

@@ -11,16 +11,16 @@
 .m-social-links {
   display: flex;
   align-items: center;
-  margin-top: $bump/3;
+  margin-top: calc(var(--bump) / 3);
 
   @include media('<md') {
     justify-content: center;
   }
 
   &__link {
-    margin-right: $bump/2;
-    height: $bump * 1.25;
-    width: $bump * 1.25;
+    margin-right: calc(var(--bump) / 2);
+    height: calc(var(--bump) * 1.25);
+    width: calc(var(--bump) * 1.25);
     border-radius: 50%;
     display: block;
 
@@ -35,20 +35,20 @@
     }
 
     rect {
-      transition: 0.1s $easing;
-      fill: $c-primary;
+      transition: 0.1s var(--easing);
+      fill: var(--c-primary);
     }
 
     path {
-      fill: $c-white;
+      fill: var(--c-white);
     }
 
     &:hover {
       rect {
-        fill: $c-white;
+        fill: var(--c-white);
       }
       path {
-        fill: $c-primary;
+        fill: var(--c-primary);
       }
     }
   }

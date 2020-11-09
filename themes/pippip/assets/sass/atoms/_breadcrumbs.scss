@@ -9,11 +9,11 @@
 * Styling
 */
 .a-breadcrumb {
-  margin-bottom: $bump;
-  padding: $bump/2 0;
+  margin-bottom: var(--bump);
+  padding: calc(var(--bump) / 2) 0;
 
   @include media('<xs') {
-    margin-bottom: $bump/2;
+    margin-bottom: calc(var(--bump) / 2);
   }
 
   ol {
@@ -23,12 +23,12 @@
     flex-wrap: wrap;
 
     li {
-      margin-right: $bump/6;
+      margin-right: calc(var(--bump) / 6);
       white-space: nowrap;
 
       &::after {
         content: '/';
-        margin-left: $bump/10;
+        margin-left: calc(var(--bump) / 10);
       }
 
       &:last-child {

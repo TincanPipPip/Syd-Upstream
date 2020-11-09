@@ -3,13 +3,9 @@
 {% block content %}
 
 	{% if view_mode == "full" %}
-
 		{% include '@pippip/partials/organisms/default.twig' with {ct: node.bundle|clean_class} %}
-
 	{% else %}
-
 		{% include '@pippip/partials/organisms/teaser.twig' with {mode: view_mode|clean_class, ct: node.bundle|clean_class} %}
-
 	{% endif %}
 		
 {% endblock %}
