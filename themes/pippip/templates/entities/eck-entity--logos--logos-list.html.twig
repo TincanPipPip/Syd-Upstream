@@ -1,5 +1,5 @@
 {% set png= 'png' %}
-{% set webp = 'webp' %}
+{# {% set webp = 'webp' %} #}
 
 <a href="{{ content.field_logo_link }}" title="{{ content.title }}" class="m-logos__logo" rel="noopener nofollow" aria-label="Open {{ content.field_logo[0]['#item'].alt }}'s website">
   {% set imageUrl = content.field_logo[0]['#item'].entity.uri.value %}

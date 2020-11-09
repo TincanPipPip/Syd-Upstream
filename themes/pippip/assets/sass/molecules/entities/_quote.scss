@@ -12,8 +12,8 @@
 @mixin rating($stars) {
   &:nth-child(-n + #{$stars}) {
     path {
-      fill: $c-primary;
-      stroke: $c-primary;
+      fill: var(--c-primary);
+      stroke: var(--c-primary);
     }
   }
 }
@@ -24,14 +24,9 @@
 
 &__quote {
   blockquote {
-    @include font-title;
+    font-family: var(--fontTitle);
     margin: 0;
-    padding: 0 0 $bump/2;
-    @include ms-respond(font-size, 1);
-
-    @include media('<sm') {
-      @include ms-respond(font-size, 0);
-    }
+    padding: 0 0 calc(var(--bump) / 2);
 
     p {
       margin-bottom: 0;
@@ -46,23 +41,23 @@
   }
 
   cite {
-    @include font-body;
+    font-family: var(--fontBody);
     font-style: normal;
 
     .name {
-      @include font-bold;
+      font-weight: bold;
     }
   }
 
   .rating {
     display: inline-flex;
-    margin-right: $bump/2;
+    margin-right: calc(var(--bump) / 2);
 
     &__star {
       width: 24px;
       height: 24px;
       margin-right: 5px;
-      stroke: $c-primary;
+      stroke: var(--c-primary);
 
       &:last-child {
         margin-right: 0;

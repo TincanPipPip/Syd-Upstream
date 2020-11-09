@@ -6,7 +6,7 @@
  */
 
 .grid {
-  max-width: $container-width;
+  max-width: var(--containerWidth);
 }
 
 .container-full > .grid {
@@ -20,7 +20,7 @@ ul.plain {
 
 img {
   -webkit-backface-visibility: hidden;
-  transition: 0.2s $easing;
+  transition: 0.2s var(--easing);
 
   &.lazy {
     opacity: 0;
@@ -38,7 +38,7 @@ img {
 }
 
 .svg {
-  transition: all 0.2s $easing;
+  transition: all 0.2s var(--easing);
 }
 
 .hidden {

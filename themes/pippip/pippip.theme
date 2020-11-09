@@ -9,7 +9,6 @@ use Drupal\Core\Form\FormStateInterface;
  * Hook_preprocess_html()
  */
 function pippip_preprocess_html(&$variables) {
-
   $view_id = \Drupal::routeMatch()->getParameter('view_id');
   if ($view_id) {
     $variables['view_id'] = Html::cleanCssIdentifier($view_id);
@@ -24,6 +23,8 @@ function pippip_preprocess_html(&$variables) {
 
 /**
  * Implements hook_preprocess_field().
+ * 
+ * Output raw HTML in embed field to allow embeds to run
  */
 function pippip_preprocess_field(&$variables, $hook) {
   switch ($variables['element']['#field_name']) {
@@ -69,6 +70,8 @@ function pippip_theme_suggestions_block_alter(array &$suggestions, array $variab
  * @param $form
  * @param \Drupal\Core\Form\FormStateInterface $form_state
  * @param $form_id
+ * 
+ * Set custom submit/reset button templates
  */
 function pippip_form_alter(&$form, FormStateInterface $form_state, $form_id) {
   $form['actions']['submit']['#attributes']['data-twig-suggestion'] = 'search_results_submit';
@@ -92,10 +95,10 @@ function pippip_preprocess_page__search(&$variables) {
   $variables['search_term'] = Drupal::request()->query->get('for');
 }
 
-
-
 /**
  * Hook_preprocess_node()
+ * 
+ * Subnav & title
  */
 function pippip_preprocess_node(&$variables) {
   $node = $variables['node'];

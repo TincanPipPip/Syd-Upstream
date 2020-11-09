@@ -30,12 +30,12 @@
   bottom: 0;
   left: 0;
   width: 100%;
-  background-color: $c-primary;
+  background-color: var(--c-primary);
   z-index: 100;
-  color: $c-white;
-  padding: $bump/2 0;
+  color: var(--c-white);
+  padding: calc(var(--bump) / 2) 0;
   max-height: 30vh;
-  border-top: 1px solid $c-white;
+  border-top: 1px solid var(--c-white);
   display: none;
 
   &[data-state='visible'] {
@@ -60,19 +60,19 @@
 
   &__close {
     position: absolute;
-    top: $bump/2;
-    right: $bump/2;
-    height: $bump;
-    width: $bump;
+    top: calc(var(--bump) / 2);
+    right: calc(var(--bump) / 2);
+    height: var(--bump);
+    width: var(--bump);
 
     svg {
-      fill: $c-white;
-      transition: 0.1s $easing;
+      fill: var(--c-white);
+      transition: 0.1s var(--easing);
     }
 
     &:hover {
       svg {
-        fill: $c-secondary;
+        fill: var(--c-secondary);
       }
     }
   }

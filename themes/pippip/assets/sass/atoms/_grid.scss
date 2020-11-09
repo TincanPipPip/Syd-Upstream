@@ -10,14 +10,14 @@
  */
 .a-grid {
   display: grid;
-  gap: $bump/2;
+  gap: calc(var(--bump) / 2);
 
   &--1 {
     grid-template-columns: 1fr;
   }
 
   &--2 {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(2, 1fr);
 
     @include media('<sm') {
       grid-template-columns: 1fr;
@@ -25,7 +25,7 @@
   }
 
   &--3 {
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: repeat(3, 1fr);
 
     @include media('<sm') {
       grid-template-columns: 1fr;
@@ -33,10 +33,10 @@
   }
 
   &--4 {
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-columns: repeat(4, 1fr);
 
     @include media('<xs') {
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: repeat(2, 1fr);
     }
   }
 }

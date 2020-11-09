@@ -15,17 +15,17 @@
     display: block;
     width: 100%;
     position: relative;
-    background-color: $c-primary;
+    background-color: var(--c-primary);
 
     .a-image-credit {
-      left: $bump/1.5;
+      left: calc(var(--bump) / 1.5);
     }
 
     img {
       width: 100%;
       height: auto;
       display: block;
-      transition: 0.2s $easing;
+      transition: 0.2s var(--easing);
     }
 
     &:hover {
@@ -40,14 +40,14 @@
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
-    padding: $bump/2;
+    padding: calc(var(--bump) / 2);
 
     p {
       &:last-of-type {
-        margin-bottom: $bump;
+        margin-bottom: var(--bump);
 
         @include media('<sm') {
-          margin-bottom: $bump/2;
+          margin-bottom: calc(var(--bump) / 2);
         }
       }
     }
@@ -55,10 +55,10 @@
 
   &__buttons {
     margin-top: auto;
-    padding: 0 $bump/1.5 $bump/1.5;
+    padding: 0 calc(var(--bump) / 1.5) calc(var(--bump) / 1.5);
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: $bump/2;
+    gap: calc(var(--bump) / 2);
     align-self: flex-start;
   }
 }

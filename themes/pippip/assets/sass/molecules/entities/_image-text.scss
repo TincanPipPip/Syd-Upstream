@@ -8,11 +8,11 @@
 &__image-text {
   display: grid;
   grid-template-columns: 40% 1fr;
-  gap: $bump/1.5;
+  gap: calc(var(--bump) / 1.5);
   align-items: center;
 
   @include media('<md') {
     grid-template-columns: 1fr;
-    gap: $bump/2;
+    gap: calc(var(--bump) / 2);
   }
 }

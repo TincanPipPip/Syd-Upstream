@@ -8,17 +8,6 @@
 /**
  * Config
  */
-@mixin font-body {
-  font-family: $font-body;
-}
-
-@mixin font-bold {
-  font-weight: bold;
-}
-
-@mixin font-title {
-  font-weight: normal;
-}
 
 /**
  * Heading
@@ -36,33 +25,27 @@ h5,
 h6,
 .h6 {
   margin-top: 0;
+  font-family: var(--fontTitle);
+  font-weight: normal;
 }
 
 h1,
 .h1 {
-  @include font-title;
-  @include ms-respond(font-size, 4);
   line-height: 1.1;
 }
 
 h2,
 .h2 {
-  @include font-title;
-  @include ms-respond(font-size, 3);
   line-height: 1.15;
 }
 
 h3,
 .h3 {
-  @include font-title;
-  @include ms-respond(font-size, 2);
   line-height: 1.3;
 }
 
 h4,
 .h4 {
-  @include font-title;
-  @include ms-respond(font-size, 1);
   line-height: 1.4;
 }
 
@@ -70,8 +53,6 @@ h5,
 .h5,
 h6,
 .h6 {
-  @include font-title;
-  @include ms-respond(font-size, 0);
   line-height: 1.5;
 }
 
@@ -107,7 +88,7 @@ a {
   color: inherit;
   font-weight: inherit;
   text-decoration: none;
-  transition: 0.1s $easing;
+  transition: 0.1s var(--easing);
 
   &:hover,
   &:focus,
@@ -130,8 +111,8 @@ a {
 }
 
 ::selection {
-  background-color: $c-secondary;
-  color: $c-primary;
+  background-color: var(--c-secondary);
+  color: var(--c-primary);
 }
 
 /**
@@ -180,7 +161,7 @@ small {
 }
 
 hr {
-  border: solid $c-primary;
+  border: solid var(--c-primary);
   border-width: 0 0 3px 0;
   margin: 1.5rem 0;
 }
