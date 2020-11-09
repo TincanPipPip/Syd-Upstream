@@ -38,7 +38,7 @@ mix.options({
 mix.browserSync({
   proxy: `https://${hostname}`,
   ghostMode: false,
-  files: [`${themeDirectory}/templates/**/*.twig`, `${themeAssets}/**/*`],
+  files: [`${themeDirectory}/templates/**/*.twig`, `${themeAssets}/js/**/*.j`, `${themeAssets}/sass/**/*.scss`],
 });
 
 if (mix.inProduction()) {
@@ -62,34 +62,14 @@ mix.copyDirectory(`${themeAssets}/font`, `${themeDirectory}/dist/font`);
 
 /**
  * Custom Webpack Configuration
- * 1. Copy icon/img assets after being optimised
- * 2. Optimise SVGs
- */
-mix.webpackConfig({
-  plugins: [
-    new copyWebpackPlugin({
-      patterns: [{ from: `${themeAssets}/img`, to: 'img' }],
-    }),
-    new imageminPlugin({
-      test: /\.(svg)$/i,
-      svgo: {
-        plugins: [
-          {
-            removeViewBox: false,
-          },
-        ],
-      },
-    }),
-  ],
-});
-
-/**
- * Custom Webpack Configuration
  * Optimise pngs/jpgs/svgs (production only)
  */
 if (mix.inProduction()) {
   mix.webpackConfig({
     plugins: [
+      new copyWebpackPlugin({
+        patterns: [{ from: `${themeAssets}/img`, to: 'img' }],
+      }),
       new imageminPlugin({
         test: /\.(jpe?g|png|svg)$/i,
         svgo: {

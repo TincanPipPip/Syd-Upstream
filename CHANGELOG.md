@@ -198,6 +198,7 @@
 - Updated `webpack.mix.js`
 - Updated default libraries removed from Drupal
 - Moved theme tools to site root
+- Remove image processing from dev workflow, leave as production only
 
 ## Added
 
