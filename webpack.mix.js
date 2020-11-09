@@ -1,5 +1,3 @@
-/* global require __dirname */
-
 /**
  * -----------------------
  * Un.titled - Laravel Mix
@@ -12,20 +10,20 @@
 const mix = require('laravel-mix'),
   copyWebpackPlugin = require('copy-webpack-plugin'),
   imageminPlugin = require('imagemin-webpack-plugin').default,
-  path = require('path'),
-  mixGlob = require('laravel-mix-glob');
+  mixGlob = require('laravel-mix-glob'),
+  themeDirectory = './themes/pippip';
 
 /**
  * Variables
  */
 const hostname = 'syd.local',
-  basePath = './assets',
+  themeAssets = `${themeDirectory}/assets`,
   glob = new mixGlob({ mix });
 
 /**
  * Config
  */
-mix.setPublicPath('dist');
+mix.setPublicPath(`${themeDirectory}/dist`);
 mix.disableSuccessNotifications();
 
 mix.options({
@@ -40,7 +38,7 @@ mix.options({
 mix.browserSync({
   proxy: `https://${hostname}`,
   ghostMode: false,
-  files: ['templates/**/*.twig', 'assets/sass/**/*.scss', 'assets/js/*.js'],
+  files: [`${themeDirectory}/templates/**/*.twig`, `${themeAssets}/**/*`],
 });
 
 if (mix.inProduction()) {
@@ -58,9 +56,9 @@ mix.webpackConfig({
 /**
  * Assets
  */
-glob.sass(`${basePath}/sass/*.scss`, 'css');
-glob.js(`${basePath}/js/*.js`, 'js');
-mix.copyDirectory(`${basePath}/font`, 'dist/font');
+glob.sass(`${themeAssets}/sass/*.scss`, 'css');
+glob.js(`${themeAssets}/js/*.js`, 'js');
+mix.copyDirectory(`${themeAssets}/font`, `${themeDirectory}/dist/font`);
 
 /**
  * Custom Webpack Configuration
@@ -70,7 +68,7 @@ mix.copyDirectory(`${basePath}/font`, 'dist/font');
 mix.webpackConfig({
   plugins: [
     new copyWebpackPlugin({
-      patterns: [{ from: `${basePath}/img`, to: 'img' }],
+      patterns: [{ from: `${themeAssets}/img`, to: 'img' }],
     }),
     new imageminPlugin({
       test: /\.(svg)$/i,

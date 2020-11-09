@@ -1,7 +1,7 @@
 {
-  "name": "pippip-theme",
+  "name": "Syd",
   "version": "3.0.0",
-  "description": "Drupal 8 base theme for Syd",
+  "description": "Pippip theme tools",
   "main": "index.js",
   "keywords": [],
   "author": "",
