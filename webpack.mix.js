@@ -38,7 +38,7 @@ mix.options({
 mix.browserSync({
   proxy: `https://${hostname}`,
   ghostMode: false,
-  files: [`${themeDirectory}/templates/**/*.twig`, `${themeAssets}/js/**/*.j`, `${themeAssets}/sass/**/*.scss`],
+  files: [`${themeDirectory}/templates/**/*.twig`, `${themeAssets}/js/**/*.js`, `${themeAssets}/sass/**/*.scss`],
 });
 
 if (mix.inProduction()) {
