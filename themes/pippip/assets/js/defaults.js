@@ -84,5 +84,8 @@ links.forEach((link) => {
 // LazyLoad
 const lazyLoadImages = new LazyLoad();
 
-// ZenScroll
+/*
+  Zenscroll
+  - Set edge offset to 0 to prevnet breaking tab order
+*/
 zenscroll.setup(null, 0);
