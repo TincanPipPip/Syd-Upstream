@@ -37,3 +37,10 @@
     #{$property}: #{$value};
   }
 }
+
+@mixin btnReset {
+  background-color: transparent;
+  border: 0;
+  appearance: none;
+  padding: 0;
+}

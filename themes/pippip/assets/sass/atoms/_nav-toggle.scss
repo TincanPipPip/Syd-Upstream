@@ -47,7 +47,7 @@ $translateX: 0;
     position: absolute;
     left: 0;
     border-radius: ($height-line / 2);
-    transition: 0.2s var(--easing);
+    transition: var(--transition);
 
     &-1 {
       top: 0;

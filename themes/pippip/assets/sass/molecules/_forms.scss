@@ -20,7 +20,7 @@ select {
   border-radius: 0;
   outline: 0;
   border: 1px solid var(--c-primary);
-  transition: all 0.2s var(--easing);
+  transition: all var(--transition);
   background-color: var(--c-white);
 
   &:focus {
@@ -84,7 +84,7 @@ button {
   position: absolute;
   top: 1px;
   left: 3.5px;
-  transition: all 0.2s var(--easing);
+  transition: all var(--transition);
 }
 [type='checkbox']:not(:checked) + label:after {
   opacity: 0;
@@ -136,7 +136,7 @@ button {
   top: 4px;
   left: 4px;
   border-radius: 100%;
-  transition: all 0.2s var(--easing);
+  transition: all var(--transition);
 }
 [type='radio']:not(:checked) + label:after {
   opacity: 0;

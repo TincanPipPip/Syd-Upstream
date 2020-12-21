@@ -25,7 +25,7 @@
       width: 100%;
       height: auto;
       display: block;
-      transition: 0.2s var(--easing);
+      transition: var(--transition);
     }
 
     &:hover {
