@@ -203,3 +203,20 @@
 ## Added
 
 - Added aria-label descriptions to default markup
+
+---
+
+## 21-12-2020
+
+## Changed
+
+- Changed default CSS transitions
+- Updated default 'emmsg' styling
+- Updated CTA entity template
+- Updated build tools versions
+- Updated default entity styling for ULs
+
+## Added
+
+- Missing 'original' image style
+- Embed entity styling

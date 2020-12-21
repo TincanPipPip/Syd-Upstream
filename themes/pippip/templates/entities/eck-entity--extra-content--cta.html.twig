@@ -1,5 +1,14 @@
 {% extends "eck-entity--extra-content.html.twig" %}
 
 {% block content %}
-  <a href="{{ content.field_cta[0]['#url'] }}" title="{{ content.field_cta[0]['#title'] }}" class="a-btn">{{ content.field_cta[0]['#title'] }}</a>
+  
+  {% if content.field_cta[0]['#title'] %}
+    {% set url = content.field_cta[0]['#title'] %}
+    {% set label = content.field_cta[0]['#url'] %}
+  {% else %}
+    {% set url = content.field_cta[0]['#plain_text'] %}
+    {% set label = content.title[0]['#context'].value %}
+  {% endif %}
+
+  <a href="{{ url }}" title="{{ label }}" class="a-btn">{{ label }}</a>
 {% endblock %}

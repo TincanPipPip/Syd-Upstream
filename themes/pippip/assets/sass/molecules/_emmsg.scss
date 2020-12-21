@@ -53,25 +53,36 @@
     padding: 0;
   }
 
-  h2 {
-    margin-bottom: 0;
-    width: 90%;
+  h3 {
+    margin-bottom: 0.5rem;
+    width: 85%;
   }
 
-  &__close {
+  p {
+    width: 85%;
+  }
+
+  button {
+    @include btnReset;
     position: absolute;
     top: calc(var(--bump) / 2);
     right: calc(var(--bump) / 2);
-    height: var(--bump);
-    width: var(--bump);
+    height: 35px;
+    width: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: var(--transition);
 
-    svg {
+    path {
       fill: var(--c-white);
-      transition: 0.1s var(--easing);
+      transition: var(--transition);
     }
 
     &:hover {
-      svg {
+      background-color: var(--c-white);
+
+      path {
         fill: var(--c-secondary);
       }
     }

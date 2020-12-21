@@ -1,4 +1,4 @@
-uuid: 1236bec6-eefa-4c89-acbd-d2ad1a0bb3ef
+uuid: 8d131eef-d330-4005-946a-b6f66231d985
 langcode: en
 status: false
 dependencies:
@@ -21,11 +21,9 @@ settings:
   label: 'Main navigation'
   provider: menu_block
   label_display: '0'
-  follow: false
-  follow_parent: child
   level: 1
   depth: 0
-  expand: false
+  expand: 0
   parent: 'main:'
   suggestion: main
 visibility: {  }
